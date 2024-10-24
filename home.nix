@@ -18,8 +18,11 @@
 
   home.packages = with pkgs; [
     git
+    nixd
     #(pkgs.nerdfonts.override { fonts = [ "Inconsolata" ]; })
   ];
+
+  nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
 
   home.file = {
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in

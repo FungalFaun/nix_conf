@@ -14,10 +14,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    alejandra = {
-      url = "github:kamadorueda/alejandra/3.0.0";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # alejandra = {
+    #   url = "github:kamadorueda/alejandra/3.0.0";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
   };
 
   outputs = {
@@ -25,16 +25,27 @@
     nixpkgs,
     home-manager,
     ...
-  } @ inputs: let
+  }@inputs: let
     inherit (self) outputs;
+
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
+    # systems = [
+    #   "aarch64-linux"
+    #   "x86_64-linux"
+    # ];
+    # forAllSystems = nixpkgs.lib.genAttrs systems;
   in {
-    homeConfigurations.broom = home-manager.lib.homeManagerConfiguration {
-      inherit pkgs;
+    # packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
+    # formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
 
-      modules = [./home.nix];
-      extraSpecialArgs = {inherit inputs outputs;};
+    homeConfigurations = {
+      broom = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+
+        modules = [./home.nix];
+        extraSpecialArgs = {inherit inputs outputs;};
+      };
     };
   };
 }

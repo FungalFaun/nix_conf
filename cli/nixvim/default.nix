@@ -1,5 +1,4 @@
 {
-  self,
   inputs,
   pkgs,
   ...
@@ -19,6 +18,8 @@
   home.packages = with pkgs; [
     alejandra
   ];
+
+  nix.nixPath = [ "import <nixpkgs> { }"];
 
   programs.nixvim = {
     enable = true;
