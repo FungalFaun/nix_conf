@@ -20,6 +20,7 @@
   ];
 
   nix.nixPath = [ "import <nixpkgs> { }"];
+  
 
   programs.nixvim = {
     enable = true;
