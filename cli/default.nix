@@ -5,5 +5,10 @@
     ./zsh.nix
     ./starship.nix
     ./eza.nix
+    ./bat.nix
+    ./lf
   ];
+  
+  bat.enable = true;
+
 }

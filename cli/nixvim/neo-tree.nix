@@ -4,7 +4,7 @@
       {
         mode = "n";
         key = "<leader>n";
-        action = ":Neotree action=focus reveal toggle<CR>";
+        action = ":Neotree action=focus reveal<CR>";
         options.silent = true;
       }
     ];

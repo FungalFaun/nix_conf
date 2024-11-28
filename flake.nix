@@ -30,15 +30,7 @@
 
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
-    # systems = [
-    #   "aarch64-linux"
-    #   "x86_64-linux"
-    # ];
-    # forAllSystems = nixpkgs.lib.genAttrs systems;
   in {
-    # packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
-    # formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
-
     homeConfigurations = {
       broom = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
