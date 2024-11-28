@@ -9,6 +9,4 @@
     ./lf
   ];
   
-  bat.enable = true;
-
 }

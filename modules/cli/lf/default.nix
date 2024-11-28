@@ -1,7 +1,4 @@
 {
-  ...
-}:
-{
   xdg.configFile."lf/icons".source = ./icons;
 
   programs.lf = {
@@ -15,9 +12,6 @@
       ignorecase = true;
     };
 
-    keybindings = {
-
-    };
-    
+    keybindings = {};
   };
 }

@@ -14,10 +14,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # alejandra = {
-    #   url = "github:kamadorueda/alejandra/3.0.0";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
+#    stylix.url = "github:danth/stylix";
+     
   };
 
   outputs = {
@@ -28,9 +26,13 @@
   }@inputs: let
     inherit (self) outputs;
 
+    lib = nixpkgs.lib // home-manager.lib;
+
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
   in {
+    inherit lib;
+
     homeConfigurations = {
       broom = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;

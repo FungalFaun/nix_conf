@@ -1,11 +1,10 @@
 {
-  config,
   pkgs,
   inputs,
   ...
 }: {
   imports = [
-    ./cli
+    ./modules/cli
   ];
 
   home.username = "broom";
