@@ -1,12 +1,15 @@
 {
   imports = [
-    ./nixvim
-    ./git.nix
-    ./zsh.nix
-    ./starship.nix
-    ./eza.nix
     ./bat.nix
+    ./eza.nix
+    ./fzf.nix
+    ./gh.nix
+    ./git.nix
+    ./starship.nix
+    ./zsh.nix
+
     ./lf
+    ./nixvim
   ];
   
 }

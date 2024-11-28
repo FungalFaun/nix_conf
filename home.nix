@@ -7,13 +7,13 @@
     ./modules/cli
   ];
 
-  home.username = "broom";
-  home.homeDirectory = "/home/broom";
+  home = {
+    username = "broom";
+    homeDirectory = "/home/broom";
+    
+    #sessionPath = [ "$HOME/.local/bin" ];
+  };
 
-  # You should not change this value, even if you update Home Manager. If you do
-  # want to update the value, then make sure to first check the Home Manager
-  # release notes.
-  home.stateVersion = "24.05"; # Please read the comment before changing.
 
   home.packages = with pkgs; [
     git
@@ -21,7 +21,17 @@
     #(pkgs.nerdfonts.override { fonts = [ "Inconsolata" ]; })
   ];
 
-  nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
+  nix = {
+    package = pkgs.nix;
+    nixPath = ["nixpkgs=${inputs.nixpkgs}"];
+    settings = {
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
+      warn-dirty = false;
+    };
+  };
 
   home.file = {
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
@@ -36,4 +46,9 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+  # You should not change this value, even if you update Home Manager. If you do
+  # want to update the value, then make sure to first check the Home Manager
+  # release notes.
+  home.stateVersion = "24.05"; # Please read the comment before changing.
 }
