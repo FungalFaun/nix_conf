@@ -6,6 +6,7 @@
     ./gh.nix
     ./git.nix
     ./starship.nix
+    ./tmux.nix
     ./zsh.nix
     ./ripgrep.nix
 
