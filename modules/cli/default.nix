@@ -7,6 +7,7 @@
     ./git.nix
     ./starship.nix
     ./zsh.nix
+    ./ripgrep.nix
 
     ./lf
     ./nixvim
