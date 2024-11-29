@@ -14,7 +14,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "tux"; # Define your hostname.
   networking.networkmanager.enable = true;
 
   # Set your time zone.
@@ -45,7 +45,7 @@
     isNormalUser = true;
     description = "Broom";
     extraGroups = [ "networkmanager" "wheel" "audio" "video" ];
-    packages = with pkgs; [];
+    packages = [];
   };
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -56,7 +56,7 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    vim
     wget
     git
     gh
@@ -72,9 +72,6 @@
     curl
     brightnessctl
   ];
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

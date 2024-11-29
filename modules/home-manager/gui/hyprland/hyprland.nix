@@ -126,12 +126,12 @@ in {
 
       bind = let
         grimblast = lib.getExe pkgs.grimblast;
-        #pactl = lib.getExe' pkgs.pulseaudio "pactl";
+#        pactl = lib.getExe' pkgs.pulseaudio "pactl";
         swayosd = lib.getExe' pkgs.swayosd "swayosd-client";
 #        notify-send = lib.getExe' pkgs.libnotify "notify-send";
 #        defaultApp = type: "${lib.getExe pkgs.handlr-regex} launch ${type}";
         wofi = lib.getExe config.programs.wofi.package;
-#        thunar = lib.getExe pkgs.xfce.thunar;
+        thunar = lib.getExe pkgs.xfce.thunar;
       in
         [
           "$mod, Q, exec, alacritty"
@@ -142,7 +142,7 @@ in {
 
           "ALT, C, killactive, "
           "ALT, M, exit, "
-#          "$mod, E, exec, ${thunar}"
+          "$mod, E, exec, ${thunar}"
           "$mod, V, togglefloating, "
           "$mod, P, pseudo, # dwindle"
           "$mod, J, togglesplit, "

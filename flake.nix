@@ -35,8 +35,8 @@
 
     nixosConfigurations = {
       tux = nixpkgs.lib.nixosSystem {
-	modules = [./hosts/tux];  
-	specialArgs = {inherit inputs outputs;};
+        modules = [./hosts/tux];  
+        specialArgs = {inherit inputs outputs;};
       };
     };
 
@@ -44,7 +44,7 @@
       broom = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 
-        modules = [./home.nix];
+        modules = [./home/broom.nix];
         extraSpecialArgs = {inherit inputs outputs;};
       };
     };
