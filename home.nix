@@ -5,6 +5,7 @@
 }: {
   imports = [
     ./modules/cli
+    ./modules/gui/hyprland/hyprland.nix
   ];
 
   home = {
