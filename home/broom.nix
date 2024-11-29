@@ -5,7 +5,8 @@
 }: {
   imports = [
     ../modules/home-manager/cli
-    ../modules/home-manager/gui/hyprland/hyprland.nix
+    #../modules/home-manager/gui/hyprland/hyprland.nix
+    ../modules/home-manager/gui
   ];
 
   home = {
