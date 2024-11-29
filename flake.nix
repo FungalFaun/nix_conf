@@ -33,6 +33,13 @@
   in {
     inherit lib;
 
+    nixosConfigurations = {
+      tux = nixpkgs.lib.nixosSystem {
+	modules = [./hosts/tux];  
+	specialArgs = {inherit inputs outputs;};
+      };
+    };
+
     homeConfigurations = {
       broom = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
