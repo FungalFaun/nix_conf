@@ -8,6 +8,12 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ../../modules/nixos/pipewire.nix
+      ../../modules/nixos/locale.nix
+      ../../modules/nixos/usb.nix
+
+#      ../../modules/nixos/networking.nix
+
     ];
 
   # Bootloader.
@@ -17,29 +23,16 @@
   networking.hostName = "tux"; # Define your hostname.
   networking.networkmanager.enable = true;
 
-  # Set your time zone.
-  time.timeZone = "Europe/Oslo";
+  services = {
+    upower.enable = true;
 
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "nb_NO.UTF-8";
-    LC_IDENTIFICATION = "nb_NO.UTF-8";
-    LC_MEASUREMENT = "nb_NO.UTF-8";
-    LC_MONETARY = "nb_NO.UTF-8";
-    LC_NAME = "nb_NO.UTF-8";
-    LC_NUMERIC = "nb_NO.UTF-8";
-    LC_PAPER = "nb_NO.UTF-8";
-    LC_TELEPHONE = "nb_NO.UTF-8";
-    LC_TIME = "nb_NO.UTF-8";
+    # Configure keymap in X11
+    xserver.xkb = {
+      layout = "us";
+      variant = "altgr-intl";
+    };
   };
 
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "altgr-intl";
-  };
 
   users.users.broom = {
     isNormalUser = true;
