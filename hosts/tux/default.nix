@@ -8,55 +8,51 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ../../modules/nixos/pipewire.nix
+      ../../modules/nixos/locale.nix
+      ../../modules/nixos/usb.nix
+      ../../modules/nixos/boot.nix
+
+#      ../../modules/nixos/networking.nix
+
     ];
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "tux"; # Define your hostname.
   networking.networkmanager.enable = true;
 
-  # Set your time zone.
-  time.timeZone = "Europe/Oslo";
+  services = {
+    upower.enable = true;
 
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "nb_NO.UTF-8";
-    LC_IDENTIFICATION = "nb_NO.UTF-8";
-    LC_MEASUREMENT = "nb_NO.UTF-8";
-    LC_MONETARY = "nb_NO.UTF-8";
-    LC_NAME = "nb_NO.UTF-8";
-    LC_NUMERIC = "nb_NO.UTF-8";
-    LC_PAPER = "nb_NO.UTF-8";
-    LC_TELEPHONE = "nb_NO.UTF-8";
-    LC_TIME = "nb_NO.UTF-8";
+    # Configure keymap in X11
+    xserver.xkb = {
+      layout = "us";
+      variant = "altgr-intl";
+    };
   };
 
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "altgr-intl";
-  };
 
   users.users.broom = {
     isNormalUser = true;
     description = "Broom";
     extraGroups = [ "networkmanager" "wheel" "audio" "video" ];
-    packages = with pkgs; [];
+    shell = pkgs.zsh;
+    packages = [];
   };
+
+  programs.zsh.enable = true;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   programs.hyprland.enable = true;
+  environment.pathsToLink = [ "/share/zsh" ];
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    vim
     wget
     git
     gh
@@ -72,9 +68,6 @@
     curl
     brightnessctl
   ];
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

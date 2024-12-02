@@ -1,4 +1,5 @@
 {
+  pkgs,
   lib,
   config,
   ...
@@ -37,6 +38,7 @@ in {
 
       cat = "bat";
 
+      hm = "home-manager";
       hms = "home-manager switch --flake $HOME/.config/home-manager";
       nrs = "nixos-rebuild switch --flake $HOME/system/#tux";
     };
