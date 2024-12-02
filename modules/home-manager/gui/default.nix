@@ -7,6 +7,8 @@
 {
   imports = [
     ./hyprland
+    ./mako.nix
+    ./vlc.nix
 
     ./waybar.nix
   ];

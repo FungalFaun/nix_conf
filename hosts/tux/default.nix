@@ -11,14 +11,13 @@
       ../../modules/nixos/pipewire.nix
       ../../modules/nixos/locale.nix
       ../../modules/nixos/usb.nix
+      ../../modules/nixos/boot.nix
 
 #      ../../modules/nixos/networking.nix
 
     ];
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "tux"; # Define your hostname.
   networking.networkmanager.enable = true;
@@ -38,12 +37,16 @@
     isNormalUser = true;
     description = "Broom";
     extraGroups = [ "networkmanager" "wheel" "audio" "video" ];
+    shell = pkgs.zsh;
     packages = [];
   };
+
+  programs.zsh.enable = true;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   programs.hyprland.enable = true;
+  environment.pathsToLink = [ "/share/zsh" ];
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
