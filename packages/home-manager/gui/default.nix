@@ -1,6 +1,4 @@
 {
-  lib,
-  config,
   pkgs,
   ...
 }:
@@ -9,6 +7,9 @@
     ./hyprland
     ./mako.nix
     ./vlc.nix
+    ./alacritty.nix
+    ./swayosd.nix
+    ./wofi.nix
 
     ./waybar.nix
   ];
@@ -20,12 +21,21 @@
 
   home.sessionVariables = {
     MOZ_ENABLE_WAYLAND = 1;
+    GDK_BACKEND = "wayland";
+    QT_QPA_PLATFORM = "wayland";
     XCURSOR_SIZE = 34;
   };
 
-#  options = {
-#    gui.enable = lib.mkEnableOption "GUI";
-#  };
-
+  # Use entire Hypr ecosystem
   programs.hypreco.enable = true;
+
+  programs = {
+    imv.enable = true;
+  };
+
+  services = {
+    cliphist.enable = true;
+  };
+
+  xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-wlr];
 }

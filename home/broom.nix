@@ -5,7 +5,6 @@
 }: {
   imports = [
     ../packages/home-manager/cli
-    #../packages/home-manager/gui/hyprland/hyprland.nix
     ../packages/home-manager/gui
   ];
 
@@ -35,18 +34,10 @@
     };
   };
 
-  home.file = {
-    # # Building this configuration will create a copy of 'dotfiles/screenrc' in
-    # # the Nix store. Activating the configuration will then make '~/.screenrc' a
-    # # symlink to the Nix store copy.
-    # ".screenrc".source = dotfiles/screenrc;
-  };
-
   home.sessionVariables = {
     EDITOR = "nvim";
   };
 
-  # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
   # You should not change this value, even if you update Home Manager. If you do

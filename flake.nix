@@ -33,6 +33,9 @@
   in {
     inherit lib;
 
+    nixosModules = import ./modules/nixos;
+    homeManagerModules = import ./modules/home-manager;
+
     nixosConfigurations = {
       tux = nixpkgs.lib.nixosSystem {
         modules = [./hosts/tux];  
