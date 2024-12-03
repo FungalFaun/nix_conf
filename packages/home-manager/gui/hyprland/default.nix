@@ -9,7 +9,7 @@
   cfg = config.programs.hypreco;
 in {
   imports = [
-    ../swayosd.nix
+    ./hyprpaper.nix
   ];
 
   options.programs.hypreco = {
@@ -31,10 +31,11 @@ in {
     home.packages = with pkgs; [
       grimblast
       hyprpicker
-      swayosd
-      wofi
+      hyprcursor
+#      swayosd
+#      wofi
       firefox
-      alacritty
+#      alacritty
     ];
 
     home.sessionVariables = {
