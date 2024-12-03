@@ -10,6 +10,8 @@
     ./alacritty.nix
     ./swayosd.nix
     ./wofi.nix
+    ./gtk.nix
+    ./qt.nix
 
     ./waybar.nix
   ];
