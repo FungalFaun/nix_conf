@@ -8,12 +8,13 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ../../modules/nixos/pipewire.nix
-      ../../modules/nixos/locale.nix
-      ../../modules/nixos/usb.nix
-      ../../modules/nixos/boot.nix
+      
+      ../../packages/nixos/pipewire.nix
+      ../../packages/nixos/locale.nix
+      ../../packages/nixos/usb.nix
+      ../../packages/nixos/boot.nix
 
-#      ../../modules/nixos/networking.nix
+#      ../../packages/nixos/networking.nix
 
     ];
 
@@ -41,11 +42,10 @@
     packages = [];
   };
 
-  programs.zsh.enable = true;
-
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   programs.hyprland.enable = true;
+  programs.zsh.enable = true;
   environment.pathsToLink = [ "/share/zsh" ];
 
   # Allow unfree packages
