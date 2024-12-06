@@ -1,5 +1,4 @@
 {
-  pkgs,
   lib,
   config,
   ...
@@ -39,8 +38,11 @@ in {
       cat = "bat";
 
       hm = "home-manager";
-      hms = "home-manager switch --flake $HOME/.config/home-manager";
-      nrs = "nixos-rebuild switch --flake $HOME/system/#tux";
+      hmb = "home-manager build --flake $HOME/.config/home-manager-nixvim/#broom";
+      hms = "home-manager switch --flake $HOME/.config/home-manager-nixvim/#broom";
+
+      nrb = "nixos-rebuild build --flake $HOME/.config/home-manager-nixvim/#tux";
+      nrs = "nixos-rebuild switch --flake $HOME/.config/home-manager-nixvim/#tux";
     };
   };
 }

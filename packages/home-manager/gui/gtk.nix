@@ -2,7 +2,9 @@
   pkgs,
   ...
 }:{
-  gtk = {
+  gtk = let 
+    gruvboxPlus = import ../../../derivations/icon-themes/gruvbox-plus.nix { inherit pkgs; };
+  in {
     enable = true;
 
     theme = {
@@ -16,8 +18,8 @@
     };
 
     iconTheme = {
-      package = pkgs.gruvbox-dark-icons-gtk;
-      name = "gruvbox-dark-icons-gtk";
+      package = gruvboxPlus;
+      name = "GruvboxPlus";
     };
   };
 
