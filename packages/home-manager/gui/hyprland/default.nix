@@ -32,10 +32,6 @@ in {
       grimblast
       hyprpicker
       hyprcursor
-#      swayosd
-#      wofi
-      firefox
-#      alacritty
     ];
 
     home.sessionVariables = {
@@ -56,7 +52,7 @@ in {
       };
 
       settings = {
-        monitor = ["eDP-1, 2880x1800@60, 0x0, 1.5"];
+#        monitor = ["eDP-1, 2880x1800@60, 0x0, 1.5"];
         #monitor = with config.monitors; [ "${name}, ${toString width}x${toString height}@${toString refreshRate}, 0x0, ${toString scaling}"];
 
         input = {
@@ -137,7 +133,6 @@ in {
 
         bind = let
           grimblast = lib.getExe pkgs.grimblast;
-  #        pactl = lib.getExe' pkgs.pulseaudio "pactl";
           swayosd = lib.getExe' pkgs.swayosd "swayosd-client";
   #        notify-send = lib.getExe' pkgs.libnotify "notify-send";
   #        defaultApp = type: "${lib.getExe pkgs.handlr-regex} launch ${type}";
@@ -172,7 +167,6 @@ in {
             "$mod, M, exec, ${grimblast} --notify --freeze copysave area"
             "$mod SHIFT, M, exec, ${grimblast} --notify --freeze copysave output"
 
-            #" , XF86AudioMute, exec, ${pactl} set-sink-mute @DEFAULT_SINK@ toggle"
             " , XF86AudioMute, exec, ${swayosd} --output-volume mute-toggle"
           ]
           ++ (builtins.concatLists (builtins.genList (
@@ -189,12 +183,8 @@ in {
             10));
 
         binde = let
-          #pactl = lib.getExe' pkgs.pulseaudio "pactl";
           swayosd = lib.getExe' pkgs.swayosd "swayosd-client";
         in [
-          #" , XF86AudioRaiseVolume, exec, ${pactl} set-sink-volume @DEFAULT_SINK@ +5%"
-          #" , XF86AudioLowerVolume, exec, ${pactl} set-sink-volume @DEFAULT_SINK@ -5%"
-
           " , XF86AudioRaiseVolume, exec, ${swayosd} --output-volume raise --max-volume 180"
           " , XF86AudioLowerVolume, exec, ${swayosd} --output-volume lower --max-volume 180"
 
@@ -213,15 +203,18 @@ in {
           "$mod, mouse:273, resizewindow"
         ];
 
-  #      monitor =
-  #        []
-  #        ++ (map (
-  #          m: "${m.name}, ${
-  #            if m.enabled
-  #            then "${toString m.width}x${toString m.height}@${toString m.refreshRate}, 0x0, ${m.scaling}"
-  #            else "disable"
-  #          }"
-  #        ) (config.monitors));
+        monitor =
+          []
+          ++ (map (
+            m: let 
+              resolution = "${toString m.width}x${toString m.height}@${toString m.refreshRate}";
+              position = "${toString m.x}x${toString m.y}";
+            in "${m.name}, ${
+              if m.enabled
+              then "${resolution}, ${position}, ${m.scaling}"
+              else "disable"
+            }"
+          ) (config.monitors));
       };
     };
   };

@@ -47,7 +47,7 @@ in {
 
         enabled = mkOption {
           type = types.bool;
-          default = 0;
+          default = true;
         };
 
         scaling = mkOption {
@@ -55,7 +55,7 @@ in {
           default = "1.0";
         };
 
-        workscace = mkOption {
+        workspace = mkOption {
           type = types.nullOr types.str;
           default = null;
         };

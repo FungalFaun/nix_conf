@@ -5,6 +5,8 @@
 {
   imports = [
     ./hyprland
+
+    ./firefox.nix
     ./mako.nix
     ./vlc.nix
     ./alacritty.nix

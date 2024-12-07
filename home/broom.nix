@@ -1,11 +1,26 @@
 {
   pkgs,
   inputs,
+  outputs,
   ...
 }: {
   imports = [
+    outputs.homeManagerModules.monitors
+
     ../packages/home-manager/cli
     ../packages/home-manager/gui
+  ];
+
+  monitors = [
+    {
+      name = "eDPI-1";
+      width = 2880;
+      height = 1800;
+      refreshRate = 90;
+      scaling = "1.5";
+      workspace = "1";
+      primary = true;
+    }
   ];
 
   home = {
@@ -33,6 +48,8 @@
       warn-dirty = false;
     };
   };
+
+  systemd.user.startServices = "sd-switch";
 
   home.sessionVariables = {
     EDITOR = "nvim";

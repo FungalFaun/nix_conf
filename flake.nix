@@ -2,7 +2,6 @@
   description = "Home Manager configuration of broom";
 
   inputs = {
-    # Specify the source of Home Manager and Nixpkgs.
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -13,9 +12,6 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-#    stylix.url = "github:danth/stylix";
-     
   };
 
   outputs = {
@@ -23,7 +19,7 @@
     nixpkgs,
     home-manager,
     ...
-  }@inputs: let
+  }@inputs: let 
     inherit (self) outputs;
 
     lib = nixpkgs.lib // home-manager.lib;
