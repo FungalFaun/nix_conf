@@ -19,7 +19,7 @@
 
     iconTheme = {
       package = gruvboxPlus;
-      name = "GruvboxPlus";
+      name = "gruvbox-plus";
     };
   };
 

@@ -17,7 +17,7 @@
       width = 2880;
       height = 1800;
       refreshRate = 90;
-      scaling = "1.5";
+      scaling = "1.0";
       workspace = "1";
       primary = true;
     }
@@ -53,7 +53,10 @@
 
   home.sessionVariables = {
     EDITOR = "nvim";
+    SRC_PATH = /home/broom/.config/home-manager-nixvim;
+    WALLPAPER = "attic.jpg";
   };
+
 
   programs.home-manager.enable = true;
 

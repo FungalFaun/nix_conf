@@ -52,7 +52,7 @@ in {
       };
 
       settings = {
-#        monitor = ["eDP-1, 2880x1800@60, 0x0, 1.5"];
+        monitor = ["eDP-1, 2880x1800@60, 0x0, 1.5"];
         #monitor = with config.monitors; [ "${name}, ${toString width}x${toString height}@${toString refreshRate}, 0x0, ${toString scaling}"];
 
         input = {
@@ -203,18 +203,18 @@ in {
           "$mod, mouse:273, resizewindow"
         ];
 
-        monitor =
-          []
-          ++ (map (
-            m: let 
-              resolution = "${toString m.width}x${toString m.height}@${toString m.refreshRate}";
-              position = "${toString m.x}x${toString m.y}";
-            in "${m.name}, ${
-              if m.enabled
-              then "${resolution}, ${position}, ${m.scaling}"
-              else "disable"
-            }"
-          ) (config.monitors));
+#        monitor =
+#          []
+#          ++ (map (
+#            m: let 
+#              resolution = "${toString m.width}x${toString m.height}@${toString m.refreshRate}";
+#              position = "${toString m.x}x${toString m.y}";
+#            in "${m.name}, ${
+#              if m.enabled
+#              then "${resolution}, ${position}, ${m.scaling}"
+#              else "disable"
+#            }"
+#          ) (config.monitors));
       };
     };
   };
