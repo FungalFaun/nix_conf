@@ -7,6 +7,7 @@
     ./hyprland
 
     ./firefox.nix
+    ./font.nix
     ./mako.nix
     ./vlc.nix
     ./alacritty.nix

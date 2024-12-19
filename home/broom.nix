@@ -6,6 +6,7 @@
 }: {
   imports = [
     outputs.homeManagerModules.monitors
+    outputs.homeManagerModules.fonts
 
     ../packages/home-manager/cli
     ../packages/home-manager/gui
@@ -26,10 +27,8 @@
   home = {
     username = "broom";
     homeDirectory = "/home/broom";
-    
     #sessionPath = [ "$HOME/.local/bin" ];
   };
-
 
   home.packages = with pkgs; [
     git
@@ -49,7 +48,6 @@
     };
   };
 
-  systemd.user.startServices = "sd-switch";
 
   home.sessionVariables = {
     EDITOR = "nvim";
@@ -57,7 +55,12 @@
     WALLPAPER = "attic.jpg";
   };
 
+  services = {
+    # Bluetooth MIDI controls
+    mpris-proxy.enable = true;
+  };
 
+  systemd.user.startServices = "sd-switch";
   programs.home-manager.enable = true;
 
   # You should not change this value, even if you update Home Manager. If you do

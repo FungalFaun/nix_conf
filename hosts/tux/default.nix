@@ -5,6 +5,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       
+      ../../packages/nixos/bluetooth.nix
       ../../packages/nixos/boot.nix
       ../../packages/nixos/locale.nix
       ../../packages/nixos/pipewire.nix
