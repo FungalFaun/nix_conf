@@ -33,7 +33,6 @@
   home.packages = with pkgs; [
     git
     nixd
-    #(pkgs.nerdfonts.override { fonts = [ "Inconsolata" ]; })
   ];
 
   nix = {

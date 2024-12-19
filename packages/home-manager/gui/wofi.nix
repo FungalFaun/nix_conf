@@ -3,7 +3,12 @@
     enable = true;
 
     settings = {
-      # TODO: Set wofi settings
+      mode = "drun";
+
+      allow_images = true;
+      insensitive = true;
+      gtk_dark = true;
+      no_actions = true;
     };
   };
 }

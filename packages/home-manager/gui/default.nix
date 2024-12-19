@@ -6,17 +6,16 @@
   imports = [
     ./hyprland
 
+    ./alacritty.nix
     ./firefox.nix
     ./font.nix
-    ./mako.nix
-    ./vlc.nix
-    ./alacritty.nix
-    ./swayosd.nix
-    ./wofi.nix
     ./gtk.nix
+    ./mako.nix
     ./qt.nix
-
+    ./swayosd.nix
+    ./vlc.nix
     ./waybar.nix
+    ./wofi.nix
   ];
 
   home.packages = with pkgs; [
