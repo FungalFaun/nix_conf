@@ -7,6 +7,7 @@
   imports = [
     outputs.homeManagerModules.monitors
     outputs.homeManagerModules.fonts
+    outputs.homeManagerModules.wallpaper
 
     ../packages/home-manager/cli
     ../packages/home-manager/gui
@@ -14,15 +15,17 @@
 
   monitors = [
     {
-      name = "eDPI-1";
+      name = "eDP-1";
       width = 2880;
       height = 1800;
       refreshRate = 90;
-      scaling = "1.0";
+      scaling = "1.5";
       workspace = "1";
       primary = true;
     }
   ];
+
+  wallpaper = "attic.jpg";
 
   home = {
     username = "broom";
@@ -33,6 +36,8 @@
   home.packages = with pkgs; [
     git
     nixd
+
+    hyprcursor
   ];
 
   nix = {
@@ -50,8 +55,6 @@
 
   home.sessionVariables = {
     EDITOR = "nvim";
-    SRC_PATH = /home/broom/.config/home-manager-nixvim;
-    WALLPAPER = "attic.jpg";
   };
 
   services = {

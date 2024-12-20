@@ -10,6 +10,7 @@
 in {
   imports = [
     ./hyprpaper.nix
+    ./hypridle.nix
   ];
 
   options.programs.hypreco = {
@@ -31,6 +32,7 @@ in {
     home.packages = with pkgs; [
       grimblast
       hyprpicker
+
       hyprcursor
     ];
 
@@ -39,9 +41,14 @@ in {
   #    "XDG_SCREENSHOTS_DIR" = "/home/faun/Pictures/screenshots";
     };
 
+    home.file = {
+      ".local/share/icons/PhingerCursors".source = "${pkgs.phinger-cursors}";
+    };
+
     wayland.windowManager.hyprland = {
       enable = true;
       package = pkgs.hyprland.override {wrapRuntimeDeps = false;};
+
       systemd = {
         enable = true;
         # Same as default, but stop graphical-session too
@@ -52,8 +59,27 @@ in {
       };
 
       settings = {
-        monitor = ["eDP-1, 2880x1800@60, 0x0, 1.5"];
-        #monitor = with config.monitors; [ "${name}, ${toString width}x${toString height}@${toString refreshRate}, 0x0, ${toString scaling}"];
+        #monitor = ["eDP-1, 2880x1800@60, 0x0, 1.5"];
+
+        monitor =
+          []
+          ++ (map (
+            m: let 
+              resolution = "${toString m.width}x${toString m.height}@${toString m.refreshRate}";
+              position = "${toString m.x}x${toString m.y}";
+            in "${m.name}, ${
+              if m.enabled
+              then "${resolution}, ${position}, ${m.scaling}"
+              else "disable"
+            }"
+          ) (config.monitors));
+
+        env = [
+          "HYPRCURSOR_THEME, phinger-cursors-light"
+          "HYPRCURSOR_SIZE, 24"
+          "XCURSOR_THEME, phinger-cursors-light"
+          "XCURSOR_SIZE, 24"
+        ];
 
         input = {
           kb_layout = "us";
@@ -203,18 +229,6 @@ in {
           "$mod, mouse:273, resizewindow"
         ];
 
-#        monitor =
-#          []
-#          ++ (map (
-#            m: let 
-#              resolution = "${toString m.width}x${toString m.height}@${toString m.refreshRate}";
-#              position = "${toString m.x}x${toString m.y}";
-#            in "${m.name}, ${
-#              if m.enabled
-#              then "${resolution}, ${position}, ${m.scaling}"
-#              else "disable"
-#            }"
-#          ) (config.monitors));
       };
     };
   };
