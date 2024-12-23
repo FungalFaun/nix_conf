@@ -12,10 +12,10 @@ in {
     enable = true;
 
     theme = {
-#      name = "adw-gtk3";
-#      package = pkgs.adw-gtk3;
       name = "Kanagawa-BL";
       package = pkgs.kanagawa-gtk-theme;
+#      name = "Gruvbox-Dark";
+#      package = pkgs.gruvbox-gtk-theme;
     };
 
     cursorTheme = {
@@ -26,6 +26,8 @@ in {
     iconTheme = {
       name = "GruvboxPlus/Gruvbox-Plus-Dark";
       package = gruvboxPlus;
+#      name = "Gruvbox-Plus-Dark";
+#      package = pkgs.gruvbox-plus-icons;
 #      name = "Kanagawa";
 #      package = pkgs.kanagawa-icon-theme;
     };
