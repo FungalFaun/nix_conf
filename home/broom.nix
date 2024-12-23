@@ -40,6 +40,8 @@
     hyprcursor
   ];
 
+  nixpkgs.config.allowUnfree = true; 
+
   nix = {
     package = pkgs.nix;
     nixPath = ["nixpkgs=${inputs.nixpkgs}"];

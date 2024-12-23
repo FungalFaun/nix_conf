@@ -42,7 +42,7 @@ in {
       hms = "home-manager switch --flake $HOME/.config/home-manager-nixvim/#broom";
 
       nrb = "nixos-rebuild build --flake $HOME/.config/home-manager-nixvim/#tux";
-      nrs = "nixos-rebuild switch --flake $HOME/.config/home-manager-nixvim/#tux";
+      nrs = "sudo nixos-rebuild switch --flake $HOME/.config/home-manager-nixvim/#tux";
 
       nags = "nix shell github:aylur/ags#agsFull";
     };

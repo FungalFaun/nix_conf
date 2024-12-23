@@ -11,6 +11,7 @@
     ./firefox.nix
     ./font.nix
     ./mako.nix
+    ./obsidian.nix
     ./qt.nix
     ./swayosd.nix
     ./vlc.nix
