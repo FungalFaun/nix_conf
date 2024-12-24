@@ -4,11 +4,11 @@
 }:
 {
   imports = [
+    ./firefox
     ./gtk
     ./hyprland
 
     ./alacritty.nix
-    ./firefox.nix
     ./font.nix
     ./mako.nix
     ./obsidian.nix

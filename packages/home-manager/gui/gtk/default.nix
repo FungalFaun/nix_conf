@@ -3,19 +3,21 @@
   ...
 }: let 
     gruvboxPlus = import ./gruvbox-plus.nix { inherit pkgs; };
+    gruvboxGtk = import ./gruvbox-gtk.nix { inherit pkgs; };
 in {
   home.file = {
     ".local/share/icons/GruvboxPlus".source = "${gruvboxPlus}";
+    # ".local/share/themes/GruvboxGtk".source = "${gruvboxGtk}";
   };
 
   gtk = { 
     enable = true;
 
     theme = {
-      name = "Kanagawa-BL";
-      package = pkgs.kanagawa-gtk-theme;
-#      name = "Gruvbox-Dark";
-#      package = pkgs.gruvbox-gtk-theme;
+#      name = "Kanagawa-BL";
+#      package = pkgs.kanagawa-gtk-theme;
+      name = "Gruvbox-Dark";
+      package = pkgs.gruvbox-gtk-theme;
     };
 
     cursorTheme = {
@@ -26,10 +28,6 @@ in {
     iconTheme = {
       name = "GruvboxPlus/Gruvbox-Plus-Dark";
       package = gruvboxPlus;
-#      name = "Gruvbox-Plus-Dark";
-#      package = pkgs.gruvbox-plus-icons;
-#      name = "Kanagawa";
-#      package = pkgs.kanagawa-icon-theme;
     };
   };
 
