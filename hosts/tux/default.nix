@@ -12,10 +12,8 @@
       ../../packages/nixos/sddm.nix
       ../../packages/nixos/usb.nix
 
-#      ../../packages/nixos/networking.nix
+      ../../packages/nixos/networking.nix
     ];
-
-  # Bootloader.
 
   networking.hostName = "tux"; # Define your hostname.
   networking.networkmanager.enable = true;
@@ -30,6 +28,17 @@
     };
   };
 
+  boot.loader.systemd-boot.configurationLimit = 10;
+
+  nix = {
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 2w";
+    };
+
+    settings.auto-optimise-store = true;
+  };
 
   users.users.broom = {
     isNormalUser = true;
@@ -42,6 +51,7 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   programs.hyprland.enable = true;
+
   programs.zsh.enable = true;
   environment.pathsToLink = [ "/share/zsh" ];
 
