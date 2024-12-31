@@ -14,6 +14,7 @@
     ./obsidian.nix
     ./qt.nix
     ./swayosd.nix
+    ./telegram.nix
     ./vlc.nix
     ./waybar.nix
     ./wofi.nix

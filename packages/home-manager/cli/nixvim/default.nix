@@ -6,13 +6,15 @@
   # Import all your configuration modules here
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
-    ./autopairs.nix
-    ./bufferline.nix
-    ./cmp.nix
-    ./indent-blankline.nix
-    ./lsp.nix
-    ./neo-tree.nix
+    ./plugins/autopairs.nix
+    ./plugins/bufferline.nix
+    ./plugins/cmp.nix
+    ./plugins/indent-blankline.nix
+    ./plugins/lsp.nix
+    ./plugins/neo-tree.nix
+
     ./opts.nix
+    ./auto_cmds.nix
   ];
 
   home.packages = with pkgs; [

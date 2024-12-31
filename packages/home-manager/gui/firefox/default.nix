@@ -13,10 +13,10 @@
       name = "Broom";
       isDefault = true;
 
-      languagePacks = [
-        "en-US"
-        "nb-NO"
-      ];
+#      languagePacks = [
+#        "en-US"
+#        "nb-NO"
+#      ];
 
       search = {
         default = "DuckDuckGo";
@@ -38,7 +38,7 @@
 
         "F**k TikTok" = {
           color = "yellow";
-          icon = "cirlce";
+          icon = "circle";
           id = 3;
         };
       };

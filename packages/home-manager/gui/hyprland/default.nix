@@ -119,10 +119,13 @@ in {
             passes = 1;
           };
 
-          drop_shadow = true;
-          shadow_range = 4;
-          shadow_render_power = 3;
-          "col.shadow" = "rgba(1a1a1aee)";
+          shadow = {
+            enabled = true;
+            range = 4;
+            render_power = 3;
+            color = "rgba(1a1a1aee)";
+
+          };
         };
 
         animations = {
@@ -168,8 +171,9 @@ in {
           [
             "$mod, Q, exec, alacritty"
             "$mod, W, exec, firefox"
-            "ALT, B, exec, brave"
             "$mod & CTRL, W, exec, firefox -private-window"
+            "$mod, T, exec, telegram-desktop"
+
             "$mod, space, exec, ${wofi} --show drun"
 
             "ALT, C, killactive, "
