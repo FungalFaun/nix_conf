@@ -38,6 +38,8 @@
     nixd
 
     hyprcursor
+    hyprland-qtutils
+    hyprsunset
   ];
 
   nixpkgs.config.allowUnfree = true; 

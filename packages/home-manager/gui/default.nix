@@ -13,6 +13,7 @@
     ./mako.nix
     ./obsidian.nix
     ./qt.nix
+    ./screenshot.nix
     ./swayosd.nix
     ./telegram.nix
     ./vlc.nix

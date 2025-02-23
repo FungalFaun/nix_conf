@@ -6,6 +6,7 @@
     ./gh.nix
     ./git.nix
     ./neofetch.nix
+    ./nh.nix
     ./starship.nix
     ./tmux.nix
     ./zsh.nix

@@ -18,7 +18,7 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    # Might not be necessary, but might help compatability
+    # Might not be necessary, but might help compatibility
     programs.kitty.enable = true;
 
     xdg.portal = let
@@ -161,7 +161,9 @@ in {
         "$mod" = "SUPER";
 
         bind = let
-          grimblast = lib.getExe pkgs.grimblast;
+          grim = lib.getExe pkgs.grim;
+          slurp = lib.getExe pkgs.slurp;
+          wlcopy = lib.getExe' pkgs.wl-clipboard "wl-copy";
           swayosd = lib.getExe' pkgs.swayosd "swayosd-client";
   #        notify-send = lib.getExe' pkgs.libnotify "notify-send";
   #        defaultApp = type: "${lib.getExe pkgs.handlr-regex} launch ${type}";
@@ -188,14 +190,16 @@ in {
             "$mod, up, movefocus, u"
             "$mod, down, movefocus, d"
 
-            "$mod, S, togglespecialworkspace, magic"
-            "$mod SHIFT, S, movetoworkspace, special:magic"
+            #            "$mod, S, togglespecialworkspace, magic"
+            #            "$mod SHIFT, S, movetoworkspace, special:magic"
+
+            #"$mod, S, ${grim} -g ${slurp} - | ${wlcopy}"
 
             "$mod, mouse_down, workspace, e+1"
             "$mod, mouse_up, workspace, e-1"
 
-            "$mod, M, exec, ${grimblast} --notify --freeze copysave area"
-            "$mod SHIFT, M, exec, ${grimblast} --notify --freeze copysave output"
+            #            "$mod, M, exec, ${grimblast} --notify --freeze copysave area"
+            #            "$mod SHIFT, M, exec, ${grimblast} --notify --freeze copysave output"
 
             " , XF86AudioMute, exec, ${swayosd} --output-volume mute-toggle"
           ]

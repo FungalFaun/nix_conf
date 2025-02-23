@@ -18,10 +18,10 @@
 #        "nb-NO"
 #      ];
 
-      search = {
-        default = "DuckDuckGo";
-        privateDefault = "DuckDuckGo";
-      };
+      #      search = {
+      #        default = "DuckDuckGo";
+      #        privateDefault = "DuckDuckGo";
+      #      };
 
       containers = {
         personal = {
