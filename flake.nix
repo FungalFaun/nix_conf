@@ -53,6 +53,13 @@
         modules = [./home/broom.nix];
         extraSpecialArgs = {inherit inputs outputs;};
       };
+
+      wsl = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+
+        modules = [./home/wsl.nix];
+        extraSpecialArgs = {inherit inputs outputs;};
+      };
     };
   };
 }

@@ -6,27 +6,10 @@
 }:
 {
   imports = [
-    outputs.homeManagerModules.monitors
     outputs.homeManagerModules.fonts
-    outputs.homeManagerModules.wallpaper
 
     ../packages/home-manager/cli
-    ../packages/home-manager/gui
   ];
-
-  monitors = [
-    {
-      name = "eDP-1";
-      width = 2880;
-      height = 1800;
-      refreshRate = 90;
-      scaling = "1.5";
-      workspace = "1";
-      primary = true;
-    }
-  ];
-
-  wallpaper = "attic.jpg";
 
   home = {
     username = "broom";
@@ -37,10 +20,6 @@
   home.packages = with pkgs; [
     git
     nixd
-
-    hyprcursor
-    hyprland-qtutils
-    hyprsunset
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -62,8 +41,6 @@
   };
 
   services = {
-    # Bluetooth MIDI controls
-    mpris-proxy.enable = true;
   };
 
   systemd.user.startServices = "sd-switch";
