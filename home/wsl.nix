@@ -25,6 +25,13 @@
     cargo
     rustc
     neovim
+    unzip
+
+    stylua
+    typescript
+    typescript-language-server
+    nodejs_22
+    yarn
   ];
 
 
