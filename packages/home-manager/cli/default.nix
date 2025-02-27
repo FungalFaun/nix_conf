@@ -13,7 +13,7 @@
     ./ripgrep.nix
 
     ./lf
-    ./nixvim
+#    ./nixvim
   ];
   
 }

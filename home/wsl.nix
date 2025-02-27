@@ -20,7 +20,13 @@
   home.packages = with pkgs; [
     git
     nixd
+    gcc
+    cmake
+    cargo
+    rustc
+    neovim
   ];
+
 
   nixpkgs.config.allowUnfree = true;
 
