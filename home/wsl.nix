@@ -3,17 +3,23 @@
   inputs,
   outputs,
   ...
-}:
-{
+}: let 
+  combinedDotnet = with pkgs.dotnetCorePackages; combinePackages [
+    sdk_6_0
+    sdk_8_0
+    runtime_8_0
+  ];
+in {
   imports = [
     outputs.homeManagerModules.fonts
 
     ../packages/home-manager/cli
+    ../packages/home-manager/dev/neovim
   ];
 
   home = {
-    username = "broom";
-    homeDirectory = "/home/broom";
+    username = "adrian";
+    homeDirectory = "/home/adrian";
     #sessionPath = [ "$HOME/.local/bin" ];
   };
 
@@ -24,7 +30,7 @@
     cmake
     cargo
     rustc
-    neovim
+#    neovim
     unzip
 
     stylua
@@ -32,10 +38,21 @@
     typescript-language-server
     nodejs_22
     yarn
+    combinedDotnet
+    
+    lua-language-server
+    bicep
+
+    git-credential-manager
   ];
 
 
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = {
+    allowUnfree = true;
+    permittedInsecurePackages = [
+      "dotnet-sdk-6.0.428"
+    ];
+  };
 
   nix = {
     package = pkgs.nix;
@@ -62,5 +79,5 @@
   # You should not change this value, even if you update Home Manager. If you do
   # want to update the value, then make sure to first check the Home Manager
   # release notes.
-  home.stateVersion = "24.05"; # Please read the comment before changing.
+  home.stateVersion = "25.05"; # Please read the comment before changing.
 }
