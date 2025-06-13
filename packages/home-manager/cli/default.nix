@@ -11,6 +11,7 @@
     ./tmux.nix
     ./zsh.nix
     ./ripgrep.nix
+    ./zellij.nix
 
     ./lf
 #    ./nixvim

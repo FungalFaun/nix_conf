@@ -1,8 +1,8 @@
 {
   programs.git = {
     enable = true;
-    userName = "FungalFaun";
-    userEmail = "fungalfaun@proton.me";
+    userName = "$GIT_NAME";
+    userEmail = "$GIT_EMAIL";
 
     aliases = {
       a = "add";
@@ -28,12 +28,14 @@
       pl = "pull";
 
       current = "rev-parse --abbrev-ref HEAD";
-      pso = "!CURRENT=\${git current} && git push --set-upstream origin $CURRENT";
+      # pso = "!CURRENT=\${git current} && git push --set-upstream origin $CURRENT";
 
       cp = "!git cherry-pick";
 
       rc = "!git rebase --continue";
       ra = "!git rebase --abort";
+
+      undo = "reset HEAD~";
     };
 
     extraConfig = {
