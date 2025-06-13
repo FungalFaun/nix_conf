@@ -1,8 +1,8 @@
 {
   programs.git = {
     enable = true;
-    userName = "Adrian Heide";
-    userEmail = "adrian.heide@if.no";
+    userName = "$GIT_NAME";
+    userEmail = "$GIT_EMAIL";
 
     aliases = {
       a = "add";
@@ -34,6 +34,8 @@
 
       rc = "!git rebase --continue";
       ra = "!git rebase --abort";
+
+      undo = "reset HEAD~";
     };
 
     extraConfig = {

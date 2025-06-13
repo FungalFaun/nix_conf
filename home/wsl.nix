@@ -11,7 +11,7 @@
     runtime_8_0
   ];
 
-  userName = "adrian";
+  username = "adrian";
 in {
   imports = [
     outputs.homeManagerModules.fonts
@@ -21,8 +21,8 @@ in {
   ];
 
   home = {
-    username = "adrian";
-    homeDirectory = "/home/adrian";
+    username = username;
+    homeDirectory = "/home/${username}";
   };
 
   home.packages = with pkgs; [
@@ -72,8 +72,11 @@ in {
       EDITOR = "nvim";
       DOTNET_ROOT = "${combinedDotnet}/share/dotnet";
 
-      FLAKE = "/home/${userName}/.config/home-manager";
-      
+      FLAKE = "/home/${username}/.config/home-manager";
+      HM_CONFIG = "work";
+      USERNAME = username;
+      GIT_NAME = "Adrian Heide";
+      GIT_EMAIL = "adrian.heide@if.no";
     };
 
     sessionPath = [

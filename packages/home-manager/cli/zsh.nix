@@ -17,7 +17,6 @@ in {
 
     sessionVariables = {
       EDITOR = "nvim";
-
     };
 
     shellAliases = {
@@ -40,8 +39,8 @@ in {
       cat = "bat";
 
       hm = "home-manager";
-      hmb = "home-manager build --flake $FLAKE#${userSettings.hostName}";
-      hms = "home-manager switch --flake $FLAKE#${userSettings.hostName}";
+      hmb = "home-manager build --flake $FLAKE#$HM_CONFIG";
+      hms = "home-manager switch --flake $FLAKE#$HM_CONFIG";
 
       nrb = "nixos-rebuild build --flake $HOME/.config/home-manager/#tux";
       nrs = "sudo nixos-rebuild switch --flake $HOME/.config/home-manager/#tux";

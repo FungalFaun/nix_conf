@@ -64,14 +64,6 @@
         modules = [./home/wsl.nix];
         extraSpecialArgs = {
           inherit inputs outputs;
-          userSettings = {
-            hostName = "work";
-            userName = "adrian";
-            git = {
-              name = "Adrian Heide";
-              email = "adrian.heide@if.no";
-            };
-          };
         };
       };
     };
