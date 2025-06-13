@@ -7,8 +7,11 @@
   combinedDotnet = with pkgs.dotnetCorePackages; combinePackages [
     sdk_6_0
     sdk_8_0
+    sdk_9_0
     runtime_8_0
   ];
+
+  userName = "adrian";
 in {
   imports = [
     outputs.homeManagerModules.fonts
@@ -20,7 +23,6 @@ in {
   home = {
     username = "adrian";
     homeDirectory = "/home/adrian";
-    #sessionPath = [ "$HOME/.local/bin" ];
   };
 
   home.packages = with pkgs; [
@@ -30,13 +32,12 @@ in {
     cmake
     cargo
     rustc
-#    neovim
     unzip
 
     stylua
     typescript
     typescript-language-server
-    nodejs_22
+    nodejs_20
     yarn
     combinedDotnet
     
@@ -66,8 +67,18 @@ in {
     };
   };
 
-  home.sessionVariables = {
-    EDITOR = "nvim";
+  home = {
+    sessionVariables = {
+      EDITOR = "nvim";
+      DOTNET_ROOT = "${combinedDotnet}/share/dotnet";
+
+      FLAKE = "/home/${userName}/.config/home-manager";
+      
+    };
+
+    sessionPath = [
+      "/home/adrian/.dotnet/tools"
+    ];
   };
 
   services = {

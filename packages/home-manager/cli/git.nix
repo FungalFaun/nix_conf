@@ -1,8 +1,8 @@
 {
   programs.git = {
     enable = true;
-    userName = "FungalFaun";
-    userEmail = "fungalfaun@proton.me";
+    userName = "Adrian Heide";
+    userEmail = "adrian.heide@if.no";
 
     aliases = {
       a = "add";
@@ -28,7 +28,7 @@
       pl = "pull";
 
       current = "rev-parse --abbrev-ref HEAD";
-      pso = "!CURRENT=\${git current} && git push --set-upstream origin $CURRENT";
+      # pso = "!CURRENT=\${git current} && git push --set-upstream origin $CURRENT";
 
       cp = "!git cherry-pick";
 

@@ -33,6 +33,7 @@
 
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
+
   in {
     inherit lib;
 
@@ -42,7 +43,10 @@
     nixosConfigurations = {
       tux = nixpkgs.lib.nixosSystem {
         modules = [./hosts/tux];  
-        specialArgs = {inherit inputs outputs;};
+        specialArgs = {
+          inherit inputs outputs;
+          
+        };
       };
     };
 
@@ -54,11 +58,21 @@
         extraSpecialArgs = {inherit inputs outputs;};
       };
 
-      wsl = home-manager.lib.homeManagerConfiguration {
+      work = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 
         modules = [./home/wsl.nix];
-        extraSpecialArgs = {inherit inputs outputs;};
+        extraSpecialArgs = {
+          inherit inputs outputs;
+          userSettings = {
+            hostName = "work";
+            userName = "adrian";
+            git = {
+              name = "Adrian Heide";
+              email = "adrian.heide@if.no";
+            };
+          };
+        };
       };
     };
   };

@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  userSettings,
   ...
 }: let
   inherit (lib) mkIf;
@@ -16,6 +17,7 @@ in {
 
     sessionVariables = {
       EDITOR = "nvim";
+
     };
 
     shellAliases = {
@@ -38,13 +40,15 @@ in {
       cat = "bat";
 
       hm = "home-manager";
-      hmb = "home-manager build --flake $HOME/.config/home-manager-nixvim/#broom";
-      hms = "home-manager switch --flake $HOME/.config/home-manager-nixvim/#broom";
+      hmb = "home-manager build --flake $FLAKE#${userSettings.hostName}";
+      hms = "home-manager switch --flake $FLAKE#${userSettings.hostName}";
 
-      nrb = "nixos-rebuild build --flake $HOME/.config/home-manager-nixvim/#tux";
-      nrs = "sudo nixos-rebuild switch --flake $HOME/.config/home-manager-nixvim/#tux";
+      nrb = "nixos-rebuild build --flake $HOME/.config/home-manager/#tux";
+      nrs = "sudo nixos-rebuild switch --flake $HOME/.config/home-manager/#tux";
 
       nags = "nix shell github:aylur/ags#agsFull";
+
+      prtl = "cd ~/dev && zellij --layout ./run_portal.kdl";
     };
   };
 }
