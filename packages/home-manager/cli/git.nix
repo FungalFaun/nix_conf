@@ -1,9 +1,14 @@
 {
+  pkgs,
+  ...
+}:{
+  home.packages = [pkgs.git-credential-manager];
+
   programs.git = {
     enable = true;
     userName = "$GIT_NAME";
     userEmail = "$GIT_EMAIL";
-
+    
     aliases = {
       a = "add";
       f = "fetch";
@@ -40,6 +45,11 @@
 
     extraConfig = {
       init.defaultBranch = "master";
+      
+      credential = {
+        helper = "/mnt/c/Program\\ Files/Git/mingw64/bin/git-credential-manager.exe";
+        "https://dev.azure.com".useHttpPath = true;
+      };
     };
 
     ignores = [

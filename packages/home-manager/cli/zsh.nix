@@ -1,13 +1,15 @@
 {
   lib,
   config,
-  userSettings,
+  inputs,
   ...
 }: let
   inherit (lib) mkIf;
   packageNames = map (p: p.pname or p.name or null) config.home.packages;
   hasPackage = name: lib.any (x: x == name) packageNames;
   hasEza = hasPackage "eza";
+
+  flakePath = "${config.xdg.configHome}/home-manager";
 in {
   programs.zsh = {
     enable = true;
@@ -17,6 +19,11 @@ in {
 
     sessionVariables = {
       EDITOR = "nvim";
+
+      MYGET_CUSTOMER_KEY = "$(cat ${config.sops.secrets.myget-key.path})";
+      MYGET_RELAX_KEY = "$(cat ${config.sops.secrets.myget-key.path})";
+      ENCRYPTEDTOKENCACHE_ENCRYPTIONKEY = "$(cat ${config.sops.secrets.encryptionkey.path})";
+      RELAX_NPM_TOKEN = "$(cat ${config.sops.secrets.relax-npm-token.path})";
     };
 
     shellAliases = {
@@ -39,11 +46,11 @@ in {
       cat = "bat";
 
       hm = "home-manager";
-      hmb = "home-manager build --flake $FLAKE#$HM_CONFIG";
-      hms = "home-manager switch --flake $FLAKE#$HM_CONFIG";
+      hmb = "home-manager build --flake ${flakePath}#$HM_CONFIG";
+      hms = "home-manager switch --flake ${flakePath}#$HM_CONFIG";
 
-      nrb = "nixos-rebuild build --flake $HOME/.config/home-manager/#tux";
-      nrs = "sudo nixos-rebuild switch --flake $HOME/.config/home-manager/#tux";
+      nrb = "nixos-rebuild build --flake ${flakePath}#tux";
+      nrs = "sudo nixos-rebuild switch --flake ${flakePath}#tux";
 
       nags = "nix shell github:aylur/ags#agsFull";
 

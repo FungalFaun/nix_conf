@@ -15,10 +15,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-#    firefox-addons = {
-#      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
-#      inputs.nixpkgs.follows = "nixpkgs";
-#    };
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -43,10 +43,7 @@
     nixosConfigurations = {
       tux = nixpkgs.lib.nixosSystem {
         modules = [./hosts/tux];  
-        specialArgs = {
-          inherit inputs outputs;
-          
-        };
+        specialArgs = {inherit inputs outputs;};
       };
     };
 
@@ -62,9 +59,7 @@
         inherit pkgs;
 
         modules = [./home/wsl.nix];
-        extraSpecialArgs = {
-          inherit inputs outputs;
-        };
+        extraSpecialArgs = {inherit inputs outputs;};
       };
     };
   };
