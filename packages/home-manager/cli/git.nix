@@ -55,7 +55,6 @@
     ignores = [
       ".direnv"
       "result"
-      #"secrets/*"
     ];
   };
 }
