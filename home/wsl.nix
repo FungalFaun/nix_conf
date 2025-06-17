@@ -44,7 +44,7 @@ in {
     lua-language-server
     bicep
 
-    git-credential-manager
+    #git-credential-manager
   ];
 
 

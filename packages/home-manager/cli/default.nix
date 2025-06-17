@@ -7,11 +7,12 @@
     ./git.nix
     ./neofetch.nix
     ./nh.nix
+    ./ripgrep.nix
+    ./sops.nix
     ./starship.nix
     ./tmux.nix
-    ./zsh.nix
-    ./ripgrep.nix
     ./zellij.nix
+    ./zsh.nix
 
     ./lf
 #    ./nixvim
