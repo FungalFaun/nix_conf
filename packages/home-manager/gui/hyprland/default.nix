@@ -38,7 +38,7 @@ in {
 
     home.sessionVariables = {
       "NIXOS_OZONE_WL" = 1;
-  #    "XDG_SCREENSHOTS_DIR" = "/home/faun/Pictures/screenshots";
+      "XDG_SCREENSHOTS_DIR" = "${config.home.homeDirectory}/Pictures/screenshots";
     };
 
     home.file = {
@@ -193,7 +193,7 @@ in {
             #            "$mod, S, togglespecialworkspace, magic"
             #            "$mod SHIFT, S, movetoworkspace, special:magic"
 
-            #"$mod, S, ${grim} -g ${slurp} - | ${wlcopy}"
+            "$mod, S, ${grim} -g $(${slurp}) - | ${wlcopy}"
 
             "$mod, mouse_down, workspace, e+1"
             "$mod, mouse_up, workspace, e-1"
@@ -222,14 +222,14 @@ in {
           " , XF86AudioRaiseVolume, exec, ${swayosd} --output-volume raise --max-volume 180"
           " , XF86AudioLowerVolume, exec, ${swayosd} --output-volume lower --max-volume 180"
 
-          " , XF86MonBrightnessUp, exec, brightnessctl set 5%+"
-          " , XF86MonBrightnessDown, exec, brightnessctl set 5%-"
+          " , XF86MonBrightnessUp, exec, brightnessctl set 10%+"
+          " , XF86MonBrightnessDown, exec, brightnessctl set 10%-"
 
           " CTRL, XF86MonBrightnessUp, exec, brightnessctl set 1%+"
           " CTRL, XF86MonBrightnessDown, exec, brightnessctl set 1%-"
 
-          " SHIFT, XF86MonBrightnessUp, exec, brightnessctl set 20%+"
-          " SHIFT, XF86MonBrightnessDown, exec, brightnessctl set 20%-"
+          " SHIFT, XF86MonBrightnessUp, exec, brightnessctl set 100%"
+          " SHIFT, XF86MonBrightnessDown, exec, brightnessctl set 1"
         ];
 
         bindm = [
