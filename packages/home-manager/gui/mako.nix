@@ -1,6 +1,6 @@
 {
   services.mako = {
     enable = true;
-    layer = "overlay";
+    settings.layer = "overlay";
   };
 }

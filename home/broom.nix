@@ -11,7 +11,7 @@
     outputs.homeManagerModules.wallpaper
 
     ../packages/home-manager/cli
-    ../packages/home-manager/cli/nixvim/
+    ../packages/home-manager/cli/nixvim
 
     ../packages/home-manager/gui
   ];

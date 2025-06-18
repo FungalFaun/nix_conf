@@ -65,7 +65,8 @@
     gh
     home-manager
 
-    sddm
+    kdePackages.sddm
+    #sddm
     dconf
     wayland-protocols
     wayland-utils
