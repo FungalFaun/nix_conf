@@ -6,8 +6,8 @@
 
   programs.git = {
     enable = true;
-    userName = "$GIT_NAME";
-    userEmail = "$GIT_EMAIL";
+    userName = "Adrian Heide";
+    userEmail = "adrian.heide@if.no";
     
     aliases = {
       a = "add";
@@ -25,6 +25,7 @@
       bD = "branch -D";
 
       cam = "commit -am";
+      cr = "reset HEAD~";
 
       st = "stash";
       stu = "stash --include-untracked";
@@ -40,7 +41,6 @@
       rc = "!git rebase --continue";
       ra = "!git rebase --abort";
 
-      undo = "reset HEAD~";
     };
 
     extraConfig = {

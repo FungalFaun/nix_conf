@@ -24,6 +24,9 @@ in {
       MYGET_RELAX_KEY = "$(cat ${config.sops.secrets.myget-key.path})";
       ENCRYPTEDTOKENCACHE_ENCRYPTIONKEY = "$(cat ${config.sops.secrets.encryptionkey.path})";
       RELAX_NPM_TOKEN = "$(cat ${config.sops.secrets.relax-npm-token.path})";
+
+
+      SSL_CERT_DIR = "$HOME/.aspnet/dev-certs/trust:/usr/lib/ssl/certs";
     };
 
     shellAliases = {
@@ -39,11 +42,14 @@ in {
       rm = "rm -i";
 
       g = "git";
+      z = "zellij";
+      dn = "dotnet";
 
       d = "docker";
       dc = "docker compose";
 
       cat = "bat";
+
 
       hm = "home-manager";
       hmb = "home-manager build --flake ${flakePath}#$HM_CONFIG";
