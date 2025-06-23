@@ -1,13 +1,20 @@
 {
   pkgs,
+  config,
   ...
 }:{
   home.packages = [pkgs.git-credential-manager];
 
   programs.git = {
     enable = true;
-    userName = "Adrian Heide";
-    userEmail = "adrian.heide@if.no";
+
+    # To not store name and email in git
+    # [user]
+    #   name = <name>
+    #   email = <email>
+    includes = [
+      { path = "~/.config/git_extra/user"; }
+    ];
     
     aliases = {
       a = "add";

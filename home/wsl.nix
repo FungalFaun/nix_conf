@@ -2,6 +2,7 @@
   pkgs,
   inputs,
   outputs,
+  config,
   ...
 }: let 
   combinedDotnet = with pkgs.dotnetCorePackages; combinePackages [
@@ -11,13 +12,14 @@
     runtime_8_0
   ];
 
-  username = "adrian";
+  username = "faun";
 in {
   imports = [
     outputs.homeManagerModules.fonts
 
     ../packages/home-manager/cli
     ../packages/home-manager/dev/neovim
+    ../packages/home-manager/dev/default.nix
   ];
 
   home = {
@@ -43,6 +45,7 @@ in {
     
     lua-language-server
     bicep
+    azure-cli
 
     #git-credential-manager
   ];
@@ -80,7 +83,7 @@ in {
     };
 
     sessionPath = [
-      "/home/adrian/.dotnet/tools"
+      "/home/faun/.dotnet/tools"
     ];
   };
 

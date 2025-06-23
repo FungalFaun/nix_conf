@@ -20,10 +20,10 @@ in {
     sessionVariables = {
       EDITOR = "nvim";
 
-      MYGET_CUSTOMER_KEY = "$(cat ${config.sops.secrets.myget-key.path})";
-      MYGET_RELAX_KEY = "$(cat ${config.sops.secrets.myget-key.path})";
-      ENCRYPTEDTOKENCACHE_ENCRYPTIONKEY = "$(cat ${config.sops.secrets.encryptionkey.path})";
-      RELAX_NPM_TOKEN = "$(cat ${config.sops.secrets.relax-npm-token.path})";
+      MYGET_CUSTOMER_KEY = "$(cat ${config.sops.secrets."portal/myget-key".path})";
+      MYGET_RELAX_KEY = "$(cat ${config.sops.secrets."portal/myget-key".path})";
+      ENCRYPTEDTOKENCACHE_ENCRYPTIONKEY = "$(cat ${config.sops.secrets."portal/encryptionkey".path})";
+      RELAX_NPM_TOKEN = "$(cat ${config.sops.secrets."portal/relax-npm-token".path})";
 
 
       SSL_CERT_DIR = "$HOME/.aspnet/dev-certs/trust:/usr/lib/ssl/certs";
