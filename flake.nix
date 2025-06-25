@@ -19,6 +19,11 @@
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    astal = {
+      url = "github:aylur/astal";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -33,7 +38,6 @@
 
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
-
   in {
     inherit lib;
 

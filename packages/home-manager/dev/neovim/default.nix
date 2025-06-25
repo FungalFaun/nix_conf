@@ -1,11 +1,8 @@
 # https://github.com/fmoda3/nix-configs/blob/master/home/nvim/default.nix
 {
-  pkgs,
-  config,
   lib,
   ...
-}: 
-with lib; {
+}: with lib; {
   xdg.configFile.nvim = {
     source = ./config;
     recursive = true;

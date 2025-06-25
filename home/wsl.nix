@@ -18,7 +18,7 @@ in {
     outputs.homeManagerModules.fonts
 
     ../packages/home-manager/cli
-    ../packages/home-manager/dev/neovim
+    ../packages/home-manager/dev/nixvim
     ../packages/home-manager/dev/default.nix
   ];
 
@@ -46,8 +46,6 @@ in {
     lua-language-server
     bicep
     azure-cli
-
-    #git-credential-manager
   ];
 
 
@@ -78,12 +76,10 @@ in {
       FLAKE = "/home/${username}/.config/home-manager";
       HM_CONFIG = "work";
       USERNAME = username;
-      GIT_NAME = "Adrian Heide";
-      GIT_EMAIL = "adrian.heide@if.no";
     };
 
     sessionPath = [
-      "/home/faun/.dotnet/tools"
+      "/home/${username}/.dotnet/tools"
     ];
   };
 

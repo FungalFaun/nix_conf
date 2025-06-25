@@ -47,7 +47,6 @@
 
       rc = "!git rebase --continue";
       ra = "!git rebase --abort";
-
     };
 
     extraConfig = {

@@ -2,6 +2,10 @@
   pkgs,
   ...
 }:{
+  imports = [
+    ./astal.nix
+  ];
+
   home.packages = with pkgs; [
     imagemagick
     ghostscript
