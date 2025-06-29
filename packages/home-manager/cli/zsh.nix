@@ -1,7 +1,6 @@
 {
   lib,
   config,
-  inputs,
   ...
 }: let
   inherit (lib) mkIf;
@@ -9,6 +8,7 @@
   hasPackage = name: lib.any (x: x == name) packageNames;
   hasEza = hasPackage "eza";
 
+  username = config.home.username;
   flakePath = "${config.xdg.configHome}/home-manager";
 in {
   programs.zsh = {
@@ -52,8 +52,8 @@ in {
 
 
       hm = "home-manager";
-      hmb = "home-manager build --flake ${flakePath}#$HM_CONFIG";
-      hms = "home-manager switch --flake ${flakePath}#$HM_CONFIG";
+      hmb = "home-manager build --flake ${flakePath}#${username}";
+      hms = "home-manager switch --flake ${flakePath}#${username}";
 
       nrb = "nixos-rebuild build --flake ${flakePath}#tux";
       nrs = "sudo nixos-rebuild switch --flake ${flakePath}#tux";

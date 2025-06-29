@@ -3,8 +3,9 @@
   inputs,
   outputs,
   ...
-}:
-{
+}: let
+  username = "broom";
+in {
   imports = [
     outputs.homeManagerModules.monitors
     outputs.homeManagerModules.fonts
@@ -31,8 +32,8 @@
   wallpaper = "attic.jpg";
 
   home = {
-    username = "broom";
-    homeDirectory = "/home/broom";
+    username = username;
+    homeDirectory = "/home/${username}";
     #sessionPath = [ "$HOME/.local/bin" ];
   };
 
@@ -43,6 +44,8 @@
     hyprcursor
     hyprland-qtutils
     hyprsunset
+
+    unzip
   ];
 
   nixpkgs.config.allowUnfree = true;

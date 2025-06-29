@@ -3,8 +3,8 @@ config,
   ...
 }: let
   # TODO: Set wallpaper image path
-  imagePath = "$HOME/.config/home-manager-nixvim/assets/wallpaper/${config.wallpaper}";
-  #imagePath = "$SRC_PATH/assets/wallpaper/$WALLPAPER";
+  flakePath = "${config.xdg.configHome}/home-manager";
+  imagePath = "${flakePath}/assets/wallpaper/${config.wallpaper}";
 in {
   services.hyprpaper = {
     enable = true;

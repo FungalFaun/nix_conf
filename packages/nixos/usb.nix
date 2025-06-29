@@ -8,6 +8,7 @@
     udiskie
     udisks
     gvfs
+    ntfs3g
   ];
 
   programs = {
