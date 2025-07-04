@@ -4,7 +4,8 @@
 }:
 {
   imports = [
-    ./firefox
+    ./browser/firefox.nix
+    ./browser/zen.nix
     ./gtk
     ./hyprland
 

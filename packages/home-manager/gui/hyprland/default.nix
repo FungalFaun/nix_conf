@@ -179,6 +179,7 @@ in {
           [
             "$mod, Q, exec, alacritty"
             "$mod, W, exec, firefox"
+            "$mod, Z, exec, zen"
             "$mod & CTRL, W, exec, firefox -private-window"
             "$mod, T, exec, Telegram"
 
