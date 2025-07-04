@@ -12,6 +12,12 @@
       ignorecase = true;
     };
 
-    keybindings = {};
+    keybindings = {
+      dd = "delete";
+      p = "paste";
+      x = "cut";
+      y = "copy";
+      
+    };
   };
 }

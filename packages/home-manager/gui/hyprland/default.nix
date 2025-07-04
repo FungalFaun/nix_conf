@@ -11,6 +11,7 @@ in {
   imports = [
     ./hyprpaper.nix
     ./hypridle.nix
+    ../clipboard.nix
   ];
 
   options.programs.hypreco = {
@@ -30,15 +31,20 @@ in {
     };
 
     home.packages = with pkgs; [
-      grimblast
+      grim
+      slurp
       hyprpicker
+      swayosd
 
       hyprcursor
+      wl-clip-persist
+      #qt5
+      #qt6
     ];
 
     home.sessionVariables = {
       "NIXOS_OZONE_WL" = 1;
-      "XDG_SCREENSHOTS_DIR" = "${config.home.homeDirectory}/Pictures/screenshots";
+      "GRIM_DEFAULT_DIR" = "${config.home.homeDirectory}/Pictures/screenshots";
     };
 
     home.file = {
@@ -166,15 +172,15 @@ in {
           wlcopy = lib.getExe' pkgs.wl-clipboard "wl-copy";
           swayosd = lib.getExe' pkgs.swayosd "swayosd-client";
   #        notify-send = lib.getExe' pkgs.libnotify "notify-send";
-  #        defaultApp = type: "${lib.getExe pkgs.handlr-regex} launch ${type}";
           wofi = lib.getExe config.programs.wofi.package;
           thunar = lib.getExe pkgs.xfce.thunar;
+          cliphist = lib.getExe pkgs.cliphist;
         in
           [
             "$mod, Q, exec, alacritty"
             "$mod, W, exec, firefox"
             "$mod & CTRL, W, exec, firefox -private-window"
-            "$mod, T, exec, telegram-desktop"
+            "$mod, T, exec, Telegram"
 
             "$mod, space, exec, ${wofi} --show drun"
 
@@ -185,6 +191,8 @@ in {
             "$mod, P, pseudo, # dwindle"
             "$mod, J, togglesplit, "
 
+            "$mod, V, exec, ${cliphist} list | ${wofi} --dmenu | ${cliphist} decode | ${wlcopy}"
+
             "$mod, left, movefocus, l"
             "$mod, right, movefocus, r"
             "$mod, up, movefocus, u"
@@ -193,7 +201,8 @@ in {
             #            "$mod, S, togglespecialworkspace, magic"
             #            "$mod SHIFT, S, movetoworkspace, special:magic"
 
-            "$mod, S, ${grim} -g $(${slurp}) - | ${wlcopy}"
+            "$mod, S, exec, ${grim}"
+            "$mod & CTRL, S, exec, ${slurp} | ${grim} -g -"
 
             "$mod, mouse_down, workspace, e+1"
             "$mod, mouse_up, workspace, e-1"
