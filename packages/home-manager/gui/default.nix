@@ -8,6 +8,7 @@
     ./browser/zen.nix
     ./gtk
     ./hyprland
+    ./waybar
 
     ./alacritty.nix
     ./font.nix
@@ -18,7 +19,6 @@
     ./swayosd.nix
     ./telegram.nix
     ./vlc.nix
-    ./waybar.nix
     ./wofi.nix
   ];
 

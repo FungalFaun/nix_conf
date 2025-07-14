@@ -7,6 +7,7 @@
       
       ../../packages/nixos/bluetooth.nix
       ../../packages/nixos/boot.nix
+      ../../packages/nixos/fonts.nix
       ../../packages/nixos/locale.nix
       ../../packages/nixos/pipewire.nix
       ../../packages/nixos/sddm.nix

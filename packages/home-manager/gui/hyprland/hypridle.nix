@@ -31,6 +31,11 @@
           on-timeout = "hyprctl dispatch dpms off";
           on-resume = "hyprctl dispatch dpms on";
         }
+        # Hibernate
+        {
+          timeout = 15 * 60;
+          on-timeout = "systemctl suspend-then-hibernate";
+        }
       ];
     };
   };

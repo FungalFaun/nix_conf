@@ -47,6 +47,7 @@ in {
     hyprsunset
 
     unzip
+    gnome-disk-utility
   ];
 
   nixpkgs.config.allowUnfree = true;
