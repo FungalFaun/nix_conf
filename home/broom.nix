@@ -13,7 +13,7 @@ in {
     inputs.zen-browser.homeModules.beta
 
     ../packages/home-manager/cli
-    ../packages/home-manager/cli/nixvim
+    ../packages/home-manager/dev/nixvim
 
     ../packages/home-manager/gui
   ];

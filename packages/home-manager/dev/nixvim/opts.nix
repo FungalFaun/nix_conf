@@ -37,6 +37,8 @@
 
       splitbelow = true;
       splitright = true;
+      
+      signcolumn = "yes";
     };
   };
 }
