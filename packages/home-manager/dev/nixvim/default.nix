@@ -9,9 +9,11 @@
     ./plugins/autopairs.nix
     ./plugins/bufferline.nix
     ./plugins/cmp.nix
+    ./plugins/comment.nix
     ./plugins/indent-blankline.nix
     ./plugins/lsp.nix
     ./plugins/neo-tree.nix
+    ./plugins/which-key.nix
 
     ./opts.nix
     ./auto_cmds.nix
@@ -21,14 +23,21 @@
     alejandra
   ];
 
-  nix.nixPath = [ "import <nixpkgs> { }"];
-  
+  # This could conflict with the home file
+  # nix.nixPath = [ "import <nixpkgs> { }"];
 
-  programs.nixvim = {
-    enable = true;
+  programs.nixvim = { enable = true;
     defaultEditor = true;
 
-    colorschemes.gruvbox.enable = true;
+    colorschemes.gruvbox = {
+      enable = true;
+      settings = {
+        italic = {
+          strings = false;
+          comments = true;
+        };
+      };
+    };
 
     viAlias = true;
     vimAlias = true;

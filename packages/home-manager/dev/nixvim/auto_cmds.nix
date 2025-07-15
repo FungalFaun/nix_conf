@@ -4,6 +4,7 @@
     autoGroups = {
       highlight_yank = {};
       indentscope = {};
+      auto_format = {};
     };
 
     autoCmd = [
