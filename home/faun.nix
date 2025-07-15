@@ -2,7 +2,6 @@
   pkgs,
   inputs,
   outputs,
-  config,
   ...
 }: let 
   combinedDotnet = with pkgs.dotnetCorePackages; combinePackages [

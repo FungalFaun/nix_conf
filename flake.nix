@@ -69,10 +69,10 @@
         extraSpecialArgs = {inherit inputs outputs;};
       };
 
-      work = home-manager.lib.homeManagerConfiguration {
+      faun = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 
-        modules = [./home/wsl.nix];
+        modules = [./home/faun.nix];
         extraSpecialArgs = {inherit inputs outputs;};
       };
     };
