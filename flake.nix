@@ -59,6 +59,11 @@
         modules = [./hosts/tux];  
         specialArgs = {inherit inputs outputs;};
       };
+
+      urania = nixpkgs.lib.nixosSystem {
+        modules = [./hosts/urania];  
+        specialArgs = {inherit inputs outputs;};
+      };
     };
 
     homeConfigurations = {
@@ -66,6 +71,13 @@
         inherit pkgs;
 
         modules = [./home/broom.nix];
+        extraSpecialArgs = {inherit inputs outputs;};
+      };
+
+      urania = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+
+        modules = [./home/urania.nix];
         extraSpecialArgs = {inherit inputs outputs;};
       };
 
