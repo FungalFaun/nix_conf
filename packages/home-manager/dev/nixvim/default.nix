@@ -7,13 +7,22 @@
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
     ./plugins/autopairs.nix
+    ./plugins/barbar.nix
     ./plugins/bufferline.nix
     ./plugins/cmp.nix
     ./plugins/comment.nix
+    ./plugins/fzf.nix
+    ./plugins/gitsigns.nix
     ./plugins/indent-blankline.nix
     ./plugins/lsp.nix
+    ./plugins/lualine.nix
     ./plugins/neo-tree.nix
+    ./plugins/snacks.nix
+    ./plugins/startify.nix
+    ./plugins/terminal.nix
     ./plugins/which-key.nix
+
+    ./plugins/temp-bread.nix
 
     ./opts.nix
     ./auto_cmds.nix
@@ -41,9 +50,6 @@
 
     viAlias = true;
     vimAlias = true;
-    plugins = {
-      lualine.enable = true;
-    };
 
     globals.mapleader = " ";
   };

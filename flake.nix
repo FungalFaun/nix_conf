@@ -69,15 +69,7 @@
         extraSpecialArgs = {inherit inputs outputs;};
       };
 
-<<<<<<< Updated upstream
-      work = home-manager.lib.homeManagerConfiguration {
-=======
-<<<<<<< Updated upstream
-      urania = home-manager.lib.homeManagerConfiguration {
-=======
       faun = home-manager.lib.homeManagerConfiguration {
->>>>>>> Stashed changes
->>>>>>> Stashed changes
         inherit pkgs;
 
         modules = [./home/wsl.nix];
