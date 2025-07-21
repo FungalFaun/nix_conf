@@ -14,6 +14,7 @@ in {
 
     ../packages/home-manager/cli
     ../packages/home-manager/dev/nixvim
+    ../packages/home-manager/gaming
 
     ../packages/home-manager/gui
   ];
@@ -52,6 +53,8 @@ in {
   ];
 
   wallpaper = "outset_island/outset_island_evening.jpg";
+
+  programs.gaming.enable = true;
 
   home = {
     username = username;

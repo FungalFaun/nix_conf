@@ -2,9 +2,11 @@
 {
   pkgs,
   lib,
-  cfg,
+  config,
   ...
-}: {
+}: let
+  cfg = config.programs.gaming;
+in {
   options.programs.gaming = {
     enable = lib.mkEnableOption "Enable gaming";
   };
@@ -15,15 +17,14 @@
       mangohud
     ];
 
-    programs = {
-      steam = {
-        enable = true;
-        # TODO Check if this was necessary or optional
-        gamescopeSession = true;
-      };
-
-      gamemode.enable = true;
-    };
+    # programs = {
+    #   steam = {
+    #     enable = true;
+    #     gamescopeSession.enable = true;
+    #   };
+    #
+    #   gamemode.enable = true;
+    # };
 
     home.sessionVariables = {
       # TODO Find real path
