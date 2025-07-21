@@ -24,21 +24,30 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
-  nix.settings.experimental-features = ["nix-command" "flakes"];
-
   # Set your time zone.
   time.timeZone = "Europe/Oslo";
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
 
+  i18n.extraLocaleSettings = {
+    LC_ADDRESS = "nb_NO.UTF-8";
+    LC_IDENTIFICATION = "nb_NO.UTF-8";
+    LC_MEASUREMENT = "nb_NO.UTF-8";
+    LC_MONETARY = "nb_NO.UTF-8";
+    LC_NAME = "nb_NO.UTF-8";
+    LC_NUMERIC = "nb_NO.UTF-8";
+    LC_PAPER = "nb_NO.UTF-8";
+    LC_TELEPHONE = "nb_NO.UTF-8";
+    LC_TIME = "nb_NO.UTF-8";
+  };
+
   # Enable the X11 windowing system.
-  # You can disable this if you're only using the Wayland session.
   services.xserver.enable = true;
 
-  # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm.enable = true;
-  services.desktopManager.plasma6.enable = true;
+  # Enable the GNOME Desktop Environment.
+  services.xserver.displayManager.gdm.enable = true;
+  services.xserver.desktopManager.gnome.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -65,10 +74,6 @@
     #media-session.enable = true;
   };
 
-  hardware.bluetooth = {
-    enable = true;
-  };
-
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
@@ -78,16 +83,7 @@
     description = "Broom";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-      kdePackages.kate
     #  thunderbird
-      neovim
-      vim
-      git
-      gh
-      vdhcoapp
-      vlc
-
-
     ];
   };
 
@@ -102,6 +98,8 @@
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
+    git
+    neovim
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

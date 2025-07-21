@@ -42,6 +42,8 @@ in {
       #qt6
     ];
 
+# 
+
     home.sessionVariables = {
       "NIXOS_OZONE_WL" = 1;
       "GRIM_DEFAULT_DIR" = "${config.home.homeDirectory}/Pictures/screenshots";
@@ -85,6 +87,14 @@ in {
           "HYPRCURSOR_SIZE, 24"
           "XCURSOR_THEME, phinger-cursors-light"
           "XCURSOR_SIZE, 24"
+        ];
+
+        windowrulev2 = let 
+          pwvucontrol = "class:com.saivert.pwvucontrol";
+          bitwarden = "title:.*(Bitwarden Password Manager).*";
+        in [
+          "float, ${pwvucontrol}"
+          "float, ${bitwarden}"
         ];
 
         input = {
@@ -178,7 +188,7 @@ in {
         in
           [
             "$mod, Q, exec, alacritty"
-            "$mod, W, exec, firefox"
+            "$mod, W, exec, librewolf"
             "$mod, Z, exec, zen"
             "$mod & CTRL, W, exec, firefox -private-window"
             "$mod, T, exec, Telegram"
@@ -251,3 +261,29 @@ in {
     };
   };
 }
+
+# Window 9470500 -> Extension: (Bitwarden Password Manager) - Bitwarden — LibreWolf:
+# 	mapped: 1
+# 	hidden: 0
+# 	at: 11,35
+# 	size: 945,1034
+# 	workspace: 1 (1)
+# 	floating: 0
+# 	pseudo: 0
+# 	monitor: 0
+# 	class: librewolf
+# 	title: Extension: (Bitwarden Password Manager) - Bitwarden — LibreWolf
+# 	initialClass: librewolf
+# 	initialTitle: LibreWolf
+# 	pid: 1852
+# 	xwayland: 0
+# 	pinned: 0
+# 	fullscreen: 0
+# 	fullscreenClient: 0
+# 	grouped: 0
+# 	tags:
+# 	swallowing: 0
+# 	focusHistoryID: 2
+# 	inhibitingIdle: 0
+# 	xdgTag:
+# 	xdgDescription:

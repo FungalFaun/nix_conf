@@ -20,17 +20,38 @@ in {
 
   monitors = [
     {
-      name = "eDP-1";
-      width = 2880;
-      height = 1800;
+      name = "HDMI-A-1";
+      width = 1920;
+      height = 1080;
+      refreshRate = 60;
+      scaling = "1.0";
+      workspace = "1";
+      primary = false;
+      x = 0;
+    }
+    {
+      name = "HDMI-A-2";
+      width = 2560;
+      height = 1440;
       refreshRate = 90;
-      scaling = "1.5";
+      scaling = "1.0";
       workspace = "1";
       primary = true;
+      x = 1920;
+    }
+    {
+      name = "DP-2";
+      width = 1920;
+      height = 1080;
+      refreshRate = 60;
+      scaling = "1.0";
+      workspace = "1";
+      primary = false;
+      x = 4480;
     }
   ];
 
-  wallpaper = "attic.jpg";
+  wallpaper = "outset_island/outset_island_evening.jpg";
 
   home = {
     username = username;
@@ -48,6 +69,9 @@ in {
 
     unzip
     gnome-disk-utility
+    pwvucontrol
+
+    vivaldi
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -66,6 +90,7 @@ in {
 
   home.sessionVariables = {
     EDITOR = "nvim";
+    
   };
 
   services = {
@@ -79,5 +104,5 @@ in {
   # You should not change this value, even if you update Home Manager. If you do
   # want to update the value, then make sure to first check the Home Manager
   # release notes.
-  home.stateVersion = "24.05"; # Please read the comment before changing.
+  home.stateVersion = "25.05"; # Please read the comment before changing.
 }

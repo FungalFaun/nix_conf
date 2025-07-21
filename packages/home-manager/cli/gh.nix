@@ -3,7 +3,7 @@
   ...
 }: {
   programs.gh = {
-    enable = true;
+    enable = false;
     extensions = [ pkgs.gh-markdown-preview ];
 
     settings = {

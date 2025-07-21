@@ -5,6 +5,7 @@
 {
   imports = [
     ./browser/firefox.nix
+    ./browser/librewolf.nix
     ./browser/zen.nix
     ./gtk
     ./hyprland

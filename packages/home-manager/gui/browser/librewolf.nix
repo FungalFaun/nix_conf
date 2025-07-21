@@ -23,15 +23,15 @@ in {
       name = "Broom";
       isDefault = true;
 
-      languagePacks = [
-        "en-US"
-        "nb-NO"
-      ];
+      # languagePacks = [
+      #   "en-US"
+      #   "nb-NO"
+      # ];
 
-      search = {
-        default = "DuckDuckGo";
-        privateDefault = "DuckDuckGo";
-      };
+      # search = {
+      #   default = "DuckDuckGo";
+      #   privateDefault = "DuckDuckGo";
+      # };
 
       containers = {
         personal = {
@@ -55,22 +55,22 @@ in {
 
       containersForce = true;
 
-      extensions = with inputs.firefox-addons.packages."x86_64-linux"; [
-        bitwarden
-        ublock-origin
-        darkreader
-        youtube-shorts-block
-        proton-vpn
-        proton-pass
-        privacy-badger
-
-        facebook-container
-        enhancer-for-youtube
-        clearurls
-
-        #tree-style-tab
-        #multi-account-containers # Default installed on LibreWolf
-      ];
+      # extensions = with inputs.firefox-addons.packages."x86_64-linux"; [
+      #   bitwarden
+      #   ublock-origin
+      #   darkreader
+      #   youtube-shorts-block
+      #   proton-vpn
+      #   proton-pass
+      #   privacy-badger
+      #
+      #   facebook-container
+      #   enhancer-for-youtube
+      #   clearurls
+      #
+      #   #tree-style-tab
+      #   #multi-account-containers # Default installed on LibreWolf
+      # ];
 
 
 #      settings = {};
