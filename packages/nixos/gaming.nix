@@ -28,8 +28,10 @@
   };
 
   environment = {
-    systemPackages = [
-      pkgs.mangohud
+    systemPackages = with pkgs; [
+      mangohud
+      nexusmods-app-unfree
+      protontricks
     ];
     
     # sessionVariables = {
