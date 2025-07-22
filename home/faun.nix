@@ -47,7 +47,6 @@ in {
     azure-cli
   ];
 
-
   nixpkgs.config = {
     allowUnfree = true;
     permittedInsecurePackages = [
