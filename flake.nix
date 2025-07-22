@@ -59,6 +59,11 @@
         modules = [./hosts/tux];  
         specialArgs = {inherit inputs outputs;};
       };
+
+      urania = nixpkgs.lib.nixosSystem {
+        modules = [./hosts/urania];  
+        specialArgs = {inherit inputs outputs;};
+      };
     };
 
     homeConfigurations = {
@@ -69,10 +74,17 @@
         extraSpecialArgs = {inherit inputs outputs;};
       };
 
+      urania = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+
+        modules = [./home/urania.nix];
+        extraSpecialArgs = {inherit inputs outputs;};
+      };
+
       faun = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 
-        modules = [./home/wsl.nix];
+        modules = [./home/faun.nix];
         extraSpecialArgs = {inherit inputs outputs;};
       };
     };
