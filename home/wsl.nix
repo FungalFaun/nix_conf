@@ -2,7 +2,6 @@
   pkgs,
   inputs,
   outputs,
-  config,
   ...
 }: let 
   combinedDotnet = with pkgs.dotnetCorePackages; combinePackages [
@@ -47,7 +46,6 @@ in {
     bicep
     azure-cli
   ];
-
 
   nixpkgs.config = {
     allowUnfree = true;
