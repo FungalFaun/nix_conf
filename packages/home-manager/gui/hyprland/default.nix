@@ -38,8 +38,8 @@ in {
 
       hyprcursor
       wl-clip-persist
-      #qt5
-      #qt6
+      qt5-wayland
+      qt6-wayland
     ];
 
 # 
@@ -69,6 +69,8 @@ in {
       settings = {
         #monitor = ["eDP-1, 2880x1800@60, 0x0, 1.5"];
 
+        # Check out new monitorv2
+        # TODO Read from file in /var/tmp/monitor-config
         monitor =
           []
           ++ (map (
