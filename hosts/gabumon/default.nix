@@ -16,7 +16,7 @@
     ../../packages/nixos/networking.nix
   ];
 
-  networking.hostName = "urania"; # Define your hostname.
+  networking.hostName = "gabumon"; # Define your hostname.
   networking.networkmanager.enable = true;
 
   services = {

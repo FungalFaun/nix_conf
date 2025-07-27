@@ -28,17 +28,17 @@ in {
       scaling = "1.0";
       workspace = "1";
       primary = false;
-      x = 0;
+      position = "0x0";
     }
     {
-      name = "HDMI-A-2";
+      name = "DP-1";
       width = 2560;
       height = 1440;
       refreshRate = 90;
       scaling = "1.0";
       workspace = "1";
       primary = true;
-      x = 1920;
+      position = "1920x0";
     }
     {
       name = "DP-2";
@@ -48,7 +48,7 @@ in {
       scaling = "1.0";
       workspace = "1";
       primary = false;
-      x = 4480;
+      position = "4480x0";
     }
   ];
 
@@ -93,7 +93,6 @@ in {
 
   home.sessionVariables = {
     EDITOR = "nvim";
-    
   };
 
   services = {

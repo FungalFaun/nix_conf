@@ -60,8 +60,8 @@
         specialArgs = {inherit inputs outputs;};
       };
 
-      urania = nixpkgs.lib.nixosSystem {
-        modules = [./hosts/urania];  
+      gabumon = nixpkgs.lib.nixosSystem {
+        modules = [./hosts/gabumon];  
         specialArgs = {inherit inputs outputs;};
       };
     };
@@ -74,10 +74,10 @@
         extraSpecialArgs = {inherit inputs outputs;};
       };
 
-      urania = home-manager.lib.homeManagerConfiguration {
+      gabumon = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 
-        modules = [./home/urania.nix];
+        modules = [./home/gabumon.nix];
         extraSpecialArgs = {inherit inputs outputs;};
       };
 

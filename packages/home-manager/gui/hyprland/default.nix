@@ -69,15 +69,28 @@ in {
       settings = {
         #monitor = ["eDP-1, 2880x1800@60, 0x0, 1.5"];
 
+        # monitorv2 =
+        #   []
+        #   ++ (map (
+        #     m: let 
+        #       resolution = "${toString m.width}x${toString m.height}@${toString m.refreshRate}";
+        #     in ''{
+        #       output = m.name;
+        #       mode = resolution;
+        #       position = m.position;
+        #       scale = m.scaling;
+        #     }''
+        #   ) (config.monitors));
+
         monitor =
           []
           ++ (map (
             m: let 
               resolution = "${toString m.width}x${toString m.height}@${toString m.refreshRate}";
-              position = "${toString m.x}x${toString m.y}";
+              # position = "${toString m.x}x${toString m.y}";
             in "${m.name}, ${
               if m.enabled
-              then "${resolution}, ${position}, ${m.scaling}"
+              then "${resolution}, ${m.position}, ${m.scaling}"
               else "disable"
             }"
           ) (config.monitors));

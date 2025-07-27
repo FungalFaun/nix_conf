@@ -35,6 +35,11 @@ in {
           default = 60;
         };
 
+        position = mkOption {
+          type = types.str;
+          default = "auto";
+        };
+
         x = mkOption {
           type = types.int;
           default = 0;

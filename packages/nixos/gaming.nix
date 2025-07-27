@@ -2,7 +2,7 @@
   pkgs,
   ...
 }: {
-  services.xserver.videoDrivers = ["nvidia"];
+  services.xserver.videoDrivers = ["amdgpu"];
 
   hardware = {
     graphics = {
@@ -10,12 +10,12 @@
       enable32Bit = true;
     };
 
-    nvidia = {
-      modesetting.enable = true;
-      powerManagement.enable = false;
-      open = false;
-      nvidiaSettings = true;
-    };
+    #nvidia = {
+    #  modesetting.enable = true;
+    #  powerManagement.enable = false;
+    #  open = false;
+    #  nvidiaSettings = true;
+    #};
   };
 
   programs = {
