@@ -20,36 +20,36 @@ in {
   ];
 
   monitors = [
-    {
-      name = "HDMI-A-1";
-      width = 1920;
-      height = 1080;
-      refreshRate = 60;
-      scaling = "1.0";
-      workspace = "1";
-      primary = false;
-      x = 0;
-    }
-    {
-      name = "HDMI-A-2";
-      width = 2560;
-      height = 1440;
-      refreshRate = 90;
-      scaling = "1.0";
-      workspace = "1";
-      primary = true;
-      x = 1920;
-    }
-    {
-      name = "DP-2";
-      width = 1920;
-      height = 1080;
-      refreshRate = 60;
-      scaling = "1.0";
-      workspace = "1";
-      primary = false;
-      x = 4480;
-    }
+    # {
+    #   name = "HDMI-A-1";
+    #   width = 1920;
+    #   height = 1080;
+    #   refreshRate = 60;
+    #   scaling = "1.0";
+    #   workspace = "1";
+    #   primary = false;
+    #   x = 0;
+    # }
+    # {
+    #   name = "HDMI-A-2";
+    #   width = 2560;
+    #   height = 1440;
+    #   refreshRate = 90;
+    #   scaling = "1.0";
+    #   workspace = "1";
+    #   primary = true;
+    #   x = 1920;
+    # }
+    # {
+    #   name = "DP-2";
+    #   width = 1920;
+    #   height = 1080;
+    #   refreshRate = 60;
+    #   scaling = "1.0";
+    #   workspace = "1";
+    #   primary = false;
+    #   x = 4480;
+    # }
   ];
 
   wallpaper = "outset_island/outset_island_evening.jpg";

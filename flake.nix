@@ -40,13 +40,25 @@
     self,
     nixpkgs,
     home-manager,
+    systems,
     ...
   }@inputs: let 
     inherit (self) outputs;
 
     lib = nixpkgs.lib // home-manager.lib;
 
+    # pkgsFor = lib.genAttrs (import systems) (
+    #   system:
+    #     import nixpkgs {
+    #       inherit system;
+    #       config.allowUnfree = true;
+    #     }
+    # );
+    #
+    # forEachSystem = f: lib.genAttrs (import systems) (system: f pkgsFor.${system});
+
     system = "x86_64-linux";
+    # pkgs = forEachSystem ( )
     pkgs = nixpkgs.legacyPackages.${system};
   in {
     inherit lib;
@@ -60,8 +72,8 @@
         specialArgs = {inherit inputs outputs;};
       };
 
-      urania = nixpkgs.lib.nixosSystem {
-        modules = [./hosts/urania];  
+      gabu = nixpkgs.lib.nixosSystem {
+        modules = [./hosts/gabu];  
         specialArgs = {inherit inputs outputs;};
       };
     };
@@ -74,10 +86,10 @@
         extraSpecialArgs = {inherit inputs outputs;};
       };
 
-      urania = home-manager.lib.homeManagerConfiguration {
+      gabu = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 
-        modules = [./home/urania.nix];
+        modules = [./home/gabu.nix];
         extraSpecialArgs = {inherit inputs outputs;};
       };
 
