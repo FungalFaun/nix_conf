@@ -11,6 +11,7 @@
     ../../packages/nixos/pipewire.nix
     ../../packages/nixos/sddm.nix
     ../../packages/nixos/stream-deck.nix
+    ../../packages/nixos/swayosd-server.nix
     ../../packages/nixos/usb.nix
 
     ../../packages/nixos/networking.nix
@@ -79,7 +80,7 @@
     git
     home-manager
 
-    kdePackages.sddm
+    # kdePackages.sddm
     #sddm
     dconf
     wayland-protocols

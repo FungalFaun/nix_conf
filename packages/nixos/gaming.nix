@@ -30,7 +30,7 @@
   environment = {
     systemPackages = with pkgs; [
       mangohud
-      nexusmods-app-unfree
+      # nexusmods-app-unfree
       protontricks
     ];
     

@@ -42,11 +42,9 @@ in {
       #qt6
     ];
 
-# 
-
     home.sessionVariables = {
-      "NIXOS_OZONE_WL" = 1;
-      "GRIM_DEFAULT_DIR" = "${config.home.homeDirectory}/Pictures/screenshots";
+      NIXOS_OZONE_WL = 1;
+      GRIM_DEFAULT_DIR = "${config.home.homeDirectory}/Pictures/screenshots";
     };
 
     home.file = {
@@ -65,6 +63,10 @@ in {
           "systemctl --user start hyprland-session.target"
         ];
       };
+
+      extraConfig = ''
+        exec-once=swayosd-server
+      '';
 
       settings = {
         #monitor = ["eDP-1, 2880x1800@60, 0x0, 1.5"];

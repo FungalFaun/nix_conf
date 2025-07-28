@@ -6,8 +6,9 @@
     sddm = {
       enable = true;
       wayland.enable = true;
+      autoNumlock = true;
       #theme = "${import ../../derivations/sddm-themes/sugar-dark.nix {inherit pkgs;}}";
-      theme = "sddm-sugar-dark";
+      theme = "";
     };
 
     defaultSession = "hyprland";
