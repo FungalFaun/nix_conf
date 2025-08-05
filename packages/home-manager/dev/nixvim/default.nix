@@ -5,7 +5,7 @@
 }: {
   # Import all your configuration modules here
   imports = [
-    inputs.nixvim.homeManagerModules.nixvim
+    inputs.nixvim.homeModules.nixvim
     ./plugins/autopairs.nix
     ./plugins/barbar.nix
     ./plugins/bufferline.nix

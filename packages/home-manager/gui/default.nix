@@ -12,6 +12,7 @@
     ./waybar
 
     ./alacritty.nix
+    ./discord.nix
     ./font.nix
     ./mako.nix
     ./obsidian.nix

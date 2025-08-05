@@ -92,7 +92,7 @@ in {
 
         windowrulev2 = let 
           pwvucontrol = "class:com.saivert.pwvucontrol";
-          bitwarden = "title:.*(Bitwarden Password Manager).*";
+          bitwarden = "class:librewolf, title:\"Extension: (Bitwarden Password Manager) - Bitwarden — LibreWolf\"";
           gnome-disks = "class:gnome-disks";
         in [
           "float, ${pwvucontrol}"

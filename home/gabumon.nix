@@ -73,6 +73,7 @@ in {
     unzip
     gnome-disk-utility
     pwvucontrol
+    mission-center
 
     vivaldi
   ];

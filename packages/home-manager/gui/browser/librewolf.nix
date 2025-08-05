@@ -55,22 +55,25 @@ in {
 
       containersForce = true;
 
-      # extensions = with inputs.firefox-addons.packages."x86_64-linux"; [
-      #   bitwarden
-      #   ublock-origin
-      #   darkreader
-      #   youtube-shorts-block
-      #   proton-vpn
-      #   proton-pass
-      #   privacy-badger
-      #
-      #   facebook-container
-      #   enhancer-for-youtube
-      #   clearurls
-      #
-      #   #tree-style-tab
-      #   #multi-account-containers # Default installed on LibreWolf
-      # ];
+      extensions.packages = with inputs.firefox-addons.packages."x86_64-linux"; [
+        bitwarden
+        privacy-badger
+        ublock-origin
+        darkreader
+        youtube-shorts-block
+        proton-vpn
+        proton-pass
+        privacy-badger
+
+        facebook-container
+        # enhancer-for-youtube
+        clearurls
+        # vdhcoapp
+        # temp-mail
+
+        #tree-style-tab
+        #multi-account-containers # Default installed on LibreWolf
+      ];
 
 
 #      settings = {};
@@ -107,20 +110,20 @@ in {
       DisplayMenuBar = "default-off"; # alternatives: "always", "never" or "default-on"
       SearchBar = "unified"; # alternative: "separate"
 
-      ExtensionSettings = {
+      # ExtensionSettings = {
         # "*".installation_mode = "blocked"; # blocks all addons except the ones specified below
 
-        # uBlock Origin:
-        "uBlock0@raymondhill.net" = {
-          install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
-          installation_mode = "force_installed";
-        };
-        # Privacy Badger:
-        "jid1-MnnxcxisBPnSXQ@jetpack" = {
-          install_url = "https://addons.mozilla.org/firefox/downloads/latest/privacy-badger17/latest.xpi";
-          installation_mode = "force_installed";
-        };
-      };
+        # # uBlock Origin:
+        # "uBlock0@raymondhill.net" = {
+        #   install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
+        #   installation_mode = "force_installed";
+        # };
+        # # Privacy Badger:
+        # "jid1-MnnxcxisBPnSXQ@jetpack" = {
+        #   install_url = "https://addons.mozilla.org/firefox/downloads/latest/privacy-badger17/latest.xpi";
+        #   installation_mode = "force_installed";
+        # };
+      # };
     };
   };
 
