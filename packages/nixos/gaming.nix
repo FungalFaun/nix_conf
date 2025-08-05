@@ -10,12 +10,13 @@
       enable32Bit = true;
     };
 
-    # nvidia = {
-    #   modesetting.enable = true;
-    #   powerManagement.enable = false;
-    #   open = false;
-    #   nvidiaSettings = true;
-    # };
+    enableAllFirmware = true;
+    #nvidia = {
+    #  modesetting.enable = true;
+    #  powerManagement.enable = false;
+    #  open = false;
+    #  nvidiaSettings = true;
+    #};
   };
 
   programs = {
@@ -30,7 +31,7 @@
   environment = {
     systemPackages = with pkgs; [
       mangohud
-      nexusmods-app-unfree
+      # nexusmods-app-unfree
       protontricks
     ];
     

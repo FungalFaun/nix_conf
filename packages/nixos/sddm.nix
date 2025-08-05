@@ -6,16 +6,16 @@
     sddm = {
       enable = true;
       wayland.enable = true;
+      # autoNumlock = true;
       #theme = "${import ../../derivations/sddm-themes/sugar-dark.nix {inherit pkgs;}}";
-      theme = "sddm-sugar-dark";
     };
 
-    defaultSession = "hyprland";
+    defaultSession = "hyprland-uwsm";
   };
 
-  environment.systemPackages = with pkgs; [
-    sddm-sugar-dark
-    sddm-astronaut
+  # environment.systemPackages = with pkgs; [
+  #   sddm-sugar-dark
+  #   sddm-astronaut
 
     #libsForQt5.qt5.qtgraphicaleffects
     #libsForQt5.qt5.qtquickcontrols2
@@ -26,5 +26,5 @@
     ##kdePackages.qtgraphicaleffects
     #kdePackages.qtsvg
     #hyprland-qt-support
-  ];
+  # ];
 }

@@ -98,20 +98,33 @@
     #  max-length = 50;
     #};
 
+    idle_inhibitor = {
+      format = "{icon}";
+      format-icons = {
+        activated = " ";
+        deactivated = " ";
+      };
+    };
+
     # [1]
-    network = {
+    network = let
+      controller = "wlp9s0";
+    in {
+      format = "<span color='#00FFFF'>󰤨 </span>{essid}";
       format-wifi = "<span color='#00FFFF'>󰤨 </span>{essid}";
       format-ethernet = "<span color='#7FFF00'> </span>Wired";
-      tooltip-format = "<span color='#FF1493'>󰅧 </span>{bandwidthUpBytes}  <span color='#00BFFF'> 󰅢 </span>{bandwidthDownBytes}";
-      format-linked = "<span color='#FFA500'>󱘖 </span>{ifname} (No IP)";
+      tooltip-format = "<span color='#FF1493'>󰅧  </span>{bandwidthUpBytes}  <span color='#00BFFF'> 󰅢  </span>{bandwidthDownBytes}";
+      format-linked = "<span color='#FFA500'>󱘖  </span>{ifname} (No IP)";
       format-disconnected = "<span color='#FF4040'> </span>Disconnected";
       format-alt = "<span color='#00FFFF'>󰤨 </span>{signalStrength}%";
       interval = 1;
+      on-click = "nmcli device connect ${controller}; hyprctl notify 1 1000 0 ''Connected''";
+      on-click-right = "nmcli device disconnect ${controller}; hyprctl notify 1 1000 0 ''Disconnected''";
     };
 
     # [1]
     pulseaudio = {
-      format = "<span color='#00FF7F'>{icon}</span>{volume}%";
+      format = "<span color='#00FF7F'>{icon} </span>{volume}%";
       format-muted = "<span color='#FF4040'>󰖁</span>0%";
       format-icons = {
         #headphone = "<span color='#BF00FF'>  </span>";
@@ -123,7 +136,7 @@
         default = [
           "<span color='#808080'> </span>"
           "<span color='#FFFF66'> </span>"
-          "<span color='#00FF7F'> </span>"
+          "<span color='#00FF7F'>  </span>"
         ];
       };
       on-click-right = "pavucontrol -t 3";
@@ -142,8 +155,9 @@
     };
 
     "custom/power" = {
-      format = "<span color='#FF4040'>  </span>";
+      format = "<span color='#FF4040'>   </span>";
       on-click = "systemctl poweroff";
+      on-click-right = "systemctl reboot";
       tooltip = true;
       tooltip-format = "Power";
     };

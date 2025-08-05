@@ -10,3 +10,15 @@ To not include name and email in GitHub username and email is read from an exter
 \[user\]
   name = <name>
   email = <email>
+
+## Commands
+If you're using proton for gaming run
+```sh
+protonup
+```
+
+For VideoDownload Helper companion app run
+```sh
+vhdcoapp install
+```
+

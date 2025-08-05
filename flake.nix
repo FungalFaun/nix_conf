@@ -3,12 +3,14 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.05";
+    # nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
 
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    hardware.url = "github:nixos/nixos-hardware";
 
     #nur = {
     #  url = "github:nix-community/NUR";
@@ -72,8 +74,9 @@
         specialArgs = {inherit inputs outputs;};
       };
 
-      gabu = nixpkgs.lib.nixosSystem {
-        modules = [./hosts/gabu];  
+      gabumon = nixpkgs.lib.nixosSystem {
+        modules = [./hosts/gabumon];  
+
         specialArgs = {inherit inputs outputs;};
       };
     };
@@ -86,10 +89,11 @@
         extraSpecialArgs = {inherit inputs outputs;};
       };
 
-      gabu = home-manager.lib.homeManagerConfiguration {
+      gabumon = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 
-        modules = [./home/gabu.nix];
+        modules = [./home/gabumon.nix];
+
         extraSpecialArgs = {inherit inputs outputs;};
       };
 
