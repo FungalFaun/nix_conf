@@ -10,6 +10,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    hardware.url = "github:nixos/nixos-hardware";
+
     #nur = {
     #  url = "github:nix-community/NUR";
     #  inputs.nixpkgs.follows = "nixpkgs";
