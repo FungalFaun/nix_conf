@@ -25,6 +25,7 @@
 
         modules-center = ["clock"];
         modules-right = [
+          "idle_inhibitor"
           "network"
           "bluetooth"
           "pulseaudio"

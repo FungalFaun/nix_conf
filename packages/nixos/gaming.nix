@@ -10,6 +10,7 @@
       enable32Bit = true;
     };
 
+    enableAllFirmware = true;
     #nvidia = {
     #  modesetting.enable = true;
     #  powerManagement.enable = false;

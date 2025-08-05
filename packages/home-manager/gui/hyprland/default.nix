@@ -17,20 +17,6 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    programs.hyprland = {
-      enable = true;
-      withUWSM = true;
-
-      kitty.enable = true;
-    };
-
-    # Is this correct?
-    xdg.configFile."uwsm/env".source = "${config.home.sessionVariablesPackage}/etc/profile.d/hm-session-vars.sh";
-
-    # environment.sessionVariables = {
-    #   NIXOS_OZONE_WL = 1;
-    # };
-
     xdg.portal = let
       hyprland = config.wayland.windowManager.hyprland.package;
       xdph = null; #pkgs.xdg-desktop-portal-hyprland.override {inherit hyprland;};
@@ -38,6 +24,9 @@ in {
       extraPortals = [xdph];
       configPackages = [hyprland];
     };
+
+    # Is this correct?
+    xdg.configFile."uwsm/env".source = "${config.home.sessionVariablesPackage}/etc/profile.d/hm-session-vars.sh";
 
     home.packages = with pkgs; [
       grim
@@ -104,9 +93,11 @@ in {
         windowrulev2 = let 
           pwvucontrol = "class:com.saivert.pwvucontrol";
           bitwarden = "title:.*(Bitwarden Password Manager).*";
+          gnome-disks = "class:gnome-disks";
         in [
           "float, ${pwvucontrol}"
           "float, ${bitwarden}"
+          "float, ${gnome-disks}"
         ];
 
         input = {
