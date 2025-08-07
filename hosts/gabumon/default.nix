@@ -25,8 +25,10 @@
     ../../packages/nixos/networking.nix
   ];
 
-  networking.hostName = "gabumon"; # Define your hostname.
-  networking.networkmanager.enable = true;
+  networking = {
+    hostName = "gabumon"; # Define your hostname.
+    networking.networkmanager.enable = true;
+  };
 
   services = {
     upower.enable = true;
@@ -38,7 +40,11 @@
     };
   };
 
-  boot.loader.systemd-boot.configurationLimit = 10;
+  boot = {
+    # kernelPackages = pkgs.linuxPackages_latest;
+    # kernelPackages = pkgs.linuxPackages_6_15; # test previous kernel version
+    loader.systemd-boot.configurationLimit = 10;
+  };
 
   nix = {
     gc = {
