@@ -69,7 +69,6 @@
 
       gabumon = nixpkgs.lib.nixosSystem {
         modules = [./hosts/gabumon];  
-
         specialArgs = {inherit inputs outputs;};
       };
     };
@@ -86,7 +85,6 @@
         inherit pkgs;
 
         modules = [./home/gabumon.nix];
-
         extraSpecialArgs = {inherit inputs outputs;};
       };
 

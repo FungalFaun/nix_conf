@@ -5,15 +5,15 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       
-      ../../packages/nixos/bluetooth.nix
-      ../../packages/nixos/boot.nix
-      ../../packages/nixos/fonts.nix
-      ../../packages/nixos/locale.nix
-      ../../packages/nixos/pipewire.nix
-      ../../packages/nixos/sddm.nix
-      ../../packages/nixos/usb.nix
+      ../../features/nixos/bluetooth.nix
+      ../../features/nixos/boot.nix
+      ../../features/nixos/fonts.nix
+      ../../features/nixos/locale.nix
+      ../../features/nixos/pipewire.nix
+      ../../features/nixos/sddm.nix
+      ../../features/nixos/usb.nix
 
-      ../../packages/nixos/networking.nix
+      ../../features/nixos/networking.nix
     ];
 
   networking.hostName = "tux"; # Define your hostname.

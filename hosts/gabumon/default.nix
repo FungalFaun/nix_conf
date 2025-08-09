@@ -9,20 +9,20 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
 
-    ../../packages/nixos/bluetooth.nix
-    ../../packages/nixos/boot.nix
-    ../../packages/nixos/fonts.nix
-    ../../packages/nixos/gaming.nix
-    ../../packages/nixos/hyprland.nix
-    ../../packages/nixos/locale.nix
-    ../../packages/nixos/logitech.nix
-    ../../packages/nixos/pipewire.nix
-    ../../packages/nixos/sddm.nix
-    ../../packages/nixos/stream-deck.nix
-    ../../packages/nixos/swayosd-server.nix
-    ../../packages/nixos/usb.nix
+    ../../features/nixos/bluetooth.nix
+    ../../features/nixos/boot.nix
+    ../../features/nixos/fonts.nix
+    ../../features/nixos/gaming.nix
+    ../../features/nixos/hyprland.nix
+    ../../features/nixos/locale.nix
+    ../../features/nixos/logitech.nix
+    ../../features/nixos/pipewire.nix
+    ../../features/nixos/sddm.nix
+    ../../features/nixos/stream-deck.nix
+    ../../features/nixos/swayosd-server.nix
+    ../../features/nixos/usb.nix
 
-    ../../packages/nixos/networking.nix
+    ../../features/nixos/networking.nix
   ];
 
   networking = {
