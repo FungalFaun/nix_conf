@@ -8,12 +8,12 @@
   systemd.services.swayosd-libinput-backend = {
     description = "SwayOSD LibInput backend for listening to certain keys like CapsLock, ScrollLock, VolumeUp, etc.";
     documentation = [ "https://github.com/ErikReider/SwayOSD" ];
-    # wantedBy = [ "graphical.target" ];
-    # partOf = [ "graphical.target" ];
-    # after = [ "graphical.target" ];
-    wantedBy = [ "hyprland-session.target" ];
-    partOf = [ "hyprland-session.target" ];
-    after = [ "hyprland-session.target" ];
+    wantedBy = [ "graphical.target" ];
+    partOf = [ "graphical.target" ];
+    after = [ "graphical.target" ];
+    # wantedBy = [ "hyprland-session.target" ];
+    # partOf = [ "hyprland-session.target" ];
+    # after = [ "hyprland-session.target" ];
 
     serviceConfig = {
       Type = "dbus";

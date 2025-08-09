@@ -9,96 +9,19 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
 
-    ../../features/nixos/bluetooth.nix
-    ../../features/nixos/boot.nix
-    ../../features/nixos/fonts.nix
-    ../../features/nixos/gaming.nix
-    ../../features/nixos/hyprland.nix
-    ../../features/nixos/locale.nix
-    ../../features/nixos/logitech.nix
-    ../../features/nixos/pipewire.nix
-    ../../features/nixos/sddm.nix
-    ../../features/nixos/stream-deck.nix
-    ../../features/nixos/swayosd-server.nix
-    ../../features/nixos/usb.nix
+    ../../features/nixos/common
 
-    ../../features/nixos/networking.nix
+    ../../features/nixos/gaming.nix
+    ../../features/nixos/logitech.nix
+    ../../features/nixos/stream-deck.nix
   ];
 
-  networking = {
-    hostName = "gabumon"; # Define your hostname.
-    networkmanager.enable = true;
-  };
-
-  services = {
-    upower.enable = true;
-
-    # Configure keymap in X11
-    xserver.xkb = {
-      layout = "us";
-      variant = "altgr-intl";
-    };
-  };
+  networking.hostName = "gabumon"; # Define your hostname.
 
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
-    # kernelPackages = pkgs.linuxPackages_6_11; # test previous kernel version
     loader.systemd-boot.configurationLimit = 10;
   };
-
-  nix = {
-    gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 2w";
-    };
-
-    settings.auto-optimise-store = true;
-  };
-
-  users.users.broom = {
-    isNormalUser = true;
-    description = "Broom";
-    extraGroups = [
-      "networkmanager"
-      "wheel"
-      "audio"
-      "video"
-    ];
-    shell = pkgs.zsh;
-    packages = [];
-  };
-
-  nix.settings = {
-    experimental-features = [
-      "nix-command"
-      "flakes"
-    ];
-  };
-
-  programs.hyprland.enable = true;
-
-  programs.zsh.enable = true;
-  environment.pathsToLink = ["/share/zsh"];
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
-  environment.systemPackages = with pkgs; [
-    vim
-    wget
-    git
-    home-manager
-
-    dconf
-    wayland-protocols
-    wayland-utils
-    wlroots
-    meson
-    gcc
-    curl
-    brightnessctl
-  ];
 
   hardware.graphics = {
     enable = true;
