@@ -47,25 +47,13 @@
     self,
     nixpkgs,
     home-manager,
-    systems,
     ...
   }@inputs: let 
     inherit (self) outputs;
 
     lib = nixpkgs.lib // home-manager.lib;
 
-    # pkgsFor = lib.genAttrs (import systems) (
-    #   system:
-    #     import nixpkgs {
-    #       inherit system;
-    #       config.allowUnfree = true;
-    #     }
-    # );
-    #
-    # forEachSystem = f: lib.genAttrs (import systems) (system: f pkgsFor.${system});
-
     system = "x86_64-linux";
-    # pkgs = forEachSystem ( )
     pkgs = nixpkgs.legacyPackages.${system};
   in {
     inherit lib;

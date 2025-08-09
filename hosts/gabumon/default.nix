@@ -27,7 +27,7 @@
 
   networking = {
     hostName = "gabumon"; # Define your hostname.
-    networking.networkmanager.enable = true;
+    networkmanager.enable = true;
   };
 
   services = {
@@ -41,8 +41,8 @@
   };
 
   boot = {
-    # kernelPackages = pkgs.linuxPackages_latest;
-    # kernelPackages = pkgs.linuxPackages_6_15; # test previous kernel version
+    kernelPackages = pkgs.linuxPackages_latest;
+    # kernelPackages = pkgs.linuxPackages_6_11; # test previous kernel version
     loader.systemd-boot.configurationLimit = 10;
   };
 
