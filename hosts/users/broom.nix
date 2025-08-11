@@ -41,19 +41,17 @@
       options = "--delete-older-than 2w";
     };
 
-    settings.auto-optimise-store = true;
-  };
-
-  nix.settings = {
-    experimental-features = [
-      "nix-command"
-      "flakes"
-    ];
+    settings = {
+      auto-optimise-store = true;
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
+    };
   };
 
   environment.pathsToLink = ["/share/zsh"];
 
-  # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
@@ -61,6 +59,8 @@
     wget
     git
     home-manager
+
+    kdePackages.sddm
 
     dconf
     wayland-protocols

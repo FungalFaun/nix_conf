@@ -16,19 +16,22 @@
     ../../features/nixos/stream-deck.nix
   ];
 
-  networking.hostName = "gabumon"; # Define your hostname.
+  networking.hostName = "gabumon";
 
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
     loader.systemd-boot.configurationLimit = 10;
   };
 
-  hardware.graphics = {
-    enable = true;
-    enable32Bit = true;
+  hardware = {
+    graphics = {
+      enable = true;
+      enable32Bit = true;
+    };
+
+    enableAllFirmware = true;
   };
 
-  hardware.enableAllFirmware = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

@@ -62,8 +62,8 @@
     homeManagerModules = import ./modules/home-manager;
 
     nixosConfigurations = {
-      tux = nixpkgs.lib.nixosSystem {
-        modules = [./hosts/tux];  
+      tentomon = nixpkgs.lib.nixosSystem {
+        modules = [./hosts/tentomon];  
         specialArgs = {inherit inputs outputs;};
       };
 
@@ -74,6 +74,7 @@
     };
 
     homeConfigurations = {
+      # TODO Move into hosts/users/broom
       broom = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 
@@ -81,6 +82,7 @@
         extraSpecialArgs = {inherit inputs outputs;};
       };
 
+      # TODO Merge with broom
       gabumon = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 

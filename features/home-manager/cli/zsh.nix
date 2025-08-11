@@ -51,11 +51,13 @@ in {
       cat = "bat";
 
 
+      # Maybe just use nh instead...
+      # Also rebuilding should default to use host and username if nothing is specified
       hm = "home-manager";
       hmb = "home-manager build --flake ${flakePath}#${username}";
       hms = "home-manager switch --flake ${flakePath}#${username}";
 
-      nrb = "nixos-rebuild build --flake ${flakePath}#tux";
+      nrb = "nixos-rebuild build --flake ${flakePath}#";
       nrs = "sudo nixos-rebuild switch --flake ${flakePath}#tux";
 
       nags = "nix shell github:aylur/ags#agsFull";

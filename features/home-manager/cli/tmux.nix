@@ -2,7 +2,7 @@
   ...
 }: {
   programs.tmux = {
-    enable = true;
+    enable = false;
 
     aggressiveResize = true;
     clock24 = true;
