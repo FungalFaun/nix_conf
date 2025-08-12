@@ -9,4 +9,18 @@ in {
     topMargin = 0.8;
     display = "${monitorName}";
    };
+
+  systemd.services.swayosd-server = {
+    enable = false;
+    description = "SwayOSD Server for the frontend";
+    documentation = [ "https://github.com/ErikReider/SwayOSD" ];
+    wantedBy = [ "graphical.target" ];
+    partOf = [ "graphical.target" ];
+    after = [ "graphical.target" ];
+
+    serviceConfig = {
+      Type = "simple";
+      ExecStart = "${pkgs.swayosd}/bin/swayosd-server";
+    };
+  };
 }
