@@ -15,6 +15,9 @@
     packages = [];
   };
 
+  # Connect home-manager
+  home-manager.users.broom = import ../../home/broom.nix;
+
   programs = {
     hyprland.enable = true;
     zsh.enable = true;

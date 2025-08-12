@@ -9,6 +9,8 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
 
+    ../users/broom.nix
+
     ../../features/nixos/common
 
     ../../features/nixos/gaming.nix
