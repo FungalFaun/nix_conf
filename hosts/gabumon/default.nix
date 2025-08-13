@@ -20,6 +20,9 @@
 
   networking.hostName = "gabumon";
 
+  # Connect home-manager
+  # home-manager.users.broom = import ../../home/gabumon.nix;
+
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
     loader.systemd-boot.configurationLimit = 10;

@@ -74,16 +74,14 @@
     };
 
     homeConfigurations = {
-      # TODO Move into hosts/users/broom
-      broom = home-manager.lib.homeManagerConfiguration {
+      "tentomon@broom" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 
-        modules = [./home/broom.nix];
+        modules = [./home/tentomon.nix];
         extraSpecialArgs = {inherit inputs outputs;};
       };
 
-      # TODO Merge with broom
-      gabumon = home-manager.lib.homeManagerConfiguration {
+      "gabumon@broom" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 
         modules = [./home/gabumon.nix];

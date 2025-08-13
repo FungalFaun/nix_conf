@@ -12,11 +12,11 @@ in {
     outputs.homeManagerModules.wallpaper
     inputs.zen-browser.homeModules.beta
 
-    ../features/home-manager/cli
-    ../features/home-manager/dev/nixvim
-    ../features/home-manager/gaming
+    ../../features/home-manager/cli
+    ../../features/home-manager/dev/nixvim
+    ../../features/home-manager/gaming
 
-    ../features/home-manager/gui
+    ../../features/home-manager/gui
   ];
 
   monitors = [
