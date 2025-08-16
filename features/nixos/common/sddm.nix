@@ -10,7 +10,8 @@
       #theme = "${import ../../derivations/sddm-themes/sugar-dark.nix {inherit pkgs;}}";
     };
 
-    defaultSession = "hyprland-uwsm";
+    # This could be slightly wrong
+    defaultSession = "hyprland";
   };
 
   # environment.systemPackages = with pkgs; [

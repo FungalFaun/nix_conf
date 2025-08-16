@@ -4,6 +4,8 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+
+      ../users/broom.nix
       ../../features/nixos/common
     ];
 
@@ -17,6 +19,8 @@
     loader.systemd-boot.configurationLimit = 10;
   };
 
+  
+  nixpkgs.config.allowUnfree = true;
   hardware.enableAllFirmware = true;
 
   # This value determines the NixOS release from which the default
