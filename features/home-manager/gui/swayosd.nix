@@ -1,5 +1,6 @@
 {
   config,
+  pkgs,
   ...
 }:let 
   monitorName = with builtins; (head (filter (m: m.primary) config.monitors)).name;
@@ -9,4 +10,5 @@ in {
     topMargin = 0.8;
     display = "${monitorName}";
    };
+
 }
