@@ -16,9 +16,9 @@ in {
   imports = [
     outputs.homeManagerModules.fonts
 
-    ../packages/home-manager/cli
-    ../packages/home-manager/dev/nixvim
-    ../packages/home-manager/dev/default.nix
+    ../features/home-manager/cli
+    ../features/home-manager/dev/nixvim
+    ../features/home-manager/dev/default.nix
   ];
 
   home = {

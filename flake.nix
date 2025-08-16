@@ -62,34 +62,37 @@
     homeManagerModules = import ./modules/home-manager;
 
     nixosConfigurations = {
-      tux = nixpkgs.lib.nixosSystem {
-        modules = [./hosts/tux];  
+      # Tuxedo laptop
+      tentomon = nixpkgs.lib.nixosSystem {
+        modules = [./hosts/tentomon];  
         specialArgs = {inherit inputs outputs;};
       };
 
+      # Desktop
       gabumon = nixpkgs.lib.nixosSystem {
         modules = [./hosts/gabumon];  
-
         specialArgs = {inherit inputs outputs;};
       };
     };
 
     homeConfigurations = {
-      broom = home-manager.lib.homeManagerConfiguration {
+      #Tuxedo laptop
+      "tentomon@broom" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 
-        modules = [./home/broom.nix];
+        modules = [./home/broom/tentomon.nix];
         extraSpecialArgs = {inherit inputs outputs;};
       };
 
-      gabumon = home-manager.lib.homeManagerConfiguration {
+      # Desktop
+      "gabumon@broom" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 
-        modules = [./home/gabumon.nix];
-
+        modules = [./home/broom/gabumon.nix];
         extraSpecialArgs = {inherit inputs outputs;};
       };
 
+      # Standalone wsl
       faun = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 

@@ -12,49 +12,25 @@ in {
     outputs.homeManagerModules.wallpaper
     inputs.zen-browser.homeModules.beta
 
-    ../packages/home-manager/cli
-    ../packages/home-manager/dev/nixvim
-    ../packages/home-manager/gaming
+    ../../features/home-manager/cli
+    ../../features/home-manager/dev/nixvim
 
-    ../packages/home-manager/gui
+    ../../features/home-manager/gui
   ];
 
   monitors = [
     {
-      name = "HDMI-A-1";
-      width = 1920;
-      height = 1080;
-      refreshRate = 60;
-      scaling = "1.0";
-      workspace = "1";
-      primary = false;
-      position = "0x0";
-    }
-    {
-      name = "DP-1";
-      width = 2560;
-      height = 1440;
+      name = "eDP-1";
+      width = 2880;
+      height = 1800;
       refreshRate = 90;
-      scaling = "1.0";
+      scaling = "1.5";
       workspace = "1";
       primary = true;
-      position = "1920x0";
-    }
-    {
-      name = "DP-2";
-      width = 1920;
-      height = 1080;
-      refreshRate = 60;
-      scaling = "1.0";
-      workspace = "1";
-      primary = false;
-      position = "4480x0";
     }
   ];
 
-  wallpaper = "outset_island/outset_island_evening.jpg";
-
-  programs.gaming.enable = true;
+  wallpaper = "attic.jpg";
 
   home = {
     username = username;
@@ -72,10 +48,6 @@ in {
 
     unzip
     gnome-disk-utility
-    pwvucontrol
-    mission-center
-
-    vivaldi
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -107,5 +79,5 @@ in {
   # You should not change this value, even if you update Home Manager. If you do
   # want to update the value, then make sure to first check the Home Manager
   # release notes.
-  home.stateVersion = "25.05"; # Please read the comment before changing.
+  home.stateVersion = "24.05"; # Please read the comment before changing.
 }
