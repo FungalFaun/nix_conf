@@ -19,23 +19,23 @@ in {
   config = lib.mkIf cfg.enable {
     xdg.portal = let
       hyprland = config.wayland.windowManager.hyprland.package;
-      xdph = null; #pkgs.xdg-desktop-portal-hyprland.override {inherit hyprland;};
+      xdph = pkgs.xdg-desktop-portal-hyprland.override {inherit hyprland;};
     in {
       extraPortals = [xdph];
       configPackages = [hyprland];
     };
 
     # Is this correct?
-    xdg.configFile."uwsm/env".source = "${config.home.sessionVariablesPackage}/etc/profile.d/hm-session-vars.sh";
+    # xdg.configFile."uwsm/env".source = "${config.home.sessionVariablesPackage}/etc/profile.d/hm-session-vars.sh";
 
     home.packages = with pkgs; [
       grim
       slurp
-      hyprpicker
       swayosd
-
-      hyprcursor
       wl-clip-persist
+
+      hyprpicker
+      hyprcursor
 
       hyprland-qtutils
       hyprland-qt-support # optional?
@@ -53,17 +53,17 @@ in {
 
     wayland.windowManager.hyprland = {
       enable = true;
-      package = null; # pkgs.hyprland.override {wrapRuntimeDeps = false;};
-      portalPackage = null; #
+      # package = pkgs.hyprland.override {wrapRuntimeDeps = false;};
+      # portalPackage = null; #
 
       systemd = {
         enable = true;
         # Should no longer be necessary with 'withUWSM'
         # Same as default, but stop graphical-session too
-        # extraCommands = lib.mkBefore [
-        #   "systemctl --user stop graphical-session.target"
-        #   "systemctl --user start hyprland-session.target"
-        # ];
+        extraCommands = lib.mkBefore [
+          "systemctl --user stop graphical-session.target"
+          "systemctl --user start hyprland-session.target"
+        ];
       };
 
       # extraConfig = ''
@@ -92,7 +92,7 @@ in {
 
         windowrulev2 = let 
           pwvucontrol = "class:com.saivert.pwvucontrol";
-          bitwarden = "class:librewolf, title:\"Extension: (Bitwarden Password Manager) - Bitwarden — LibreWolf\"";
+          bitwarden = "class:librewolf, title:.*(Bitwarden Password Manager) - Bitwarden — LibreWolf";
           gnome-disks = "class:gnome-disks";
         in [
           "float, ${pwvucontrol}"
