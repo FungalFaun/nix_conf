@@ -12,11 +12,6 @@
 
     hardware.url = "github:nixos/nixos-hardware";
 
-    nur = {
-     url = "github:nix-community/NUR";
-     inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -29,11 +24,6 @@
 
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    astal = {
-      url = "github:aylur/astal";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
