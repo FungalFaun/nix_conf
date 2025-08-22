@@ -4,5 +4,6 @@
 }: {
   environment.systemPackages = [
     pkgs.protonvpn-gui
+    pkgs.networkmanagerapplet
   ];
 }
