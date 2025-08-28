@@ -5,6 +5,7 @@
     ./fzf.nix
     ./gh.nix
     ./git.nix
+    ./gowall.nix
     ./neofetch.nix
     ./nh.nix
     ./ripgrep.nix
