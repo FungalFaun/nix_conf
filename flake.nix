@@ -31,6 +31,11 @@
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nixos-wsl = {
+      url = "github:nix-community/NixOS-WSL";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -63,6 +68,11 @@
         modules = [./hosts/gabumon];  
         specialArgs = {inherit inputs outputs;};
       };
+
+      biyomon = nixpkgs.lib.nixosSystem {
+        modules = [./hosts/biyomon];  
+        specialArgs = {inherit inputs outputs;};
+      };
     };
 
     homeConfigurations = {
@@ -79,6 +89,14 @@
         inherit pkgs;
 
         modules = [./home/broom/gabumon.nix];
+        extraSpecialArgs = {inherit inputs outputs;};
+      };
+
+      # NixOS Wsl
+      "broom@biyomon" = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+
+        modules = [./home/broom/biyomon.nix];
         extraSpecialArgs = {inherit inputs outputs;};
       };
 
