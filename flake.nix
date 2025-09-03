@@ -77,7 +77,7 @@
 
     homeConfigurations = {
       #Tuxedo laptop
-      "tentomon@broom" = home-manager.lib.homeManagerConfiguration {
+      "broom@tentomon" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 
         modules = [./home/broom/tentomon.nix];
@@ -85,7 +85,7 @@
       };
 
       # Desktop
-      "gabumon@broom" = home-manager.lib.homeManagerConfiguration {
+      "broom@gabumon" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 
         modules = [./home/broom/gabumon.nix];

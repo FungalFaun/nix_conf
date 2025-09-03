@@ -12,9 +12,11 @@
     ./waybar
 
     ./alacritty.nix
+    # ./bambu.nix
     ./discord.nix
     ./font.nix
     ./mako.nix
+    ./obs.nix
     ./obsidian.nix
     ./qt.nix
     ./screenshot.nix
