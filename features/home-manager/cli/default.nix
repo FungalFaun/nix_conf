@@ -16,6 +16,7 @@
     ./zsh.nix
 
     ./lf
+    ./yazi
 #    ./nixvim
   ];
   
