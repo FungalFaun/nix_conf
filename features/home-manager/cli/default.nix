@@ -3,7 +3,6 @@
     ./bat.nix
     ./eza.nix
     ./fzf.nix
-    ./gh.nix
     ./git.nix
     ./gowall.nix
     ./neofetch.nix

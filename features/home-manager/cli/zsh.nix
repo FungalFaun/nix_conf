@@ -8,8 +8,8 @@
   hasPackage = name: lib.any (x: x == name) packageNames;
   hasEza = hasPackage "eza";
 
-  username = config.home.username;
-  flakePath = "${config.xdg.configHome}/home-manager";
+  # username = config.home.username;
+  # flakePath = "${config.xdg.configHome}/home-manager";
 in {
   programs.zsh = {
     enable = true;
@@ -24,7 +24,6 @@ in {
       MYGET_RELAX_KEY = "$(cat ${config.sops.secrets."portal/myget-key".path})";
       ENCRYPTEDTOKENCACHE_ENCRYPTIONKEY = "$(cat ${config.sops.secrets."portal/encryptionkey".path})";
       RELAX_NPM_TOKEN = "$(cat ${config.sops.secrets."portal/relax-npm-token".path})";
-
 
       SSL_CERT_DIR = "$HOME/.aspnet/dev-certs/trust:/usr/lib/ssl/certs";
     };
@@ -54,11 +53,11 @@ in {
       # Maybe just use nh instead...
       # Also rebuilding should default to use host and username if nothing is specified
       hm = "home-manager";
-      hmb = "home-manager build --flake ${flakePath}#${username}";
-      hms = "home-manager switch --flake ${flakePath}#${username}";
-
-      nrb = "nixos-rebuild build --flake ${flakePath}#";
-      nrs = "sudo nixos-rebuild switch --flake ${flakePath}#tux";
+      # hmb = "home-manager build --flake ${flakePath}#${username}";
+      # hms = "home-manager switch --flake ${flakePath}#${username}";
+      #
+      # nrb = "nixos-rebuild build --flake ${flakePath}#";
+      # nrs = "sudo nixos-rebuild switch --flake ${flakePath}#tux";
 
       nags = "nix shell github:aylur/ags#agsFull";
 
