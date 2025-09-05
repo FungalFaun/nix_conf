@@ -7,7 +7,8 @@
     ./locale.nix
     ./networking.nix
     ./pipewire.nix
-    ./sddm.nix
+    # ./sddm.nix
+    ./gdm.nix
     ./swayosd-server.nix
     ./usb.nix
   ];

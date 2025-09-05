@@ -1,5 +1,5 @@
 {
-  # pkgs,
+  pkgs,
   ...
 }:{
   services.displayManager = {
@@ -14,11 +14,11 @@
     defaultSession = "hyprland";
   };
 
-  # environment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs; [
   #   sddm-sugar-dark
   #   sddm-astronaut
 
-    #libsForQt5.qt5.qtgraphicaleffects
+    # libsForQt5.qt5
     #libsForQt5.qt5.qtquickcontrols2
     ##libsForQt5.qt5.qtsvg
 
@@ -26,6 +26,7 @@
     ##kdePackages.qtquickcontrols2
     ##kdePackages.qtgraphicaleffects
     #kdePackages.qtsvg
-    #hyprland-qt-support
-  # ];
+    
+    hyprland-qt-support
+  ];
 }
