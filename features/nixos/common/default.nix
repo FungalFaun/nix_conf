@@ -8,7 +8,8 @@
     ./networking.nix
     ./nix.nix
     ./pipewire.nix
-    ./sddm.nix
+    # ./sddm.nix
+    ./gdm.nix
     ./swayosd-server.nix
     ./usb.nix
   ];

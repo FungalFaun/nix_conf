@@ -55,26 +55,26 @@ in {
 
       containersForce = true;
 
-      extensions.packages = with inputs.firefox-addons.packages."x86_64-linux"; [
-        bitwarden
-        privacy-badger
-        ublock-origin
-        darkreader
-        youtube-shorts-block
-        proton-vpn
-        proton-pass
-        privacy-badger
-
-        facebook-container
-        # enhancer-for-youtube
-        clearurls
-        # vdhcoapp
-        # temp-mail
-
-        #tree-style-tab
-        #multi-account-containers # Default installed on LibreWolf
-      ];
-
+      # extensions.packages = with inputs.firefox-addons.packages."x86_64-linux"; [
+      #   bitwarden
+      #   privacy-badger
+      #   ublock-origin
+      #   darkreader
+      #   youtube-shorts-block
+      #   proton-vpn
+      #   proton-pass
+      #   privacy-badger
+      #
+      #   facebook-container
+      #   # enhancer-for-youtube
+      #   clearurls
+      #   # vdhcoapp
+      #   # temp-mail
+      #
+      #   #tree-style-tab
+      #   #multi-account-containers # Default installed on LibreWolf
+      # ];
+      #
 
 #      settings = {};
 
