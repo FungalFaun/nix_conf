@@ -11,12 +11,6 @@
     };
 
     enableAllFirmware = true;
-    #nvidia = {
-    #  modesetting.enable = true;
-    #  powerManagement.enable = false;
-    #  open = false;
-    #  nvidiaSettings = true;
-    #};
   };
 
   programs = {
@@ -25,18 +19,26 @@
       gamescopeSession.enable = true;
     };
 
-    gamemode.enable = true;
+    gamemode = {
+      enable = true;
+      settings = {
+        general = {
+          inhibit_screensaver = 1;
+        };
+        
+        gpu = {
+          apply_gpu_optimisations = "accept-responsibility";
+          gpu_device = 0; # ?
+          amd_performance_level = "high";
+        };
+      };
+    };
   };
 
   environment = {
     systemPackages = with pkgs; [
       mangohud
-      # nexusmods-app-unfree
       protontricks
     ];
-    
-    # sessionVariables = {
-    #   STEAM_EXTRA_COMPAT_TOOLS_PATHS = "\${HOME}/.steam/root/compatibilitytools.d";
-    # };
   };
 }

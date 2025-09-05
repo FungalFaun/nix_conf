@@ -9,6 +9,7 @@ in {
     ./binds.nix
     ./hyprpaper.nix
     ./hypridle.nix
+    ./hyprlock.nix
     ../clipboard.nix
   ];
 
@@ -36,10 +37,16 @@ in {
 
       hyprpicker
       hyprcursor
+      hyprsysteminfo
 
       hyprland-qtutils
       hyprland-qt-support # optional?
       hyprland-protocols
+
+      nwg-bar
+      nwg-hello
+      nwg-displays
+      nwg-clipman
     ];
 
     home.sessionVariables = {
@@ -60,10 +67,10 @@ in {
         enable = true;
         # Should no longer be necessary with 'withUWSM'
         # Same as default, but stop graphical-session too
-        extraCommands = lib.mkBefore [
-          "systemctl --user stop graphical-session.target"
-          "systemctl --user start hyprland-session.target"
-        ];
+        # extraCommands = lib.mkBefore [
+        #   "systemctl --user stop graphical-session.target"
+        #   "systemctl --user start hyprland-session.target"
+        # ];
       };
 
       # extraConfig = ''
