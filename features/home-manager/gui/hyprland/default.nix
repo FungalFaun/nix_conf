@@ -25,9 +25,6 @@ in {
       configPackages = [hyprland];
     };
 
-    # Is this correct?
-    # xdg.configFile."uwsm/env".source = "${config.home.sessionVariablesPackage}/etc/profile.d/hm-session-vars.sh";
-
     home.packages = with pkgs; [
       grim
       slurp
@@ -37,6 +34,7 @@ in {
       hyprpicker
       hyprcursor
 
+      # TODO: https://wiki.hypr.land/Configuring/Permissions/
       hyprland-qtutils
       hyprland-qt-support # optional?
       hyprland-protocols
@@ -53,8 +51,6 @@ in {
 
     wayland.windowManager.hyprland = {
       enable = true;
-      # package = pkgs.hyprland.override {wrapRuntimeDeps = false;};
-      # portalPackage = null; #
 
       systemd = {
         enable = true;
@@ -65,10 +61,6 @@ in {
           "systemctl --user start hyprland-session.target"
         ];
       };
-
-      # extraConfig = ''
-      #   exec-once=swayosd-server
-      # '';
 
       settings = {
         monitor =

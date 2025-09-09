@@ -22,3 +22,8 @@ For VideoDownload Helper companion app run
 vhdcoapp install
 ```
 
+## TODO:
+Plymouth
+[Split workspaces](https://github.com/Duckonaut/split-monitor-workspaces?tab=readme-ov-file)
+Hyprlock
+Screensharing
