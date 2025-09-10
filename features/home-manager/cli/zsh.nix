@@ -42,6 +42,7 @@ in {
 
       g = "git";
       z = "zellij";
+      y = "yazi";
       dn = "dotnet";
 
       d = "docker";

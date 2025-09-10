@@ -13,6 +13,8 @@ in {
     pkgs.kitty
   ];
 
+  security.pam.services.hyprlock = {};
+
   # environment.sessionVariables = {
   #   NIXOS_OZONE_WL = 1;
   # };
