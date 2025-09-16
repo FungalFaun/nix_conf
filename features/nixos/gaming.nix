@@ -11,12 +11,6 @@
     };
 
     enableAllFirmware = true;
-    #nvidia = {
-    #  modesetting.enable = true;
-    #  powerManagement.enable = false;
-    #  open = false;
-    #  nvidiaSettings = true;
-    #};
   };
 
   programs = {
@@ -25,13 +19,26 @@
       gamescopeSession.enable = true;
     };
 
-    gamemode.enable = true;
+    gamemode = {
+      enable = true;
+      settings = {
+        general = {
+          softrealtime = "on";
+          inhibit_screensaver = 1;
+          # renice = 0; ?
+        };
+
+        # gpu = {
+        #   # The number in "/sys/class/drm/card0/"
+        #   gpu_device = 0;
+        # };
+      };
+    };
   };
 
   environment = {
     systemPackages = with pkgs; [
       mangohud
-      # nexusmods-app-unfree
       protontricks
     ];
     

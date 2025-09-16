@@ -1,5 +1,6 @@
 # https://github.com/Alexays/Waybar/
 {
+  pkgs,
   ...
 }: {
   systemd.user.services.waybar = {
@@ -9,6 +10,10 @@
 
   imports = [
     ./modules.nix
+  ];
+
+  home.packages = with pkgs; [
+    nerd-fonts.roboto-mono
   ];
 
   programs.waybar = {

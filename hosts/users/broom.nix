@@ -1,15 +1,19 @@
 {
   pkgs,
+  config,
   ...
-}: {
+}: let
+  ifTheyExist = groups: builtins.filter (group: builtins.hasAttr group config.users.groups) groups;
+in {
   users.users.broom = {
     isNormalUser = true;
     description = "Broom";
-    extraGroups = [
+    extraGroups = ifTheyExist [
       "networkmanager"
       "wheel"
       "audio"
       "video"
+      "gamemode"
     ];
     shell = pkgs.zsh;
     packages = [];

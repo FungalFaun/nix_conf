@@ -22,17 +22,17 @@
     };
   };
 
-  systemd.services.swayosd-server = {
-    enable = false;
-    description = "SwayOSD Server for the frontend";
-    documentation = [ "https://github.com/ErikReider/SwayOSD" ];
-    wantedBy = [ "graphical.target" ];
-    partOf = [ "graphical.target" ];
-    after = [ "graphical.target" ];
-
-    serviceConfig = {
-      Type = "simple";
-      ExecStart = "${pkgs.swayosd}/bin/swayosd-server";
-    };
-  };
+  # systemd.services.swayosd-server = {
+  #   enable = false;
+  #   description = "SwayOSD Server for the frontend";
+  #   documentation = [ "https://github.com/ErikReider/SwayOSD" ];
+  #   wantedBy = [ "graphical.target" ];
+  #   partOf = [ "graphical.target" ];
+  #   after = [ "graphical.target" ];
+  #
+  #   serviceConfig = {
+  #     Type = "simple";
+  #     ExecStart = "${pkgs.swayosd}/bin/swayosd-server";
+  #   };
+  # };
 }
