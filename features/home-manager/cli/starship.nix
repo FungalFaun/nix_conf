@@ -28,7 +28,6 @@
         "$git_branch"
         "$git_status"
         "[](fg:${gruvbox.aqua} bg:${gruvbox.blue})"
-        "$nix"
         "$nix_shell"
         "$rust"
         "$golang"
@@ -89,14 +88,15 @@
       git_branch = {
         symbol = "";
         style = "bg:${gruvbox.aqua}";
-        truncation_length = 25;
-        only_attached = true;
-        format = "[[($all_status$ahead_behind )](fg:${gruvbox.fg0} bg:${gruvbox.aqua})]($style)";
+        format = "[[ $symbol $branch ](fg:${gruvbox.fg0} bg:${gruvbox.aqua})]($style)";
+        ignore_branches = [
+          "master"
+        ];
       };
 
       git_status = {
         style = "bg:${gruvbox.aqua}";
-        format = "[[($all_status$ahead_behind )](fg:${gruvbox.fg0} bg:${gruvbox.aqua})]($style)";
+        format = "[[($all_status $ahead_behind )](fg:${gruvbox.fg0} bg:${gruvbox.aqua})]($style)";
       };
 
       nodejs = {
@@ -106,12 +106,6 @@
       };
 
       nix_shell = {
-        symbol = "";
-        style = "bg:${gruvbox.blue}";
-        format = "[[ $symbol( $version) ](fg:${gruvbox.fg0} bg:${gruvbox.blue})]($style)";
-      };
-
-      nix = {
         symbol = "";
         style = "bg:${gruvbox.blue}";
         format = "[[ $symbol( $version) ](fg:${gruvbox.fg0} bg:${gruvbox.blue})]($style)";
