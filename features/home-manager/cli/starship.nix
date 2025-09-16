@@ -28,12 +28,12 @@
         "$git_branch"
         "$git_status"
         "[](fg:${gruvbox.aqua} bg:${gruvbox.blue})"
-        "$nix_shell"
         "$rust"
         "$golang"
         "$nodejs"
         "$python"
         "[](fg:${gruvbox.blue} bg:${gruvbox.bg3})"
+        "$nix_shell"
         "$docker_context"
         "[](fg:${gruvbox.bg3} bg:${gruvbox.bg1})"
         "$time"
@@ -105,12 +105,6 @@
         format = "[[ $symbol( $version) ](fg:${gruvbox.fg0} bg:${gruvbox.blue})]($style)";
       };
 
-      nix_shell = {
-        symbol = "";
-        style = "bg:${gruvbox.blue}";
-        format = "[[ $symbol( $version) ](fg:${gruvbox.fg0} bg:${gruvbox.blue})]($style)";
-      };
-
       rust = {
         symbol = "";
         style = "bg:${gruvbox.blue}";
@@ -127,6 +121,12 @@
         symbol = "";
         style = "bg:${gruvbox.blue}";
         format = "[[ $symbol( $version) ](fg:${gruvbox.fg0} bg:${gruvbox.blue})]($style)";
+      };
+
+      nix_shell = {
+        symbol = "";
+        style = "bg:${gruvbox.bg3}";
+        format = "[[ $symbol $state ](fg:#83a598 bg:${gruvbox.bg3})]($style)";
       };
 
       docker_context = {
