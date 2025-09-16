@@ -1,4 +1,7 @@
 {
+  lib,
+  ...
+}:{
   programs.starship = {
     enable = true;
     settings = let
@@ -15,35 +18,27 @@
         yellow = "#d79921";
       };
     in {
-      format = ''
-        [](${gruvbox.orange})\
-        $os\
-        $username
-        [](bg:${gruvbox.yellow} fg:${gruvbox.orange})
-        $directory
-        [](fg:${gruvbox.yellow} bg:${gruvbox.aqua})
-        $git_branch
-        $git_status
-        [](fg:${gruvbox.aqua} bg:${gruvbox.blue})
-        $c
-        $cpp
-        $rust
-        $golang
-        $nodejs
-        $php
-        $java
-        $kotlin
-        $haskell
-        $python
-        [](fg:${gruvbox.blue} bg:${gruvbox.bg3})
-        $docker_context
-        $conda
-        $pixi
-        [](fg:${gruvbox.bg3} bg:${gruvbox.bg1})
-        $time
-        [ ](fg:${gruvbox.bg1})
-        $line_break$character
-      '';
+      format = lib.concatStrings [
+        "[](${gruvbox.orange})"
+        "$os"
+        "$username"
+        "[](bg:${gruvbox.yellow} fg:${gruvbox.orange})"
+        "$directory"
+        "[](fg:${gruvbox.yellow} bg:${gruvbox.aqua})"
+        "$git_branch"
+        "$git_status"
+        "[](fg:${gruvbox.aqua} bg:${gruvbox.blue})"
+        "$rust"
+        "$golang"
+        "$nodejs"
+        "$python"
+        "[](fg:${gruvbox.blue} bg:${gruvbox.bg3})"
+        "$docker_context"
+        "[](fg:${gruvbox.bg3} bg:${gruvbox.bg1})"
+        "$time"
+        "[ ](fg:${gruvbox.bg1})"
+        "$line_break$character"
+      ];
 
       os = {
         disabled = false;
