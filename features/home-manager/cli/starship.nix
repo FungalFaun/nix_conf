@@ -28,6 +28,8 @@
         "$git_branch"
         "$git_status"
         "[](fg:${gruvbox.aqua} bg:${gruvbox.blue})"
+        "$nix"
+        "$nix_shell"
         "$rust"
         "$golang"
         "$nodejs"
@@ -102,6 +104,18 @@
         format = "[[ $symbol( $version) ](fg:${gruvbox.fg0} bg:${gruvbox.blue})]($style)";
       };
 
+      nix_shell = {
+        symbol = "";
+        style = "bg:${gruvbox.blue}";
+        format = "[[ $symbol( $version) ](fg:${gruvbox.fg0} bg:${gruvbox.blue})]($style)";
+      };
+
+      nix = {
+        symbol = "";
+        style = "bg:${gruvbox.blue}";
+        format = "[[ $symbol( $version) ](fg:${gruvbox.fg0} bg:${gruvbox.blue})]($style)";
+      };
+
       rust = {
         symbol = "";
         style = "bg:${gruvbox.blue}";
@@ -139,12 +153,12 @@
 
       character = {
         disabled = false;
-        success_symbol = "[](bold fg:${gruvbox.green})";
-        error_symbol = "[](bold fg:${gruvbox.red})";
-        vimcmd_symbol = "[](bold fg:${gruvbox.green})";
-        vimcmd_replace_one_symbol = "[](bold fg:${gruvbox.purple})";
-        vimcmd_replace_symbol = "[](bold fg:${gruvbox.purple})";
-        vimcmd_visual_symbol = "[](bold fg:${gruvbox.yellow})";
+        # success_symbol = "[](bold fg:${gruvbox.green})";
+        # error_symbol = "[](bold fg:${gruvbox.red})";
+        # vimcmd_symbol = "[](bold fg:${gruvbox.green})";
+        # vimcmd_replace_one_symbol = "[](bold fg:${gruvbox.purple})";
+        # vimcmd_replace_symbol = "[](bold fg:${gruvbox.purple})";
+        # vimcmd_visual_symbol = "[](bold fg:${gruvbox.yellow})";
       };
     };
   };
