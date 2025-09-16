@@ -31,6 +31,10 @@
     loader.systemd-boot.configurationLimit = 10;
   };
 
+  programs = {
+    hyprland.enable = true;
+  };
+
   hardware = {
     graphics = {
       enable = true;

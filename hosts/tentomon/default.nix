@@ -21,6 +21,9 @@
     loader.systemd-boot.configurationLimit = 10;
   };
 
+  programs = {
+    hyprland.enable = true;
+  };
   
   nixpkgs.config.allowUnfree = true;
   hardware.enableAllFirmware = true;

@@ -17,6 +17,10 @@
   wsl = {
     enable = true;
     defaultUser = "broom";
+
+    wslConf = {
+      network.hostname = "biyomon";
+    };
   };
 
   nixpkgs = {

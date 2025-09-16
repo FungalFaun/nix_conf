@@ -47,6 +47,7 @@
         style = "bg:${gruvbox.orange} fg:${gruvbox.fg0}";
 
         symbols = {
+          NixOS = "";
           Windows = "󰍲";
           Ubuntu = "󰕈";
           SUSE = "";
