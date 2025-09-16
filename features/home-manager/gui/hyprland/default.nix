@@ -43,10 +43,10 @@ in {
       hyprland-qt-support # optional?
       hyprland-protocols
 
-      nwg-bar
-      nwg-hello
-      nwg-displays
-      nwg-clipman
+      # nwg-bar
+      # nwg-hello
+      # nwg-displays
+      # nwg-clipman
     ];
 
     home.sessionVariables = {

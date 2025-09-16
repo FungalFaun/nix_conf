@@ -1,5 +1,7 @@
 {
   pkgs,
+  lib,
+  config,
   ...
 }: {
   services.xserver.videoDrivers = ["amdgpu"];
@@ -13,10 +15,41 @@
     enableAllFirmware = true;
   };
 
+  environment = {
+    systemPackages = [
+      pkgs.protonup
+    ];
+
+    sessionVariables = {
+      STEAM_EXTRA_COMPAT_TOOLS_PATHS = "\${HOME}/.steam/root/compatibilitytools.d";
+    };
+  };
+
   programs = {
     steam = {
       enable = true;
-      gamescopeSession.enable = true;
+      gamescopeSession = {
+        enable = true;
+        args = let
+          monitor = {
+            width = "2560";
+            height = "1440";
+            refreshRate = "90";
+            name = "DP-1";
+          };
+        in [
+          "--output-width ${monitor.width}"
+          "--output-height ${monitor.height}"
+          "--framerate-limit ${monitor.refreshRate}"
+          "--prefer-output ${monitor.name}"
+          "--adaptive-sync"
+          "--expose-wayland"
+          "--hdr-enabled"
+          "--mangoapp"
+        ];
+      };
+
+      protontricks.enable = true;
     };
 
     gamemode = {
@@ -33,12 +66,5 @@
         };
       };
     };
-  };
-
-  environment = {
-    systemPackages = with pkgs; [
-      mangohud
-      protontricks
-    ];
   };
 }
