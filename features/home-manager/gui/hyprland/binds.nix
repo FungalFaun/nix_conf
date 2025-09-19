@@ -53,6 +53,7 @@
         #            "$mod SHIFT, M, exec, ${grimblast} --notify --freeze copysave output"
 
         " , XF86AudioMute, exec, ${swayosd} --output-volume mute-toggle"
+        " , XF86AudioMicMute, exec, ${swayosd} --input-volume input-toggle"
       ]
       ++ (builtins.concatLists (builtins.genList (
           x: let

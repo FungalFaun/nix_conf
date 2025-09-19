@@ -1,5 +1,9 @@
 # [1] https://github.com/woioeow/hyprland-dotfiles/
 {
+  pkgs,
+  lib,
+  ...
+}:{
   programs.waybar.settings.mainBar = {
     clock = {
       format = "{:%H:%M}";
@@ -154,10 +158,11 @@
       };
     };
 
-    "custom/power" = {
+    "custom/power" = let 
+      nwg-bar = lib.getExe pkgs.nwg-bar;
+    in {
       format = "<span color='#FF4040'>   </span>";
-      on-click = "systemctl poweroff";
-      on-click-right = "systemctl reboot";
+      on-click = "${nwg-bar}";
       tooltip = true;
       tooltip-format = "Power";
     };

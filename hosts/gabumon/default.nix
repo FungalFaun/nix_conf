@@ -17,6 +17,7 @@
     ../../features/nixos/logitech.nix
     ../../features/nixos/rgb.nix
     ../../features/nixos/stream-deck.nix
+    ../../features/nixos/zsa.nix
   ];
 
   networking.hostName = "gabumon";

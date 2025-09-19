@@ -9,6 +9,7 @@ in {
     ./binds.nix
     ./hyprpaper.nix
     ./hypridle.nix
+    ./hyprlock.nix
     ../clipboard.nix
   ];
 
@@ -36,10 +37,16 @@ in {
 
       hyprpicker
       hyprcursor
+      hyprsysteminfo
 
       hyprland-qtutils
       hyprland-qt-support # optional?
       hyprland-protocols
+
+      # nwg-bar
+      # nwg-hello
+      # nwg-displays
+      # nwg-clipman
     ];
 
     home.sessionVariables = {
@@ -60,10 +67,10 @@ in {
         enable = true;
         # Should no longer be necessary with 'withUWSM'
         # Same as default, but stop graphical-session too
-        extraCommands = lib.mkBefore [
-          "systemctl --user stop graphical-session.target"
-          "systemctl --user start hyprland-session.target"
-        ];
+        # extraCommands = lib.mkBefore [
+        #   "systemctl --user stop graphical-session.target"
+        #   "systemctl --user start hyprland-session.target"
+        # ];
       };
 
       # extraConfig = ''
@@ -92,12 +99,22 @@ in {
 
         windowrulev2 = let 
           pwvucontrol = "class:com.saivert.pwvucontrol";
-          bitwarden = "class:librewolf, title:.*(Bitwarden Password Manager) - Bitwarden — LibreWolf";
+          # bitwarden = "class:librewolf, title:.*(Bitwarden Password Manager) - Bitwarden — LibreWolf";
           gnome-disks = "class:gnome-disks";
+          steamGame = "class:steam_app_[0-9]";
+
+          file-operation = "class:thunar, title:File Operation Progress";
+          file-rename = "class:thunar, title:Rename \"(.*)\"";
         in [
           "float, ${pwvucontrol}"
-          "float, ${bitwarden}"
+          # "float, ${bitwarden}"
           "float, ${gnome-disks}"
+
+          "float, ${file-operation}"
+          "float, ${file-rename}"
+
+          "fullscreen, ${steamGame}"
+          "monitor:0, ${steamGame}"
         ];
 
         input = {

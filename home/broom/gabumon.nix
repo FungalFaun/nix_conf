@@ -14,7 +14,6 @@ in {
 
     ../../features/home-manager/cli
     ../../features/home-manager/dev/nixvim
-    ../../features/home-manager/gaming
 
     ../../features/home-manager/gui
   ];
@@ -54,12 +53,9 @@ in {
 
   wallpaper = "outset_island/outset_island_evening.jpg";
 
-  programs.gaming.enable = true;
-
   home = {
     username = username;
     homeDirectory = "/home/${username}";
-    #sessionPath = [ "$HOME/.local/bin" ];
   };
 
   home.packages = with pkgs; [

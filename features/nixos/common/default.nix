@@ -6,6 +6,7 @@
     ./hyprland.nix
     ./locale.nix
     ./networking.nix
+    ./nix.nix
     ./pipewire.nix
     # ./sddm.nix
     ./gdm.nix
