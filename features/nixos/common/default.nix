@@ -3,7 +3,7 @@
     ./bluetooth.nix
     ./boot.nix
     ./fonts.nix
-    # ./gdm.nix
+    ./gdm.nix
     ./locale.nix
     ./networking.nix
     ./nix-ld.nix

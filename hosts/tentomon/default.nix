@@ -7,7 +7,7 @@
 
       ../users/broom.nix
       ../../features/nixos/common
-      ../../features/nixos/greetd.nix
+      # ../../features/nixos/greetd.nix
       ../../features/nixos/hyprland.nix
     ];
 
