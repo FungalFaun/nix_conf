@@ -99,12 +99,22 @@ in {
 
         windowrulev2 = let 
           pwvucontrol = "class:com.saivert.pwvucontrol";
-          bitwarden = "class:librewolf, title:.*(Bitwarden Password Manager) - Bitwarden — LibreWolf";
+          # bitwarden = "class:librewolf, title:.*(Bitwarden Password Manager) - Bitwarden — LibreWolf";
           gnome-disks = "class:gnome-disks";
+          steamGame = "class:steam_app_[0-9]";
+
+          file-operation = "class:thunar, title:File Operation Progress";
+          file-rename = "class:thunar, title:Rename \"(.*)\"";
         in [
           "float, ${pwvucontrol}"
-          "float, ${bitwarden}"
+          # "float, ${bitwarden}"
           "float, ${gnome-disks}"
+
+          "float, ${file-operation}"
+          "float, ${file-rename}"
+
+          "fullscreen, ${steamGame}"
+          "monitor:0, ${steamGame}"
         ];
 
         input = {
