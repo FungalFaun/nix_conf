@@ -56,12 +56,15 @@
       enable = true;
       settings = {
         general = {
+          softrealtime = "on";
           inhibit_screensaver = 1;
+          # renice = 0; ?
         };
-        
+
         gpu = {
+          # The number in "/sys/class/drm/card{0-9}/"
+          gpu_device = 1;
           apply_gpu_optimisations = "accept-responsibility";
-          gpu_device = 0; # ?
           amd_performance_level = "high";
         };
       };

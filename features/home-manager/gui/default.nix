@@ -19,7 +19,7 @@
     ./obs.nix
     ./obsidian.nix
     ./qt.nix
-    ./screenshot.nix
+    # ./screenshot.nix
     # ./swayosd.nix
     ./telegram.nix
     ./vlc.nix
@@ -39,7 +39,7 @@
   };
 
   # Use entire Hypr ecosystem
-  programs.hypreco.enable = true;
+  # programs.hypreco.enable = true;
 
   programs = {
     imv.enable = true;

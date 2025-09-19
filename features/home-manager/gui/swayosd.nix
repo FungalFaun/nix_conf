@@ -1,6 +1,6 @@
 {
   config,
-  pkgs,
+  # pkgs,
   ...
 }:let 
   monitorName = with builtins; (head (filter (m: m.primary) config.monitors)).name;

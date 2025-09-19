@@ -7,6 +7,8 @@
 
       ../users/broom.nix
       ../../features/nixos/common
+      # ../../features/nixos/greetd.nix
+      ../../features/nixos/hyprland.nix
     ];
 
   networking.hostName = "tentomon";
@@ -19,6 +21,9 @@
     loader.systemd-boot.configurationLimit = 10;
   };
 
+  programs = {
+    hyprland.enable = true;
+  };
   
   nixpkgs.config.allowUnfree = true;
   hardware.enableAllFirmware = true;

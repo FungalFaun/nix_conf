@@ -27,6 +27,6 @@
     ##kdePackages.qtgraphicaleffects
     #kdePackages.qtsvg
     
-    hyprland-qt-support
+    # hyprland-qt-support
   ];
 }

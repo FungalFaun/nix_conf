@@ -14,6 +14,8 @@
     ../../features/nixos/common
 
     ../../features/nixos/gaming.nix
+    # ../../features/nixos/greetd.nix
+    ../../features/nixos/hyprland.nix
     ../../features/nixos/logitech.nix
     ../../features/nixos/rgb.nix
     ../../features/nixos/stream-deck.nix
@@ -28,6 +30,10 @@
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
     loader.systemd-boot.configurationLimit = 10;
+  };
+
+  programs = {
+    hyprland.enable = true;
   };
 
   hardware = {

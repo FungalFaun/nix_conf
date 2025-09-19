@@ -3,13 +3,13 @@
     ./bluetooth.nix
     ./boot.nix
     ./fonts.nix
-    ./hyprland.nix
+    ./gdm.nix
     ./locale.nix
     ./networking.nix
+    ./nix-ld.nix
     ./nix.nix
     ./pipewire.nix
     # ./sddm.nix
-    ./gdm.nix
     ./swayosd-server.nix
     ./usb.nix
   ];
