@@ -14,6 +14,7 @@ in {
       "audio"
       "video"
       "gamemode"
+      "plugdev"
     ];
     shell = pkgs.zsh;
     packages = [];
@@ -38,11 +39,11 @@ in {
   };
 
   nix = {
-    gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 2w";
-    };
+    # gc = {
+    #   automatic = true;
+    #   dates = "weekly";
+    #   options = "--delete-older-than 2w";
+    # };
 
     settings = {
       auto-optimise-store = true;
@@ -63,7 +64,7 @@ in {
     git
     home-manager
 
-    kdePackages.sddm
+    # kdePackages.sddm
 
     dconf
     wayland-protocols

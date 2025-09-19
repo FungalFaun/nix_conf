@@ -7,6 +7,7 @@
     ./binds.nix
     ./hyprpaper.nix
     ./hypridle.nix
+    ./hyprlock.nix
     ../clipboard.nix
   ];
 
@@ -34,6 +35,12 @@
 
     hyprpicker
     hyprcursor
+    hyprsysteminfo
+
+    # nwg-bar
+    # nwg-hello
+    # nwg-displays
+    # nwg-clipman
 
     # TODO: https://wiki.hypr.land/Configuring/Permissions/
     hyprland-qtutils
@@ -85,12 +92,20 @@
 
       windowrulev2 = let 
         pwvucontrol = "class:com.saivert.pwvucontrol";
-        # bitwarden = "class:librewolf, title:.*(Bitwarden Password Manager) - Bitwarden — LibreWolf";
         gnome-disks = "class:gnome-disks";
+        steamGame = "class:steam_app_[0-9]";
+
+        file-operation = "class:thunar, title:File Operation Progress";
+        file-rename = "class:thunar, title:Rename \"(.*)\"";
       in [
         "float, ${pwvucontrol}"
-        # "float, ${bitwarden}"
         "float, ${gnome-disks}"
+
+        "float, ${file-operation}"
+        "float, ${file-rename}"
+
+        "fullscreen, ${steamGame}"
+        "monitor:0, ${steamGame}"
       ];
 
       input = {
@@ -155,6 +170,7 @@
           "fade, 1, 7, default"
           "workspaces, 1, 6, default"
         ];
+
       };
 
       dwindle = {

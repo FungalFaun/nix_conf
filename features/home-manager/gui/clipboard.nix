@@ -5,7 +5,6 @@
       systemdTargets = [
         "hyprland-session.target"
         #"graphical-session.target"
-        #"wayland-session@hyprland.desktop.target"
       ];
     };
 

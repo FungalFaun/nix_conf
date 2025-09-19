@@ -20,7 +20,7 @@
     ./obsidian.nix
     ./qt.nix
     # ./screenshot.nix
-    ./swayosd.nix
+    # ./swayosd.nix
     ./telegram.nix
     ./vlc.nix
     ./wofi.nix
