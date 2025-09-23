@@ -17,15 +17,13 @@
     # ../../features/nixos/greetd.nix
     ../../features/nixos/hyprland.nix
     ../../features/nixos/logitech.nix
+    # ../../features/nixos/quietboot.nix
     ../../features/nixos/rgb.nix
     ../../features/nixos/stream-deck.nix
     ../../features/nixos/zsa.nix
   ];
 
   networking.hostName = "gabumon";
-
-  # Connect home-manager
-  # home-manager.users.broom = import ../../home/gabumon.nix;
 
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;

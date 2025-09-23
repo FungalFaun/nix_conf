@@ -20,7 +20,7 @@
     ./playerctl.nix
     ./printing.nix
     ./qt.nix
-    # ./swayosd.nix
+    ./swayosd.nix
     ./telegram.nix
     ./vlc.nix
     ./wofi.nix
