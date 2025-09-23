@@ -12,14 +12,14 @@
     ./waybar
 
     ./alacritty.nix
-    # ./bambu.nix
     ./discord.nix
     ./font.nix
     ./mako.nix
     ./obs.nix
     ./obsidian.nix
+    ./playerctl.nix
+    ./printing.nix
     ./qt.nix
-    # ./screenshot.nix
     # ./swayosd.nix
     ./telegram.nix
     ./vlc.nix
@@ -29,6 +29,7 @@
   home.packages = with pkgs; [
     wf-recorder
     wl-clipboard
+    wpa_supplicant_gui
   ];
 
   home.sessionVariables = {
@@ -37,9 +38,6 @@
     QT_QPA_PLATFORM = "wayland";
     XCURSOR_SIZE = 34;
   };
-
-  # Use entire Hypr ecosystem
-  # programs.hypreco.enable = true;
 
   programs = {
     imv.enable = true;

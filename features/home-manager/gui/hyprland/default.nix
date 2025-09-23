@@ -93,7 +93,7 @@
       windowrulev2 = let 
         pwvucontrol = "class:com.saivert.pwvucontrol";
         gnome-disks = "class:gnome-disks";
-        steamGame = "class:steam_app_[0-9]";
+        steamGame = "class:steam_app_[0-9]*";
 
         file-operation = "class:thunar, title:File Operation Progress";
         file-rename = "class:thunar, title:Rename \"(.*)\"";

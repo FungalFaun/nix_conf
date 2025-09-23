@@ -24,7 +24,7 @@
 
     defaultSopsFile = ../../../secrets/secrets.yaml;
     defaultSopsFormat = "yaml";
-    
+
     secrets = {
       "portal/myget-key" = {};
       "portal/encryptionkey" = {};
