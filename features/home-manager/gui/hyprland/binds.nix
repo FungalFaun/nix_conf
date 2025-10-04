@@ -1,5 +1,4 @@
-{
-  pkgs,
+{ pkgs,
   config,
   lib,
   ...
@@ -59,8 +58,8 @@
         #            "$mod, M, exec, ${grimblast} --notify --freeze copysave area"
         #            "$mod SHIFT, M, exec, ${grimblast} --notify --freeze copysave output"
 
-        " , XF86AudioMute, exec, ${swayosd} --output-volume mute-toggle"
-        " , XF86AudioMicMute, exec, ${swayosd} --input-volume input-toggle"
+        # " , XF86AudioMute, exec, ${swayosd} --output-volume mute-toggle"
+        # " , XF86AudioMicMute, exec, ${swayosd} --input-volume input-toggle"
       ]
       ++ (builtins.concatLists (builtins.genList (
           x: let
@@ -82,14 +81,14 @@
       " SHIFT, XF86AudioRaiseVolume, exec, ${pactl} set-source-volume @DEFAULT_SOURCE@ +5%; ${swayosd.output-volume}"
       " SHIFT, XF86AudioLowerVolume, exec, ${pactl} set-source-volume @DEFAULT_SOURCE@ -5%; ${swayosd.output-volume}"
 
-      " , XF86MonBrightnessUp, exec, brightnessctl set 10%+; ${swayosd.brightnessctl}"
-      " , XF86MonBrightnessDown, exec, brightnessctl set 10%-; ${swayosd.brightnessctl}"
+      " , XF86MonBrightnessUp, exec, brightnessctl set 10%+; ${swayosd.brightness}"
+      " , XF86MonBrightnessDown, exec, brightnessctl set 10%-; ${swayosd.brightness}"
 
-      " CTRL, XF86MonBrightnessUp, exec, brightnessctl set 1%+; ${swayosd.brightnessctl}"
-      " CTRL, XF86MonBrightnessDown, exec, brightnessctl set 1%-; ${swayosd.brightnessctl}"
+      " CTRL, XF86MonBrightnessUp, exec, brightnessctl set 1%+; ${swayosd.brightness}"
+      " CTRL, XF86MonBrightnessDown, exec, brightnessctl set 1%-; ${swayosd.brightness}"
 
-      " SHIFT, XF86MonBrightnessUp, exec, brightnessctl set 100%; ${swayosd.brightnessctl}"
-      " SHIFT, XF86MonBrightnessDown, exec, brightnessctl set 1; ${swayosd.brightnessctl}"
+      " SHIFT, XF86MonBrightnessUp, exec, brightnessctl set 100%; ${swayosd.brightness}"
+      " SHIFT, XF86MonBrightnessDown, exec, brightnessctl set 1; ${swayosd.brightness}"
     ];
 
     # binde = [

@@ -94,12 +94,14 @@
         pwvucontrol = "class:com.saivert.pwvucontrol";
         gnome-disks = "class:gnome-disks";
         steamGame = "class:steam_app_[0-9]*";
+        solaar = "class:solaar";
 
         file-operation = "class:thunar, title:File Operation Progress";
         file-rename = "class:thunar, title:Rename \"(.*)\"";
       in [
         "float, ${pwvucontrol}"
         "float, ${gnome-disks}"
+        "float, ${solaar}"
 
         "float, ${file-operation}"
         "float, ${file-rename}"
