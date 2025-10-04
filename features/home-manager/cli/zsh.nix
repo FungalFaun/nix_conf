@@ -7,9 +7,6 @@
   packageNames = map (p: p.pname or p.name or null) config.home.packages;
   hasPackage = name: lib.any (x: x == name) packageNames;
   hasEza = hasPackage "eza";
-
-  # username = config.home.username;
-  # flakePath = "${config.xdg.configHome}/home-manager";
 in {
   programs.zsh = {
     enable = true;
@@ -19,6 +16,8 @@ in {
 
     sessionVariables = {
       EDITOR = "nvim";
+
+      # TEST_SOPS = "$(cat ${config.sops.templates."portal/myget-key".path})";
 
       MYGET_CUSTOMER_KEY = "$(cat ${config.sops.secrets."portal/myget-key".path})";
       MYGET_RELAX_KEY = "$(cat ${config.sops.secrets."portal/myget-key".path})";
@@ -50,17 +49,7 @@ in {
 
       cat = "bat";
 
-
-      # Maybe just use nh instead...
-      # Also rebuilding should default to use host and username if nothing is specified
       hm = "home-manager";
-      # hmb = "home-manager build --flake ${flakePath}#${username}";
-      # hms = "home-manager switch --flake ${flakePath}#${username}";
-      #
-      # nrb = "nixos-rebuild build --flake ${flakePath}#";
-      # nrs = "sudo nixos-rebuild switch --flake ${flakePath}#tux";
-
-      nags = "nix shell github:aylur/ags#agsFull";
 
       prtl = "cd ~/dev && zellij --layout ./run_portal.kdl";
     };

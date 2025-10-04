@@ -90,7 +90,7 @@
         style = "bg:${gruvbox.aqua}";
         format = "[[ $symbol $branch ](fg:${gruvbox.fg0} bg:${gruvbox.aqua})]($style)";
         ignore_branches = [
-          "master"
+          # "master"
         ];
       };
 
