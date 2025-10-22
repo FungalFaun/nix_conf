@@ -84,7 +84,7 @@ in {
   services = {
   };
 
-  programs.git.extraConfig.credential = {
+  programs.git.settings.credential = {
     helper = "/mnt/c/Program\\ Files/Git/mingw64/bin/git-credential-manager.exe";
     "https://dev.azure.com".useHttpPath = true;
   };
