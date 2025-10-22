@@ -41,7 +41,7 @@
       pl = "pull";
 
       current = "rev-parse --abbrev-ref HEAD";
-      # pso = "!CURRENT=\${git current} && git push --set-upstream origin $CURRENT";
+      pso = "!CURRENT=$(git branch --show-current) && git push --set-upstream origin $CURRENT";
 
       cp = "!git cherry-pick";
 

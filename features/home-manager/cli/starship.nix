@@ -83,14 +83,19 @@
         format = "[ $path ]($style)";
         truncation_length = 3;
         truncation_symbol = "…/";
+        substitutions = {
+          "home/faun/dev/global-header" = "…/header";
+          "$before_root_path/waypoint-portal-shell" = "…/portal";
+        };
       };
 
       git_branch = {
         symbol = "";
         style = "bg:${gruvbox.aqua}";
         format = "[[ $symbol $branch ](fg:${gruvbox.fg0} bg:${gruvbox.aqua})]($style)";
+        truncation_length = 15;
         ignore_branches = [
-          # "master"
+          "master"
         ];
       };
 
