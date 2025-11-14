@@ -9,6 +9,7 @@
       ../../features/nixos/common
       # ../../features/nixos/greetd.nix
       ../../features/nixos/hyprland.nix
+      ../../features/nixos/logitech.nix
     ];
 
   networking.hostName = "tentomon";
