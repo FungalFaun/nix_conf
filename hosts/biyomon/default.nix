@@ -12,6 +12,7 @@
     # include NixOS-WSL modules
     inputs.nixos-wsl.nixosModules.wsl
     ../users/broom.nix
+    ../../features/nixos/common/nix-ld.nix
   ];
 
   wsl = {
