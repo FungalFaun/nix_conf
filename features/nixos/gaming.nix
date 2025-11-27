@@ -1,7 +1,5 @@
 {
   pkgs,
-  lib,
-  config,
   ...
 }: {
   services.xserver.videoDrivers = ["amdgpu"];
@@ -17,7 +15,7 @@
 
   environment = {
     systemPackages = [
-      pkgs.protonup
+      pkgs.protonup-ng
     ];
 
     sessionVariables = {
