@@ -13,20 +13,6 @@
     gnome-disks.enable = true;
   };
 
-  xdg.desktopEntries = {
-    unzip = {
-      name = "Unzip";
-      genericName = "Archiver";
-      exec = "unzip %f";
-      noDisplay = true;
-      terminal = false;
-      mimeType = [
-        "application/zip"
-        "application/zip-compressed"
-        "application/x-zip-compressed"
-      ];
-    };
-  };
 
 # unzip.tap
 # install to $(libexecdir)/thunar-archive-plugin/
