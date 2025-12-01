@@ -13,15 +13,15 @@ in {
 
   fonts.fontconfig.enable = true;
 
-  # fontProfiles = {
-  #   enable = true;
-  #   monospace = {
-  #     family = "Inconsolata Nerd Font";
-  #     package = inconsolata;
-  #   };
-  #   regular = {
-  #     family = "Inconsolata Nerd Font";
-  #     package = inconsolata;
-  #   };
-  # };
+  fontProfiles = {
+    enable = true;
+    monospace = {
+      family = "Inconsolata Nerd Font";
+      package = inconsolata;
+    };
+    regular = {
+      family = "Inconsolata Nerd Font";
+      package = inconsolata;
+    };
+  };
 }
