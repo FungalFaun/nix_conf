@@ -1,9 +1,7 @@
 {
   pkgs,
   ...
-}:let
-  # cfg = config.programs.hypreco;
-in {
+}: {
   programs.hyprland = {
     enable = true;
     withUWSM = false;
@@ -14,8 +12,4 @@ in {
   ];
 
   security.pam.services.hyprlock = {};
-
-  # environment.sessionVariables = {
-  #   NIXOS_OZONE_WL = 1;
-  # };
 }

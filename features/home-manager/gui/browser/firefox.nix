@@ -1,5 +1,5 @@
 {
-#  inputs,
+  inputs,
   pkgs,
   ...
 }: {
@@ -13,15 +13,15 @@
       name = "Broom";
       isDefault = true;
 
-#      languagePacks = [
-#        "en-US"
-#        "nb-NO"
-#      ];
+      languagePacks = [
+        "en-US"
+        "nb-NO"
+      ];
 
-      #      search = {
-      #        default = "DuckDuckGo";
-      #        privateDefault = "DuckDuckGo";
-      #      };
+      search = {
+        default = "DuckDuckGo";
+        privateDefault = "DuckDuckGo";
+      };
 
       containers = {
         personal = {
@@ -36,7 +36,7 @@
           id = 2;
         };
 
-        "F**k TikTok" = {
+        "Custom container" = {
           color = "yellow";
           icon = "circle";
           id = 3;
@@ -44,39 +44,35 @@
       };
 
       containersForce = true;
-#
-#      extensions = with inputs.firefox-addons.packages."x86_64-linux"; [
-#        bitwarden
-#        ublock-origin
-#        darkreader
-#        youtube-shorts-block
-#        tree-style-tab
-#        proton-vpn
-#        proton-pass
-#        privacy-badger
-#        multi-account-containers
-#        facebook-container
-#        enhancer-for-youtube
-#        clearurls
-#
-#      ];
 
+    extensions = with inputs.firefox-addons.packages."x86_64-linux"; [
+      bitwarden
+      ublock-origin
+      darkreader
+      youtube-shorts-block
+      tree-style-tab
+      proton-vpn
+      proton-pass
+      privacy-badger
+      multi-account-containers
+      facebook-container
+      enhancer-for-youtube
+      clearurls
+    ];
 
 #      settings = {};
-
 #      search.engines = {};
 
-#      bookmarks = [
-#        {
-#          name = "wikipedia";
-#          tags = ["wiki"];
-#          keyword = "wiki";
-#          url = "";
-#        }
-#      ];
+     bookmarks = [
+       {
+         name = "wikipedia";
+         tags = ["wiki"];
+         keyword = "wiki";
+         url = "";
+       }
+     ];
     };
   };
-
 
   xdg.mimeApps.defaultApplications = {
     "text/html" = ["firefox.desktop"];

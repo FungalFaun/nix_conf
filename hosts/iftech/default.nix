@@ -1,3 +1,4 @@
+
 { 
   config, 
   lib, 
@@ -8,17 +9,17 @@
   imports = [
     # include NixOS-WSL modules
     inputs.nixos-wsl.nixosModules.wsl
-    ../users/broom.nix
+    ../users/adrian.nix
     ../../features/nixos/common/nix-ld.nix
     ../../features/nixos/common/fonts.nix
   ];
 
   wsl = {
     enable = true;
-    defaultUser = "broom";
+    defaultUser = "adrian";
 
     wslConf = {
-      network.hostname = "biyomon";
+      network.hostname = "iftech";
     };
   };
 
@@ -42,5 +43,5 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "25.05"; # Did you read the comment?
+  system.stateVersion = "25.11"; # Did you read the comment?
 }

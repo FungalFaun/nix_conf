@@ -5,9 +5,9 @@
 }: let
   ifTheyExist = groups: builtins.filter (group: builtins.hasAttr group config.users.groups) groups;
 in {
-  users.users.broom = {
+  users.users.adrian = {
     isNormalUser = true;
-    description = "Broom";
+    description = "Adrian";
     extraGroups = ifTheyExist [
       "networkmanager"
       "wheel"
@@ -19,6 +19,8 @@ in {
     shell = pkgs.zsh;
     packages = [];
   };
+  
+  # desktopEnv.environment = "gnome";
 
   programs = {
     zsh.enable = true;

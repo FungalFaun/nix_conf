@@ -1,21 +1,18 @@
-{ pkgs, ... }:
-
-{
+{ 
+  pkgs, 
+  ... 
+}: {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
 
       ../users/broom.nix
       ../../features/nixos/common
-      # ../../features/nixos/greetd.nix
       ../../features/nixos/hyprland.nix
       ../../features/nixos/logitech.nix
     ];
 
   networking.hostName = "tentomon";
-
-  # Connect home-manager
-  # home-manager.users.broom = import ../../home/tentomon.nix;
 
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;

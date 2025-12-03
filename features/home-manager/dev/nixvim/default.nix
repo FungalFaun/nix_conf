@@ -32,9 +32,6 @@
     alejandra
   ];
 
-  # This could conflict with the home file
-  # nix.nixPath = [ "import <nixpkgs> { }"];
-
   programs.nixvim = { enable = true;
     defaultEditor = true;
 

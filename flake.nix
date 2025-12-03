@@ -57,6 +57,12 @@
     homeManagerModules = import ./modules/home-manager;
 
     nixosConfigurations = {
+      # IfTech
+      iftech = nixpkgs.lib.nixosSystem {
+        modules = [./hosts/iftech];  
+        specialArgs = {inherit inputs outputs;};
+      };
+
       # Tuxedo laptop
       tentomon = nixpkgs.lib.nixosSystem {
         modules = [./hosts/tentomon];  
@@ -69,6 +75,7 @@
         specialArgs = {inherit inputs outputs;};
       };
 
+      # WSL
       biyomon = nixpkgs.lib.nixosSystem {
         modules = [./hosts/biyomon];  
         specialArgs = {inherit inputs outputs;};
@@ -76,6 +83,14 @@
     };
 
     homeConfigurations = {
+      # NixOS IfTech
+      "adrian@iftech" = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+
+        modules = [./home/broom/biyomon.nix];
+        extraSpecialArgs = {inherit inputs outputs;};
+      };
+
       #Tuxedo laptop
       "broom@tentomon" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
