@@ -16,8 +16,8 @@ in {
   imports = [
     outputs.homeManagerModules.fonts
 
-    ../../features/home-manager/cli
-    ../../features/home-manager/dev/nixvim
+    ../features/home-manager/cli
+    ../features/home-manager/dev/nixvim
   ];
 
   home = {
