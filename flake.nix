@@ -87,7 +87,7 @@
       "adrian@iftech" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 
-        modules = [./home/broom/biyomon.nix];
+        modules = [./home/adrian.nix];
         extraSpecialArgs = {inherit inputs outputs;};
       };
 
