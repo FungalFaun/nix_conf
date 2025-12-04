@@ -12,7 +12,8 @@
       name = "LycheeSlicer";
       type = "Application";
       exec = "LycheeSlicer";
-      categories = ["Printing" "3D"];
+      icon = ./lychee.ico;
+      categories = [];
       mimeType = [
         "model/stl"
         "application/octet-stream"

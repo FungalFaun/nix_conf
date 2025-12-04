@@ -12,6 +12,8 @@
     # include NixOS-WSL modules
     inputs.nixos-wsl.nixosModules.wsl
     ../users/broom.nix
+    ../../features/nixos/common/nix-ld.nix
+    ../../features/nixos/common/fonts.nix
   ];
 
   wsl = {
@@ -25,7 +27,12 @@
 
   nixpkgs = {
     hostPlatform = "x86_64-linux";
-    config.allowUnfree = true;
+    config = {
+      allowUnfree = true;
+      permittedInsecurePackages = [
+        "dotnet-sdk-6.0.428"
+      ];
+    };
   };
 
   environment.systemPackages = with pkgs; [

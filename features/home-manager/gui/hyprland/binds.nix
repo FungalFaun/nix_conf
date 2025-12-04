@@ -6,7 +6,7 @@
   wayland.windowManager.hyprland.settings = let 
     swayosd = {
       brightness = "swayosd-client --brightness +0";
-      output-volume = "swayosd-client --output-volume +0";
+      output-volume = "swayosd-client --output-volume +0 --max-volume 180";
       input-volume = "swayosd-client --input-volume +0";
       caps-lock = "sleep 0.2 && swayosd-client --caps-lock";
     };
@@ -60,6 +60,7 @@
 
         # " , XF86AudioMute, exec, ${swayosd} --output-volume mute-toggle"
         # " , XF86AudioMicMute, exec, ${swayosd} --input-volume input-toggle"
+        " , XF86AudioMicMute, exec, ${pactl} set-sink-mute @DEFAULT_SINK@ toggle; ${swayosd.output-volume}"
       ]
       ++ (builtins.concatLists (builtins.genList (
           x: let
@@ -78,8 +79,8 @@
       " , XF86AudioRaiseVolume, exec, ${pactl} set-sink-volume @DEFAULT_SINK@ +5%; ${swayosd.output-volume}"
       " , XF86AudioLowerVolume, exec, ${pactl} set-sink-volume @DEFAULT_SINK@ -5%; ${swayosd.output-volume}"
 
-      " SHIFT, XF86AudioRaiseVolume, exec, ${pactl} set-source-volume @DEFAULT_SOURCE@ +5%; ${swayosd.output-volume}"
-      " SHIFT, XF86AudioLowerVolume, exec, ${pactl} set-source-volume @DEFAULT_SOURCE@ -5%; ${swayosd.output-volume}"
+      " SHIFT, XF86AudioRaiseVolume, exec, ${pactl} set-source-volume @DEFAULT_SOURCE@ +5%; ${swayosd.input-volume}"
+      " SHIFT, XF86AudioLowerVolume, exec, ${pactl} set-source-volume @DEFAULT_SOURCE@ -5%; ${swayosd.input-volume}"
 
       " , XF86MonBrightnessUp, exec, brightnessctl set 10%+; ${swayosd.brightness}"
       " , XF86MonBrightnessDown, exec, brightnessctl set 10%-; ${swayosd.brightness}"
@@ -109,6 +110,8 @@
       playerctl = lib.getExe' config.services.playerctld.package "playerctl";
       playerctld = lib.getExe' config.services.playerctld.package "playerctld";
     in lib.optionals config.services.playerctld.enable [
+      " , XF86AudioMute, exec, ${pactl} set-sink-mute @DEFAULT_SINK@ toggle; ${swayosd.output-volume}"
+      " SHIFT, XF86AudioMute, exec, ${pactl} set-source-mute @DEFAULT_SOURCE@ toggle; ${swayosd.input-volume}"
       # Media control
       " , XF86AudioNext, exec, ${playerctl} next"
       " , XF86AudioPrev, exec, ${playerctl} previous"
