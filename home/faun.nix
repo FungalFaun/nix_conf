@@ -38,7 +38,8 @@ in {
     stylua
     typescript
     typescript-language-server
-    nodejs_20
+    # nodejs_20
+    nodejs_24
     yarn
     combinedDotnet
     
