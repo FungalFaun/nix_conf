@@ -1,13 +1,16 @@
 {
+  pkgs,
+  ...
+}: {
   hardware = {
     bluetooth = {
       enable = true;
       powerOnBoot = true;
     };
 
-#    pulseaudio = {
-#      enable = true;
-#    };
+    pulseaudio = {
+      enable = true;
+    };
   };
 
   services.blueman = {

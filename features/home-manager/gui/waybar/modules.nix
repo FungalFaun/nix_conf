@@ -156,6 +156,9 @@
         #default = "";
         default = "";
       };
+      on-click = "activate";
+      on-scroll-up = "hyprctl dispatch workspace r-1";
+      on-scroll-down = "hyprctl dispatch workspace r+1";
     };
 
     "custom/power" = let 

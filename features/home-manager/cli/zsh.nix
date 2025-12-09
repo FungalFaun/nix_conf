@@ -17,8 +17,6 @@ in {
     sessionVariables = {
       EDITOR = "nvim";
 
-      # TEST_SOPS = "$(cat ${config.sops.templates."portal/myget-key".path})";
-
       MYGET_CUSTOMER_KEY = "$(cat ${config.sops.secrets."portal/myget-key".path})";
       MYGET_RELAX_KEY = "$(cat ${config.sops.secrets."portal/myget-key".path})";
       ENCRYPTEDTOKENCACHE_ENCRYPTIONKEY = "$(cat ${config.sops.secrets."portal/encryptionkey".path})";
