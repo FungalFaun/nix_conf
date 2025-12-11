@@ -1,8 +1,11 @@
 {
   pkgs,
+  lib,
+  config,
   ...
-}:
-{
+}: let
+  cfg = config.modules.gui;
+in {
   imports = [
     ./browser/firefox.nix
     ./browser/librewolf.nix
@@ -27,26 +30,32 @@
     ./wofi.nix
   ];
 
-  home.packages = with pkgs; [
-    wf-recorder
-    wl-clipboard
-    wpa_supplicant_gui
-  ];
+  options.modules.gui = {
+    enable = lib.mkEnableOption "Enable GUI";
+  }
 
-  home.sessionVariables = {
-    MOZ_ENABLE_WAYLAND = 1;
-    GDK_BACKEND = "wayland";
-    QT_QPA_PLATFORM = "wayland";
-    XCURSOR_SIZE = 34;
+  config = lib.mkIf cfg.enable {
+    home.packages = with pkgs; [
+      wf-recorder
+      wl-clipboard
+      wpa_supplicant_gui
+    ];
+
+    home.sessionVariables = {
+      MOZ_ENABLE_WAYLAND = 1;
+      GDK_BACKEND = "wayland";
+      QT_QPA_PLATFORM = "wayland";
+      XCURSOR_SIZE = 34;
+    };
+
+    programs = {
+      imv.enable = true;
+    };
+
+    services = {
+      cliphist.enable = true;
+    };
+
+    xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-wlr];
   };
-
-  programs = {
-    imv.enable = true;
-  };
-
-  services = {
-    cliphist.enable = true;
-  };
-
-  xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-wlr];
 }
