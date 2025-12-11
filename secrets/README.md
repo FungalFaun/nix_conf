@@ -1,0 +1,1 @@
+https://github.com/ryan4yin/nix-config/blob/fdcc3be59d13725cd4d93ba5f2beff3d86322f58/secrets/README.md

@@ -42,6 +42,7 @@
     inherit (self) outputs;
 
     lib = nixpkgs.lib // home-manager.lib;
+    vars = import ./vars; # Import common variables
 
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
@@ -55,18 +56,18 @@
       # Tuxedo laptop
       tentomon = nixpkgs.lib.nixosSystem {
         modules = [./hosts/tentomon];  
-        specialArgs = {inherit inputs outputs;};
+        specialArgs = {inherit inputs outputs vars;};
       };
 
       # Desktop
       gabumon = nixpkgs.lib.nixosSystem {
         modules = [./hosts/gabumon];  
-        specialArgs = {inherit inputs outputs;};
+        specialArgs = {inherit inputs outputs vars;};
       };
 
       biyomon = nixpkgs.lib.nixosSystem {
         modules = [./hosts/biyomon];  
-        specialArgs = {inherit inputs outputs;};
+        specialArgs = {inherit inputs outputs vars;};
       };
     };
 
@@ -76,7 +77,7 @@
         inherit pkgs;
 
         modules = [./home/broom/tentomon.nix];
-        extraSpecialArgs = {inherit inputs outputs;};
+        extraSpecialArgs = {inherit inputs outputs vars;};
       };
 
       # Desktop
@@ -84,7 +85,7 @@
         inherit pkgs;
 
         modules = [./home/broom/gabumon.nix];
-        extraSpecialArgs = {inherit inputs outputs;};
+        extraSpecialArgs = {inherit inputs outputs vars;};
       };
 
       # NixOS Wsl
@@ -92,7 +93,7 @@
         inherit pkgs;
 
         modules = [./home/broom/biyomon.nix];
-        extraSpecialArgs = {inherit inputs outputs;};
+        extraSpecialArgs = {inherit inputs outputs vars;};
       };
 
       # Standalone wsl
@@ -100,7 +101,7 @@
         inherit pkgs;
 
         modules = [./home/faun.nix];
-        extraSpecialArgs = {inherit inputs outputs;};
+        extraSpecialArgs = {inherit inputs outputs vars;};
       };
     };
   };

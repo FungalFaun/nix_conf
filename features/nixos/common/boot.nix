@@ -1,3 +1,4 @@
+# Moved to modules/nixos/core/boot.nix
 {
   boot = {
     loader = {
