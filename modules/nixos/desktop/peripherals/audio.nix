@@ -2,6 +2,7 @@
   pkgs,
   ...
 }: {
+  # Some services depend on pulseaudio
   environment.systemPackages = with pkgs; [
     pulseaudio
   ];
@@ -18,6 +19,7 @@
       wireplumber.enable = true;
     };
   
+    # Pulseaudio being  can interfere with pipewire
     pulseaudio.enable = false;
   };
 

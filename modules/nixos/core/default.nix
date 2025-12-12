@@ -1,10 +1,11 @@
 {
   imports = [
     ./boot.nix
+    ./fhs.nix
     ./fonts.nix
-    ./groups.nix
     ./locale.nix
     ./nix.nix
     ./packages.nix
+    ./users.nix
   ];
 }

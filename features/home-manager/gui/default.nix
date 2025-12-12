@@ -32,7 +32,7 @@ in {
 
   options.modules.gui = {
     enable = lib.mkEnableOption "Enable GUI";
-  }
+  };
 
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [

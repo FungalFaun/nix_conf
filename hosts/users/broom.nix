@@ -54,7 +54,7 @@ in {
     };
   };
 
-  environment.pathsToLink = ["/share/zsh"];
+  # environment.pathsToLink = ["/share/zsh"];
 
   nixpkgs.config.allowUnfree = true;
 
