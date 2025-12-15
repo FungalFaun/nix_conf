@@ -10,6 +10,7 @@
 
   imports = [
     ./modules.nix
+    ./themes/config.nix
   ];
 
   home.packages = with pkgs; [
@@ -20,26 +21,32 @@
     enable = true;
     systemd.enable = true;
 
-    #style = ./styles.css;
 
-    settings = {
-      mainBar = {
-        modules-left = [
-          "hyprland/workspaces"
-        ];
-
-        modules-center = ["clock"];
-        modules-right = [
-          "idle_inhibitor"
-          "network"
-          "bluetooth"
-          "pulseaudio"
-          "backlight"
-          "battery"
-          "custom/power"
-        ];
-
-      };
-    };
+    # settings = {
+    #   mainBar = {
+    #     layer = "top";
+    #     margin-top = 0;
+    #     margin-bottom = 0;
+    #     margin-left = 0;
+    #     margin-right = 0;
+    #     spacing = 0;
+    #
+    #     modules-left = [
+    #       "hyprland/workspaces"
+    #     ];
+    #
+    #     modules-center = ["clock"];
+    #     modules-right = [
+    #       "idle_inhibitor"
+    #       "network"
+    #       "bluetooth"
+    #       "pulseaudio"
+    #       "backlight"
+    #       "battery"
+    #       "custom/power"
+    #     ];
+    #
+    #   };
+    # };
   };
 }

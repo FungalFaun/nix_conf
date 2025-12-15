@@ -93,7 +93,7 @@
       windowrulev2 = let 
         pwvucontrol = "class:com.saivert.pwvucontrol";
         gnome-disks = "class:gnome-disks";
-        steamGame = "class:steam_app_[0-9]*";
+        # steamGame = "class:steam_app_[0-9]*";
         solaar = "class:solaar";
 
         file-operation = "class:thunar, title:File Operation Progress";
@@ -106,8 +106,8 @@
         "float, ${file-operation}"
         "float, ${file-rename}"
 
-        "fullscreen, ${steamGame}"
-        "monitor:0, ${steamGame}"
+        # "fullscreen, ${steamGame}"
+        # "monitor:0, ${steamGame}"
       ];
 
       input = {
