@@ -3,6 +3,10 @@
   pkgs,
   ...
 }: {
+  environment.systemPackages = [
+    pkgs.pulseaudio
+  ];
+
   hardware = {
     bluetooth = {
       enable = true;
@@ -10,7 +14,7 @@
     };
 
     pulseaudio = {
-      enable = true;
+      enable = false;
     };
   };
 

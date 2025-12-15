@@ -14,9 +14,8 @@
 
   networking.hostName = "tentomon";
 
-  # Connect home-manager
-  # home-manager.users.broom = import ../../home/tentomon.nix;
-
+  services.gaming.enable = true;
+  
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
     loader.systemd-boot.configurationLimit = 10;

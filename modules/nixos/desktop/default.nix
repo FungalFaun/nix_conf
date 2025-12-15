@@ -16,6 +16,9 @@ in {
   ]);
 
   options.modules.desktop = {
-    enable = lib.mkEnableOption "Enables the desktop and programs which require a gui";
+    
+    # enable = lib.mkEnableOption "Enables the desktop and programs which require a gui";
   };
+
+  config = {};
 }

@@ -1,13 +1,12 @@
 {
-  pkgs,
   config,
   lib,
   ...
 }: let 
-  cfg = config.modules.desktop.gaming;
+  cfg = config.services.gaming;
 in {
-  options.modules.desktop = {
-    gaming.enable = lib.mkEnableOption "Install Game Suite";
+  options.services.gaming = {
+    enable = lib.mkEnableOption "Install Game Suite";
   };
 
   config = lib.mkIf cfg.enable {

@@ -1,6 +1,6 @@
 {
   imports = [
-    ./core
-    ./desktop
+    ./desktop/gaming.nix
   ];
+  # gaming = import ./desktop/gaming.nix;
 }

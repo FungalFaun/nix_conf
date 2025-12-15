@@ -42,6 +42,7 @@
     inherit (self) outputs;
 
     lib = nixpkgs.lib // home-manager.lib;
+    mylib = import ./lib;
     vars = import ./vars; # Import common variables
 
     system = "x86_64-linux";
@@ -49,25 +50,25 @@
   in {
     inherit lib;
 
-    nixosModules = import ./modules/nixos;
+    nixosModules.default = import ./modules/nixos;
     homeManagerModules = import ./modules/home-manager;
 
     nixosConfigurations = {
       # Tuxedo laptop
       tentomon = nixpkgs.lib.nixosSystem {
         modules = [./hosts/tentomon];  
-        specialArgs = {inherit inputs outputs vars;};
+        specialArgs = {inherit inputs outputs vars mylib;};
       };
 
       # Desktop
       gabumon = nixpkgs.lib.nixosSystem {
         modules = [./hosts/gabumon];  
-        specialArgs = {inherit inputs outputs vars;};
+        specialArgs = {inherit inputs outputs vars mylib;};
       };
 
       biyomon = nixpkgs.lib.nixosSystem {
         modules = [./hosts/biyomon];  
-        specialArgs = {inherit inputs outputs vars;};
+        specialArgs = {inherit inputs outputs vars mylib;};
       };
     };
 
@@ -77,7 +78,7 @@
         inherit pkgs;
 
         modules = [./home/broom/tentomon.nix];
-        extraSpecialArgs = {inherit inputs outputs vars;};
+        extraSpecialArgs = {inherit inputs outputs vars mylib;};
       };
 
       # Desktop
@@ -85,7 +86,7 @@
         inherit pkgs;
 
         modules = [./home/broom/gabumon.nix];
-        extraSpecialArgs = {inherit inputs outputs vars;};
+        extraSpecialArgs = {inherit inputs outputs vars mylib;};
       };
 
       # NixOS Wsl
@@ -93,7 +94,7 @@
         inherit pkgs;
 
         modules = [./home/broom/biyomon.nix];
-        extraSpecialArgs = {inherit inputs outputs vars;};
+        extraSpecialArgs = {inherit inputs outputs vars mylib;};
       };
 
       # Standalone wsl
@@ -101,7 +102,7 @@
         inherit pkgs;
 
         modules = [./home/faun.nix];
-        extraSpecialArgs = {inherit inputs outputs vars;};
+        extraSpecialArgs = {inherit inputs outputs vars mylib;};
       };
     };
   };
