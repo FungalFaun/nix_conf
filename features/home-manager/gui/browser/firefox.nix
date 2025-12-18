@@ -8,7 +8,7 @@
   ];
 
   programs.firefox = {
-    enable = true;
+    enable = false;
     profiles.broom = {
       name = "Broom";
       isDefault = true;

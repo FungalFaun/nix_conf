@@ -8,7 +8,7 @@
   ifTheyExist = groups: builtins.filter (group: builtins.hasAttr group config.users.groups) groups;
 in {
   users = {
-    mutableUsers = false;
+    # mutableUsers = false;
     defaultUserShell = pkgs.zsh;
 
     users."${username}" = {
@@ -26,7 +26,7 @@ in {
       ];
     };
 
-    useDefaultShell = true;
+    # useDefaultShell = true;
 
     groups = {
 

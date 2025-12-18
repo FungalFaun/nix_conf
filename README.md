@@ -23,7 +23,17 @@ vhdcoapp install
 ```
 
 ## TODO:
-Plymouth
-[Split workspaces](https://github.com/Duckonaut/split-monitor-workspaces?tab=readme-ov-file)
-Hyprlock
-Screensharing
+- Plymouth
+- [Split workspaces](https://github.com/Duckonaut/split-monitor-workspaces?tab=readme-ov-file)
+- Hyprlock config
+- Screensharing
+- Thunar stl thumbnailer
+- Add more options to gaming module
+
+
+## Refs
+
+- https://github.com/Misterio77/nix-config
+- https://github.com/ryan4yin/nix-config
+- https://github.com/wiedzmin/nixos-config
+- https://github.com/mylinuxforwork/dotfiles

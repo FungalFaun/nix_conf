@@ -5,15 +5,18 @@
 # NixOS-WSL specific options are documented on the NixOS-WSL repository:
 # https://github.com/nix-community/NixOS-WSL
 
-{ config, lib, pkgs, inputs, ... }:
+{ pkgs, inputs, outputs, ... }:
 
 {
   imports = [
     # include NixOS-WSL modules
     inputs.nixos-wsl.nixosModules.wsl
+    # outputs.nixosModules.desktop
+
     ../users/broom.nix
-    ../../features/nixos/common/nix-ld.nix
-    ../../features/nixos/common/fonts.nix
+    ../../modules/nixos/core
+    # ../../features/nixos/common/nix-ld.nix
+    # ../../features/nixos/common/fonts.nix
   ];
 
   wsl = {
@@ -24,6 +27,8 @@
       network.hostname = "biyomon";
     };
   };
+
+  # modules.desktop.enable = false;
 
   nixpkgs = {
     hostPlatform = "x86_64-linux";

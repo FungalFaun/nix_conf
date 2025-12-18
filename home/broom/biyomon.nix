@@ -18,7 +18,6 @@ in {
 
     ../../features/home-manager/cli
     ../../features/home-manager/dev/nixvim
-    # ../../features/home-manager/gui/font.nix
   ];
 
   home = {

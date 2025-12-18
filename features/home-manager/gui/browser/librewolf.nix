@@ -1,17 +1,16 @@
 
 {
-  inputs,
   pkgs,
   ...
 }: let
-  lock-true = {
-    Value = true;
-    Status = "locked";
-  };
-  lock-false = {
-    Value = false;
-    Status = "locked";
-  };
+  # lock-true = {
+  #   Value = true;
+  #   Status = "locked";
+  # };
+  # lock-false = {
+  #   Value = false;
+  #   Status = "locked";
+  # };
 in {
   home.packages = [
     pkgs.vdhcoapp

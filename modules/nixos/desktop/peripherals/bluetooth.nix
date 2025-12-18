@@ -1,10 +1,22 @@
 {
-  hardware = {
-    bluetooth = {
-      enable = true;
-      powerOnBoot = true;
-    };
+  lib,
+  config,
+  ...
+}: let 
+  cfg = config.modules.bluetooth;
+in {
+  options.modules.bluetooth = {
+    enable = lib.mkEnableOption "Bluetooth";
   };
 
-  services.blueman.enable = true;
+  config = lib.mkIf cfg.enable {
+    hardware =  {
+      bluetooth = {
+        enable = true;
+        powerOnBoot = true;
+      };
+    };
+
+    services.blueman.enable = true;
+  };
 }

@@ -3,9 +3,9 @@
   lib,
   ...
 }: let 
-  cfg = config.services.gaming;
+  cfg = config.modules.gaming;
 in {
-  options.services.gaming = {
+  options.modules.gaming = {
     enable = lib.mkEnableOption "Install Game Suite";
   };
 

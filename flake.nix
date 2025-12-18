@@ -50,7 +50,7 @@
   in {
     inherit lib;
 
-    nixosModules.default = import ./modules/nixos;
+    nixosModules = import ./modules/nixos;
     homeManagerModules = import ./modules/home-manager;
 
     nixosConfigurations = {

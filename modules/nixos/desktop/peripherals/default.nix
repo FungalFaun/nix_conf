@@ -2,6 +2,6 @@
   imports = [
     ./audio.nix
     ./bluetooth.nix
-    ./misc.nix
+    # ./misc.nix
   ];
 }

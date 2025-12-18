@@ -66,7 +66,6 @@ in {
     hyprsunset
 
     unzip
-    # gnome-disk-utility
     pwvucontrol
     mission-center
 
