@@ -5,6 +5,7 @@
   home.packages = with pkgs; [
     LycheeSlicer
     bambu-studio
+    freecad-wayland
   ];
 
   xdg.desktopEntries = {

@@ -2,8 +2,8 @@
   description = "Home Manager configuration of broom";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    # nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+    # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -73,11 +73,23 @@
         modules = [./hosts/biyomon];  
         specialArgs = {inherit inputs outputs;};
       };
+
+      patamon = nixpkgs.lib.nixosSystem {
+        modules = [./hosts/patamon];  
+        specialArgs = {inherit inputs outputs;};
+      };
     };
 
     homeConfigurations = {
       #Tuxedo laptop
       "broom@tentomon" = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+
+        modules = [./home/broom/tentomon.nix];
+        extraSpecialArgs = {inherit inputs outputs;};
+      };
+
+      "broom@patamon" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 
         modules = [./home/broom/tentomon.nix];
