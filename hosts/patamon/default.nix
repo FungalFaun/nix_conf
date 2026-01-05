@@ -1,24 +1,19 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config, pkgs, ... }:
-
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
 
+      ../../features/nixos/plasma
+
+      ../../features/nixos/common/bluetooth.nix
+      ../../features/nixos/common/boot.nix
+      ../../features/nixos/common/fonts.nix
+
       ../users/broom.nix
     ];
 
-  boot.loader = {
-    systemd-boot.enable = true;
-    efi.canTouchEfiVariables = true;
-  };
-
-  networking.hostName = "patamon"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  networking.hostName = "patamon";
 
   networking.networkmanager.enable = true;
 
@@ -38,24 +33,6 @@
     LC_TIME = "nb_NO.UTF-8";
   };
 
-  # Enable the X11 windowing system.
-  # You can disable this if you're only using the Wayland session.
-  services = {
-    xserver.enable = false;
-
-  # Enable the KDE Plasma Desktop Environment.
-    displayManager.sddm = {
-      enable = true;
-      wayland.enable = true;
-    };
-    desktopManager.plasma6.enable = true;
-
-  # Configure keymap in X11
-  # services.xserver.xkb = {
-  #   layout = "us";
-  #   variant = "altgr-intl";
-  # };
-  };
 
   # Enable CUPS to print documents.
   services.printing.enable = true;

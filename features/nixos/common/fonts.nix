@@ -10,6 +10,8 @@
       #noto-fonts
       # noto-fonts-emoji
       noto-fonts-color-emoji
+      # nerd-fonts.noto-fonts
+      # nerd-fonts.noto-fonts-color-emoji
       nerd-fonts.inconsolata
       nerd-fonts.dejavu-sans-mono
       nerd-fonts.roboto-mono

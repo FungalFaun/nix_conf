@@ -39,12 +39,6 @@ in {
   };
 
   nix = {
-    # gc = {
-    #   automatic = true;
-    #   dates = "weekly";
-    #   options = "--delete-older-than 2w";
-    # };
-
     settings = {
       auto-optimise-store = true;
       experimental-features = [
@@ -64,8 +58,6 @@ in {
     git
     home-manager
 
-    # kdePackages.sddm
-
     dconf
     wayland-protocols
     wayland-utils
@@ -76,7 +68,4 @@ in {
     brightnessctl
   ];
 
-  # security.pam.services = {
-  #   hyprlock = {};
-  # };
 }
