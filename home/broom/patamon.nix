@@ -9,6 +9,7 @@ in {
   imports = [
     ../../features/home-manager/cli
     ../../features/home-manager/dev/nixvim
+    ../../features/home-manager/dev/nodejs.nix
 
     ../../features/home-manager/gui/browser/librewolf.nix
     ../../features/home-manager/gui/browser/vivaldi.nix
@@ -29,6 +30,7 @@ in {
   home.packages = with pkgs; [
     git
     nixd
+    openssl
 
     unzip
   ];
