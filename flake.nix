@@ -71,7 +71,7 @@
 
       # Desktop
       gabumon = nixpkgs.lib.nixosSystem {
-        modules = [./hosts/gabumon];  
+        modules = [./hosts/gabumon_plasma];  
         specialArgs = {inherit inputs outputs;};
       };
 
@@ -106,7 +106,7 @@
       "broom@gabumon" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 
-        modules = [./home/broom/gabumon.nix];
+        modules = [./home/broom/gabumon_plasma.nix];
         extraSpecialArgs = {inherit inputs outputs;};
       };
 

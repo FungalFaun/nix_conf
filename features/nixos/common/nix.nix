@@ -1,8 +1,10 @@
 {
   lib,
+  inputs,
   ...
 }: {
   nix = {
+    nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
     settings = {
       auto-optimise-store = lib.mkDefault true;
       experimental-features = [
@@ -19,4 +21,6 @@
       options = "--delete-older-than +5";
     };
   };
+
+  nixpkgs.config.allowUnfree = true;
 }
