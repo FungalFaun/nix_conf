@@ -36,6 +36,14 @@
     hyprland.enable = false;
   };
 
+  users.users.broom = {
+    packages = with pkgs; [
+      kdePackages.kate
+      librewolf
+      pulseaudio
+    ];
+  };
+
   hardware = {
     graphics = {
       enable = true;
