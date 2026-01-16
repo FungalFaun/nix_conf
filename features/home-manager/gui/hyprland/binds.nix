@@ -25,7 +25,6 @@
       bind = [
         "$mod, Q, exec, alacritty"
         "$mod, W, exec, librewolf"
-        "$mod, Z, exec, zen"
         "$mod & CTRL, W, exec, firefox -private-window"
         "$mod, T, exec, Telegram"
 

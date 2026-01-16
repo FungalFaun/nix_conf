@@ -3,9 +3,17 @@
   pkgs,
   ...
 }:{
+  environment.systemPackages = with pkgs; [
+    usbutils
+    udiskie
+    udisks
+    gvfs
+    ntfs3g
+  ];
+
   programs = {
     thunar.plugins = with pkgs.xfce; [ 
-      # TODO Configure archive manager
+      # TODO Configure unzip shortcut
       thunar-archive-plugin
       thunar-media-tags-plugin
     ];
@@ -13,6 +21,12 @@
     gnome-disks.enable = true;
   };
 
+  services = {
+    devmon.enable = true;
+    gvfs.enable = true;
+    udisks2.enable = true;
+    tumbler.enable = true;
+  };
 
 # unzip.tap
 # install to $(libexecdir)/thunar-archive-plugin/

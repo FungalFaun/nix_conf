@@ -6,39 +6,24 @@
   imports = [
     inputs.hardware.nixosModules.common-cpu-amd
     inputs.hardware.nixosModules.common-gpu-amd
-    # Include the results of the hardware scan.
     ./hardware-configuration.nix
 
     ../users/broom.nix
 
+    ../../features/nixos/common
     ../../features/nixos/plasma
-
-    ../../features/nixos/common/bluetooth.nix
-    ../../features/nixos/common/boot.nix
-    ../../features/nixos/common/fonts.nix
-    ../../features/nixos/common/locale.nix
-    ../../features/nixos/common/networking.nix
-    ../../features/nixos/common/nix-ld.nix
-    ../../features/nixos/common/nix.nix
-    ../../features/nixos/common/pipewire.nix
-
 
     ../../features/nixos/gaming.nix
     ../../features/nixos/logitech.nix
     ../../features/nixos/rgb.nix
     ../../features/nixos/stream-deck.nix
-    ../../features/nixos/zsa.nix
+    # ../../features/nixos/zsa.nix
   ];
 
   networking.hostName = "gabumon";
 
-  programs = {
-    hyprland.enable = false;
-  };
-
   users.users.broom = {
     packages = with pkgs; [
-      kdePackages.kate
       librewolf
       pulseaudio
     ];

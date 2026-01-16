@@ -1,6 +1,6 @@
 {
   services = {
-    xserver.enable = false;
+    xserver.enable = true;
 
     # Login manager
     displayManager.sddm = {

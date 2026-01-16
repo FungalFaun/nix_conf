@@ -16,7 +16,6 @@
 
     ./lf
     ./yazi
-#    ./nixvim
   ];
   
 }

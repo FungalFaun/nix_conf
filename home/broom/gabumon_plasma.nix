@@ -8,25 +8,16 @@
 in {
   # Temp config without Hyprland
   imports = [
-    outputs.homeManagerModules.monitors
     outputs.homeManagerModules.fonts
     outputs.homeManagerModules.wallpaper
 
     ../../features/home-manager/cli
     ../../features/home-manager/dev/nixvim
+    ../../features/home-manager/gui
 
-    ../../features/home-manager/gui/browser/librewolf.nix
-    ../../features/home-manager/gui/browser/vivaldi.nix
+    # ../../features/home-manager/gui/browser/librewolf.nix
+    # ../../features/home-manager/gui/browser/vivaldi.nix
 
-    ../../features/home-manager/gui/alacritty.nix
-    ../../features/home-manager/gui/discord.nix
-    ../../features/home-manager/gui/obs.nix
-    ../../features/home-manager/gui/obsidian.nix
-    ../../features/home-manager/gui/printing.nix
-    ../../features/home-manager/gui/telegram.nix
-    ../../features/home-manager/gui/torrent.nix
-    ../../features/home-manager/gui/vlc.nix
-    ../../features/home-manager/gui/vscode.nix
   ];
 
   wallpaper = "outset_island/outset_island_evening.jpg";
