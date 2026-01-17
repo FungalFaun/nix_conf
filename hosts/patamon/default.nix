@@ -34,7 +34,7 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-    neovim
+    # neovim
     alacritty
     git
     ripgrep

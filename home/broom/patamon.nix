@@ -10,6 +10,8 @@ in {
     ../../features/home-manager/dev/nixvim
     ../../features/home-manager/dev/nodejs.nix
 
+    ../../features/home-manager/gui/plasma
+
     ../../features/home-manager/gui/browser/librewolf.nix
     ../../features/home-manager/gui/browser/vivaldi.nix
     ../../features/home-manager/gui/alacritty.nix
