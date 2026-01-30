@@ -2,6 +2,8 @@
   pkgs,
   inputs,
   outputs,
+  config,
+  lib,
   ...
 }: let 
   combinedDotnet = with pkgs.dotnetCorePackages; combinePackages [
@@ -17,7 +19,10 @@ in {
     outputs.homeManagerModules.fonts
 
     ../features/home-manager/cli
+    ../features/home-manager/cli/direnv.nix
     ../features/home-manager/dev/nixvim
+    ../features/home-manager/dev/work
+
     ../features/home-manager/dev/default.nix
   ];
 
@@ -38,7 +43,6 @@ in {
     stylua
     typescript
     typescript-language-server
-    # nodejs_20
     nodejs_24
     yarn
     combinedDotnet
@@ -72,9 +76,10 @@ in {
       EDITOR = "nvim";
       DOTNET_ROOT = "${combinedDotnet}/share/dotnet";
 
-      FLAKE = "/home/${username}/.config/home-manager";
-      HM_CONFIG = "work";
-      USERNAME = username;
+      MYGET_CUSTOMER_KEY = "$(cat ${config.sops.secrets."portal/myget-key".path})";
+      MYGET_RELAX_KEY = "$(cat ${config.sops.secrets."portal/myget-key".path})";
+      ENCRYPTEDTOKENCACHE_ENCRYPTIONKEY = "$(cat ${config.sops.secrets."portal/encryptionkey".path})";
+      RELAX_NPM_TOKEN = "$(cat ${config.sops.secrets."portal/relax-npm-token".path})";
     };
 
     sessionPath = [
@@ -82,7 +87,20 @@ in {
     ];
   };
 
-  services = {
+  programs = {
+    zsh.shellAliases = let
+      API = "${config.home.homeDirectory}/dev/party-master/src/cloudix/Api";
+    in {
+      goto_api= "cd ${API}";
+
+      start_api= "cd ${API} && ${API}/scripts/0_build_container.sh && $API/scripts/1_run_container.sh";
+      start_all= "cd ${API} && docker compose up -d";
+
+      kill_api= "docker kill $(docker ps -q --filter=\"name=api\")";
+      kill_all= "docker kill $(docker ps -q)";
+    };
+  
+    direnv.enable = lib.mkForce true;
   };
 
   programs.git.settings.credential = {

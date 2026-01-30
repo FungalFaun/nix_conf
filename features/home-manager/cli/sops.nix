@@ -2,7 +2,6 @@
   pkgs,
   config,
   inputs,
-  lib,
   ...
 }:
 {
@@ -16,7 +15,7 @@
     ssh-to-age
   ];
 
-  systemd.user.services.mbsync.unitConfig.After = ["sops-nix.service"];
+  systemd.user.services.mbsync.Unit.After = ["sops-nix.service"];
 
   sops = {
     age.keyFile = "${config.xdg.configHome}/sops/age/keys.txt";
