@@ -17,6 +17,7 @@
 in {
   imports = [
     outputs.homeManagerModules.fonts
+    inputs.sops-nix.homeManagerModules.sops
 
     ../features/home-manager/cli
     ../features/home-manager/cli/direnv.nix
@@ -75,11 +76,6 @@ in {
     sessionVariables = {
       EDITOR = "nvim";
       DOTNET_ROOT = "${combinedDotnet}/share/dotnet";
-
-      MYGET_CUSTOMER_KEY = "$(cat ${config.sops.secrets."portal/myget-key".path})";
-      MYGET_RELAX_KEY = "$(cat ${config.sops.secrets."portal/myget-key".path})";
-      ENCRYPTEDTOKENCACHE_ENCRYPTIONKEY = "$(cat ${config.sops.secrets."portal/encryptionkey".path})";
-      RELAX_NPM_TOKEN = "$(cat ${config.sops.secrets."portal/relax-npm-token".path})";
     };
 
     sessionPath = [
@@ -93,7 +89,7 @@ in {
     in {
       goto_api= "cd ${API}";
 
-      start_api= "cd ${API} && ${API}/scripts/0_build_container.sh && $API/scripts/1_run_container.sh";
+      start_api= "cd ${API} && ${API}/scripts/0_build_container.sh && ${API}/scripts/1_run_container.sh";
       start_all= "cd ${API} && docker compose up -d";
 
       kill_api= "docker kill $(docker ps -q --filter=\"name=api\")";

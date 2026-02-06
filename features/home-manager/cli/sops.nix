@@ -15,8 +15,6 @@
     ssh-to-age
   ];
 
-  systemd.user.services.mbsync.Unit.After = ["sops-nix.service"];
-
   sops = {
     age.keyFile = "${config.xdg.configHome}/sops/age/keys.txt";
     age.sshKeyPaths = ["${config.home.homeDirectory}/.ssh/id_ed25519"];
@@ -24,10 +22,6 @@
     defaultSopsFile = ../../../secrets/secrets.yaml;
     defaultSopsFormat = "yaml";
 
-    secrets = {
-      "portal/myget-key" = {};
-      "portal/encryptionkey" = {};
-      "portal/relax-npm-token" = {};
-    };
+    secrets = {};
   };
 }

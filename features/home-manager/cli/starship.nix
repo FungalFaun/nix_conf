@@ -34,6 +34,7 @@
         "$python"
         "[](fg:${gruvbox.blue} bg:${gruvbox.bg3})"
         "$nix_shell"
+        "$direnv"
         "$docker_context"
         "[](fg:${gruvbox.bg3} bg:${gruvbox.bg1})"
         "$time"
@@ -132,6 +133,15 @@
         symbol = "";
         style = "bg:${gruvbox.bg3}";
         format = "[[ $symbol $state ](fg:#83a598 bg:${gruvbox.bg3})]($style)";
+      };
+
+      direnv = {
+        disabled = false;
+        style = "fg:${gruvbox.fg0} bg:${gruvbox.bg3}";
+        format = "[$loaded$not_allowed$denied]($style)";
+        loaded_msg = "󰒿";
+        not_allowed_msg = "󱪻";
+        denied_msg = "󰳍";
       };
 
       docker_context = {
