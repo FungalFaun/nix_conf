@@ -87,13 +87,14 @@ in {
     zsh.shellAliases = let
       API = "${config.home.homeDirectory}/dev/party-master/src/cloudix/Api";
     in {
-      goto_api= "cd ${API}";
+      goto_api = "cd ${API}";
 
-      start_api= "cd ${API} && ${API}/scripts/0_build_container.sh && ${API}/scripts/1_run_container.sh";
-      start_all= "cd ${API} && docker compose up -d";
+      start_api = "cd ${API} && ${API}/scripts/0_build_container.sh && ${API}/scripts/1_run_container.sh";
+      scurr = "./scripts/0_build_container.sh && ./scripts/1_run_container.sh"; # start current api
+      start_all = "cd ${API} && docker compose up -d";
 
-      kill_api= "docker kill $(docker ps -q --filter=\"name=api\")";
-      kill_all= "docker kill $(docker ps -q)";
+      kill_api = "docker kill $(docker ps -q --filter=\"name=api\")";
+      kill_all = "docker kill $(docker ps -q)";
     };
   
     direnv.enable = lib.mkForce true;

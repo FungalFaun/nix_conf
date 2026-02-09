@@ -6,13 +6,13 @@
   imports = [
     ./browser/firefox.nix
     ./browser/librewolf.nix
-    # ./browser/zen.nix
     ./browser/vivaldi.nix
     ./gtk
     ./hyprland
     ./waybar
 
     ./alacritty.nix
+    ./blender.nix
     ./discord.nix
     ./font.nix
     ./mako.nix

@@ -7,6 +7,7 @@
       enable = lib.mkDefault false;
       enableZshIntegration = true;
       nix-direnv.enable = true;
+      silent = true;
 
       config = {
         global = {

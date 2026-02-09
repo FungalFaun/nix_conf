@@ -10,7 +10,6 @@ in {
     outputs.homeManagerModules.monitors
     outputs.homeManagerModules.fonts
     outputs.homeManagerModules.wallpaper
-    inputs.zen-browser.homeModules.beta
 
     ../../features/home-manager/cli
     ../../features/home-manager/dev/nixvim
