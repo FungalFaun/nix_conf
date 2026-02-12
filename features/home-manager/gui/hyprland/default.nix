@@ -1,9 +1,10 @@
-{ lib,
+{ 
   config,
   pkgs,
   ...
 }: {
   imports = [
+    ./ashell.nix
     ./binds.nix
     ./hyprpaper.nix
     ./hypridle.nix

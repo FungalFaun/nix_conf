@@ -11,6 +11,7 @@
     ./sops.nix
     ./starship.nix
     ./tmux.nix
+    ./top.nix
     ./zellij.nix
     ./zsh.nix
 
