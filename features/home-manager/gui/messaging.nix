@@ -3,9 +3,8 @@
   ...
 }: {
   home.packages = with pkgs; [
-    azure-cli
-    kubectl
-    kubelogin
-    # icu78
+    signal-desktop
+    telegram-desktop
+    vesktop
   ];
 }

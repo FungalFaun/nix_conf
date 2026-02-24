@@ -50,7 +50,7 @@
   ];
 
   home.sessionVariables = {
-    NIXOS_OZONE_WL = 1;
+    NIXOS_OZONE_WL = "1";
     GRIM_DEFAULT_DIR = "${config.home.homeDirectory}/Pictures/screenshots";
   };
 

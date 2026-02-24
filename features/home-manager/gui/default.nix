@@ -4,7 +4,7 @@
 }:
 {
   imports = [
-    ./browser/firefox.nix
+    # ./browser/firefox.nix
     ./browser/librewolf.nix
     ./browser/vivaldi.nix
     ./gtk
@@ -13,7 +13,7 @@
 
     ./alacritty.nix
     ./blender.nix
-    ./discord.nix
+    # ./discord.nix
     ./font.nix
     ./mako.nix
     ./obs.nix
@@ -22,7 +22,7 @@
     ./printing.nix
     ./qt.nix
     ./swayosd.nix
-    ./telegram.nix
+    # ./telegram.nix
     ./torrent.nix
     ./vlc.nix
     ./wofi.nix
@@ -31,11 +31,11 @@
   home.packages = with pkgs; [
     wf-recorder
     wl-clipboard
-    wpa_supplicant_gui
+    # wpa_supplicant_gui
   ];
 
   home.sessionVariables = {
-    MOZ_ENABLE_WAYLAND = 1;
+    # MOZ_ENABLE_WAYLAND = 1;
     GDK_BACKEND = "wayland";
     QT_QPA_PLATFORM = "wayland";
     XCURSOR_SIZE = 34;

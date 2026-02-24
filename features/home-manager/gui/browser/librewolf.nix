@@ -1,21 +1,11 @@
-
 {
-  inputs,
-  pkgs,
-  ...
-}: let
-  lock-true = {
-    Value = true;
-    Status = "locked";
-  };
-  lock-false = {
-    Value = false;
-    Status = "locked";
-  };
-in {
   home.packages = [
-    pkgs.vdhcoapp
+    # pkgs.vdhcoapp # Should not be neccessary with latest vdh
   ];
+
+  home.sessionVariables = {
+    MOZ_ENABLE_WAYLAND = "1";
+  };
 
   programs.librewolf = {
     enable = true;
